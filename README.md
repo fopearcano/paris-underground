@@ -55,13 +55,23 @@ The original HTML file was opened from disk and inspected in a real browser. Thr
 
 - **Map.** Zoom and pan; numbered, colour-coded pins; clusters (rounded squares, so a cluster count never reads as a location number); hover tooltips; a highlighted selected pin; a fit-to-visible control. Selecting a place centres it without hiding it behind the detail panel.
 - **NIGHT / STREET.** One OSM tile layer; NIGHT only adds the tile-pane filter. The choice is remembered per browser.
-- **Movement filters.** All, Beat Generation, Jazz & Existentialism, Lettrists & Situationists, Surrealism, Montmartre Bohème. Each filter shows a live count, filters combine with search and the timeline, and *Clear filters* resets them all.
+- **Movement filters.** All, Beat Generation, Jazz & Existentialism, Lettrists & Situationists, Surrealism, Montmartre Bohème, Chanson & Popular Paris, Lost Generation & Expatriates, Subterranean Paris and May 1968. Each filter shows a live count, and filters combine with the quarter, search and the timeline. *Clear filters* resets them all.
+- **Quarters.** Six districts, each with a researched *Then* and *Today* overview: Montmartre & Pigalle, the Latin Quarter, Saint-Germain-des-Prés, Belleville, Ménilmontant and Denfert-Rochereau. Choose one from the *Quarters* tab, from its label on the map, or from the quarter chip in a place's details. The map and list are then filtered to that district, the map fits to it, and the overview appears above the list. Quarter labels are clickable at city scale and show live counts.
 - **Search.** Matches names, people, movements, streets, tags and descriptions as you type. It ignores accents and ligatures, so `git le coeur` finds *Gît-le-Cœur*. Press `/` to focus the search box.
 - **Timeline, 1881–1968.** Drag the slider to a year. A ribbon shows every place's period(s) of significance, and active places pulse on the map. *Show all periods* resets the year. The dates mark cultural significance, not business hours. Present-day status is shown separately.
-- **Detail panel.** Shows the movement, period, documented history, associated figures, **Today** status (operating, closed, repurposed, rebuilt, private, unverified), the interpretation, evidence notes, location precision and every source. Actions: *View historical source*, *Open in Google Maps*, *Add to walking route*.
-- **Walking itinerary.** The suggested 9-stop Left Bank walk, or a custom one (up to 11 stops; reorder, remove, clear). Real pedestrian routing comes from the key-free FOSSGIS OSRM foot profile: about **2.5 km and 33 min** for the suggested walk, with a distance for each leg. If routing is unavailable, the stops are joined by a dotted line labelled **"Illustrative route — not walking directions"**, and no distance is shown. *Walking directions in Google Maps* opens the same stops in Google Maps.
+- **Detail panel.** Opens with a side-by-side **Then ↔ Today** comparison: the place in its period opposite its present-day status (operating, closed, demolished, repurposed, rebuilt, private building, public space, unverified). It then shows the movement, period, documented history, associated figures, the interpretation, evidence notes, location precision and every source, plus a link to the place's quarter. Actions: *View historical source*, *Open in Google Maps*, *Add to walking route*.
+- **Walking itinerary.** Four suggested walks, or a custom one (up to 11 stops; reorder, remove, clear). Real pedestrian routing comes from the key-free FOSSGIS OSRM foot profile, with a distance for each leg:
+
+  | Walk | Stops | Distance | Time |
+  |---|---|---|---|
+  | The Left Bank underground walk | 9 | 2.5 km | ≈ 33 min |
+  | Montmartre & Pigalle: cabarets and studios | 9 | 2.8 km | ≈ 37 min |
+  | Latin Quarter: expatriates and May '68 | 8 | 3.0 km | ≈ 41 min |
+  | Belleville & Ménilmontant: popular Paris | 6 | 3.5 km | ≈ 46 min |
+
+  If routing is unavailable, the stops are joined by a dotted line labelled **"Illustrative route — not walking directions"**, and no distance is shown. *Walking directions in Google Maps* opens the same stops in Google Maps.
 - **Responsive.** On desktop the sidebar is docked and collapsible. On tablets it narrows, and on narrow map areas the details open as a bottom sheet. On phones the sidebar becomes a drawer. Keyboard support: Tab to a pin and press Enter, Escape closes, and ARIA tabs, pressed states and live announcements are in place.
-- **Deep links.** `http://127.0.0.1:8003/#place=beat-hotel` opens a place directly.
+- **Deep links.** `http://127.0.0.1:8003/#place=beat-hotel` opens a place directly, and `#quarter=belleville` opens a quarter.
 
 ## Historical data
 
@@ -69,7 +79,8 @@ The data is plain JSON in `app/data/`. It is validated at startup with Pydantic 
 
 | File | Contents |
 |---|---|
-| `locations.json` | The places (12 at present). |
+| `locations.json` | The places (33 at present). |
+| `quarters.json` | The six districts, each with a then-and-now overview, a map-label position and sources. |
 | `movements.json` | Movement *groups*, which drive filters and colours, and the movements within them. |
 | `itineraries.json` | Suggested walks. |
 | `atlas.json` | Titles, the timeline range and the initial map view. |
@@ -84,6 +95,7 @@ Each location keeps these apart:
 - **`caveats`** records source disagreements and corrections.
 - **`coordinates.precision`** and **`coordinates.note`** say how exactly the marker matches the site.
 - **`status`** gives the present-day category and summary, kept apart from the historical period.
+- **`then`** is a one-line summary of the place in its period, shown opposite `status` in the Then ↔ Today comparison.
 
 ### Corrections made to the prototype
 
@@ -106,6 +118,29 @@ These dates were also revised against sources and noted in each place's `caveats
 
 Two prototype source links were replaced. The Shakespeare and Company FAQ page doesn't mention the Le Mistral history, so it now points to the shop's history page. The Caveau's own website serves an expired TLS certificate, so Wikipedia and Visit Paris Region are used instead. Every source URL is opened in Chromium by the test suite.
 
+### The districts: research for this expansion
+
+Twenty-one places were added across five districts. Each was checked against sources, geocoded to the house number with the French national address register (Base Adresse Nationale) or OpenStreetMap, and given a then-and-today comparison.
+
+| Quarter | Places added |
+|---|---|
+| **Montmartre & Pigalle** | Le Chat Noir's first premises / Bruant's Le Mirliton (1881, which fills the start of the timeline); Au Lapin Agile and the 1910 Boronali donkey hoax; the Moulin Rouge (1889); La Nouvelle Athènes (Impressionist café → Le Sphinx → the New Moon cabaret; burned down in 2004); Le Grand Duc (Langston Hughes and Bricktop, 1924); the Musée de Montmartre at 12 rue Cortot (Valadon and Utrillo's studio) |
+| **Latin Quarter** | Sylvia Beach's Shakespeare and Company (*Ulysses*, 1922); Joyce at Valery Larbaud's flat; Hemingway's first flat; Orwell's lodging house on rue du Pot-de-Fer; May 1968: the occupied Sorbonne, the barricades of rue Gay-Lussac, the occupied Odéon |
+| **Belleville** | Édith Piaf's legendary doorstep birthplace (the plaque's legend against the Tenon hospital record); rue Vilin, Perec's childhood street, demolished and now the Parc de Belleville; the Belleville heights photographed by Willy Ronis |
+| **Ménilmontant** | La Bellevilloise, Paris's first cooperative (1877); Maurice Chevalier's birthplace; Père-Lachaise (Wilde, Apollinaire, Modigliani, Stein, Wright, Piaf) |
+| **Denfert-Rochereau** | The Catacombs and their clandestine concert of 1–2 April 1897; Colonel Rol-Tanguy's command post 20 m below the square (August 1944), now the Musée de la Libération |
+
+Saint-Germain-des-Prés became a quarter for the existing cafés and cellars. Four new movement groups became active: Chanson & Popular Paris, Lost Generation & Expatriates, Subterranean Paris and May 1968.
+
+Claims that could not be verified were left out or marked as caveats:
+
+- Piaf and Django Reinhardt at **La Java**, and Piaf and Chevalier at **Aux Folies**, rest on promotional listings and anonymous reviews, so neither place was added.
+- No plaque was found for **Orwell**, so none is claimed.
+- The **Grand Duc**'s street number and present-day use come from a page that was unreachable when re-checked, so its pin is street-level.
+- Disputed details are recorded in each place's caveats, among them Chevalier's house number (27 or 29), the Odéon occupation date (14 or 15 May), the Moulin Rouge's reopening year (1921 or 1925) and the *Danse macabre* at the 1897 concert.
+
+Periods may start before 1881 or end after 1968 (La Nouvelle Athènes, 1874–1890; La Bellevilloise, 1877–1949). The slider clips them. The timeline widens only for a place with no period inside 1881–1968 at all.
+
 ### Adding a location
 
 Append an object to `app/data/locations.json`; no code changes are needed. Numbering follows array order.
@@ -114,11 +149,13 @@ Append an object to `app/data/locations.json`; no code changes are needed. Numbe
 {
   "id": "example-id",
   "name": "Name of the place",
+  "quarter": "latin-quarter",
   "address": { "street": "1 rue Example", "postcode": "75006", "arrondissement": "6e" },
   "coordinates": { "lat": 48.85, "lng": 2.34, "precision": "address", "note": "How the pin was placed." },
   "movements": ["lost-generation"],
   "periods": [{ "start": 1921, "end": 1941, "label": "1921–1941", "certainty": "documented" }],
   "figures": [{ "name": "Someone", "role": "Writer" }],
+  "then": "One line on the place in its period (shown opposite 'Today').",
   "description": "Documented history (at least 40 characters).",
   "significance": "Interpretation and context.",
   "caveats": [],
@@ -130,17 +167,11 @@ Append an object to `app/data/locations.json`; no code changes are needed. Numbe
 
 The `status` and `kind` fields take these values:
 
-- **`status.category`:** `operating`, `closed`, `demolished`, `repurposed`, `rebuilt`, `private` or `unknown`.
+- **`status.category`:** `operating`, `closed`, `demolished`, `repurposed`, `rebuilt`, `private`, `public` or `unknown`.
+- **`address.maps_query`** (optional) is the Google Maps search text, for a `street` that is not a plain postal address (e.g. "Cimetière du Père-Lachaise, 75020 Paris").
 - **`sources[].kind`:** `museum`, `institution`, `archive`, `encyclopedia`, `venue`, `press` or `book`.
 
-`movements.json` already defines groups for future expansion, but adds no locations to them:
-
-- nineteenth-century literary Paris (Baudelaire, Rimbaud, Verlaine)
-- the Lost Generation
-- Dada (within the Surrealism group)
-- May 1968
-
-A group appears as a filter only once a location uses it. If a period falls outside 1881–1968, the timeline widens automatically.
+`movements.json` still defines groups for future expansion with no locations in them yet: nineteenth-century literary Paris (Baudelaire, Rimbaud, Verlaine), and Dada within the Surrealism group. A group appears as a filter only once a location uses it. A new quarter is one more entry in `quarters.json`.
 
 ## API
 
@@ -151,6 +182,7 @@ A group appears as a filter only once a location uses it. If a period falls outs
 | `GET /api/locations` | All locations. |
 | `GET /api/locations/{id}` | One location. |
 | `GET /api/movements`, `GET /api/itineraries` | Taxonomy and walks. |
+| `GET /api/quarters` | The six quarters with their then-and-now overviews and place counts. |
 | `GET /api/walking-route?stops=a,b,c` | Pedestrian route through 2–11 location IDs. Returns 503 with `{"fallback": "straight-line"}` if routing is unavailable. |
 | `GET /api/health` | Status. |
 | `GET /api/docs` | Interactive API documentation. |
@@ -177,7 +209,7 @@ The Content-Security-Policy follows `PU_TILE_URL` automatically, including `{s}`
 ```bash
 pip install -r requirements-dev.txt
 python -m playwright install chromium   # once, for the browser tests
-python -m pytest                        # all 74 tests
+python -m pytest                        # all 95 tests
 ```
 
 You can narrow or redirect a run:
@@ -191,10 +223,10 @@ E2E_BASE_URL=http://127.0.0.1:8003 python -m pytest      # test an already runni
 
 | Suite | What it covers |
 |---|---|
-| `test_data.py` | All 12 locations and their movements; coordinates either preserved or recorded as corrected; periods inside the timeline; valid references; typos and bad coordinates rejected; adding a location is JSON-only. |
+| `test_data.py` | The 12 original locations and their movements; the 21 district places and their quarters; every quarter's then-and-now overview; every place's then/today pair; coordinates either preserved or recorded as corrected; every place on the 1881–1968 timeline; valid references (unknown quarters, movements and duplicates rejected); typos and bad coordinates rejected; adding a location is JSON-only and widens the timeline only when needed. |
 | `test_api.py` | The page is served over HTTP with only local assets; CSP and Referrer-Policy headers; no keyed basemap or credential strings in the front end; API payloads. |
 | `test_routing.py` | Route parsing; upstream request format and User-Agent; caching; rate limiting; validation; every failure mode signals the illustrative fallback. |
-| `test_e2e_browser.py` | Real Chromium against a live server: verified tile responses and visible cartography (see above); no CARTO or key-bearing requests; tile-failure fallback; all 12 pins at their coordinates; sidebar selection centres the map; keyboard and deep links; each filter; search, including combined with filters; the timeline at several years and combined with filters; the NIGHT filter on the tile pane only; NIGHT and STREET rendering differently; the routed walk with a distance, a Google Maps URL and clearing; the labelled routing outage; a custom route; external links opening in new tabs; every source URL opening; desktop collapse; the mobile drawer and bottom sheet; no console errors. |
+| `test_e2e_browser.py` | Real Chromium against a live server: verified tile responses and visible cartography (see above); no CARTO or key-bearing requests; tile-failure fallback; all pins at their coordinates; sidebar selection centres the map; keyboard on pins and clusters; place and quarter deep links; each of the nine movement filters; every quarter (filtering, Then/Today overview, active map label, reset); map quarter labels; quarter combined with movement, year and search; the detail Then ↔ Today block and quarter chip; search, including combined with filters; the timeline at several years and combined with filters; the NIGHT filter on the tile pane only; NIGHT and STREET rendering differently; the routed walk with a distance, a Google Maps URL and clearing; the labelled routing outage; a custom route; loading the other suggested walks; external links opening in new tabs; every source URL opening; desktop collapse; the mobile drawer and bottom sheet; no console errors. |
 
 Screenshots from the browser tests are written to `tests/artifacts/`.
 
@@ -208,7 +240,7 @@ paris-underground/
 │   ├── models.py          Pydantic schema for the data files
 │   ├── store.py           loads, validates and cross-checks the data
 │   ├── routing.py         FOSSGIS OSRM foot-routing client (rate-limited, cached)
-│   ├── data/              atlas.json, locations.json, movements.json, itineraries.json
+│   ├── data/              atlas.json, locations.json, quarters.json, movements.json, itineraries.json
 │   ├── templates/index.html
 │   └── static/
 │       ├── css/           app.css (theme), fonts.css

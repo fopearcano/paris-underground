@@ -20,6 +20,8 @@ from .models import (
     LocationsFile,
     Movement,
     MovementsFile,
+    Quarter,
+    QuartersFile,
 )
 
 
@@ -51,6 +53,7 @@ class AtlasStore:
     movements: list[Movement]
     locations: list[Location]
     itineraries: list[Itinerary]
+    quarters: list[Quarter]
 
     @classmethod
     def load(cls, data_dir: Path) -> "AtlasStore":
@@ -58,12 +61,14 @@ class AtlasStore:
         movements_file = _read(data_dir / "movements.json", MovementsFile)
         locations_file = _read(data_dir / "locations.json", LocationsFile)
         itineraries_file = _read(data_dir / "itineraries.json", ItinerariesFile)
+        quarters_file = _read(data_dir / "quarters.json", QuartersFile)
         store = cls(
             meta=meta,
             groups=sorted(movements_file.groups, key=lambda g: g.order),
             movements=list(movements_file.movements),
             locations=list(locations_file.locations),
             itineraries=list(itineraries_file.itineraries),
+            quarters=list(quarters_file.quarters),
         )
         store._check_references()
         return store
@@ -75,6 +80,7 @@ class AtlasStore:
             ("movement", self.movements),
             ("location", self.locations),
             ("itinerary", self.itineraries),
+            ("quarter", self.quarters),
         ):
             for dup in _duplicates([item.id for item in items]):
                 problems.append(f"duplicate {kind} id '{dup}'")
@@ -82,6 +88,7 @@ class AtlasStore:
         group_ids = {g.id for g in self.groups}
         movement_ids = {m.id for m in self.movements}
         location_ids = {loc.id for loc in self.locations}
+        quarter_ids = {q.id for q in self.quarters}
 
         for movement in self.movements:
             if movement.group not in group_ids:
@@ -90,6 +97,8 @@ class AtlasStore:
             for mid in loc.movements:
                 if mid not in movement_ids:
                     problems.append(f"location '{loc.id}' refers to unknown movement '{mid}'")
+            if loc.quarter not in quarter_ids:
+                problems.append(f"location '{loc.id}' refers to unknown quarter '{loc.quarter}'")
         for itinerary in self.itineraries:
             for stop in itinerary.stops:
                 if stop not in location_ids:
@@ -139,10 +148,23 @@ class AtlasStore:
                 counts[gid] += 1
         return [{**g.model_dump(mode="json"), "count": counts[g.id]} for g in self.groups]
 
+    def quarters_payload(self) -> list[dict[str, Any]]:
+        counts = Counter(loc.quarter for loc in self.locations)
+        return [{**q.model_dump(mode="json"), "count": counts[q.id]} for q in self.quarters]
+
     def timeline_bounds(self) -> tuple[int, int]:
-        """Configured timeline, widened if a location's period falls outside it."""
-        starts = [p.start for loc in self.locations for p in loc.periods]
-        ends = [p.end for loc in self.locations for p in loc.periods if p.end is not None]
-        start = min([self.meta.timeline.start, *starts])
-        end = max([self.meta.timeline.end, *ends])
+        """The configured timeline, widened only for locations it would otherwise miss.
+
+        A period that overlaps the timeline (say 1874–1890, or 1960–1979) is simply
+        clipped on the slider; only a location with no period inside the range at
+        all (a future Baudelaire entry, for instance) widens the timeline.
+        """
+        lo, hi = self.meta.timeline.start, self.meta.timeline.end
+        start, end = lo, hi
+        for loc in self.locations:
+            if any(p.start <= hi and (p.end is None or p.end >= lo) for p in loc.periods):
+                continue
+            for p in loc.periods:
+                start = min(start, p.start)
+                end = max(end, p.start if p.end is None else p.end)
         return start, end

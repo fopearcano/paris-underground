@@ -1,6 +1,6 @@
 // Timeline: a year slider plus a ribbon showing each location's period(s) of significance.
 
-import { matchesGroup, matchesQuery, queryTokens } from './atlas.js';
+import { matchesGroup, matchesQuarter, matchesQuery, queryTokens } from './atlas.js';
 import { $, h, plural } from './utils.js';
 
 export function initTimeline({ atlas, store }) {
@@ -59,7 +59,7 @@ export function initTimeline({ atlas, store }) {
 
       const tokens = queryTokens(state.query);
       for (const { bar, loc, period } of bars) {
-        const filtered = !matchesGroup(loc, state.group) || !matchesQuery(loc, tokens);
+        const filtered = !matchesGroup(loc, state.group) || !matchesQuarter(loc, state.quarter) || !matchesQuery(loc, tokens);
         const active = !all && state.year >= period.start && state.year <= (period.end ?? end);
         bar.classList.toggle('is-filtered', filtered);
         bar.classList.toggle('is-active', !filtered && active);

@@ -115,10 +115,12 @@ export function initRoute({ atlas, store, onSelect, onFit }) {
       panel.replaceChildren(
         h('div', { class: 'route-head' },
           h('h2', {}, 'Walking route'),
-          h('p', {}, 'Build a walk through underground Paris: load the suggested Left Bank route, or open any place and choose “Add to walking route”.')),
-        h('div', { class: 'route-actions' },
-          atlas.itineraries.map((it) => h('button', { type: 'button', class: 'primary', onclick: () => api.loadItinerary(it.id) },
-            `Load “${it.title}” (${plural(it.stops.length, 'stop')})`))));
+          h('p', {}, 'Build a walk through underground Paris: load one of the suggested walks, or open any place and choose “Add to walking route”.')),
+        h('div', { class: 'more-walks more-walks--start' },
+          h('h3', {}, 'Suggested walks'),
+          h('ul', {}, atlas.itineraries.map((it) => h('li', {},
+            h('button', { type: 'button', 'data-itinerary': it.id, onclick: () => api.loadItinerary(it.id) },
+              h('strong', {}, it.title), h('span', {}, `${plural(it.stops.length, 'stop')} · ${it.description}`)))))));
       return;
     }
 
@@ -151,8 +153,16 @@ export function initRoute({ atlas, store, onSelect, onFit }) {
         rel: 'noopener noreferrer',
       }, stops.length > 1 ? 'Walking directions in Google Maps ↗' : 'Open in Google Maps ↗'),
       h('button', { type: 'button', onclick: onFit }, 'Fit route on map'),
-      route.itineraryId ? null : atlas.itineraries.map((it) => h('button', { type: 'button', onclick: () => api.loadItinerary(it.id) }, 'Load suggested walk')),
       h('button', { type: 'button', id: 'route-clear', onclick: api.clear }, 'Clear route'));
+
+    const others = atlas.itineraries.filter((it) => it.id !== route.itineraryId);
+    const moreWalks = others.length
+      ? h('div', { class: 'more-walks' },
+          h('h3', {}, 'More walks'),
+          h('ul', {}, others.map((it) => h('li', {},
+            h('button', { type: 'button', 'data-itinerary': it.id, onclick: () => api.loadItinerary(it.id) },
+              h('strong', {}, it.title), h('span', {}, plural(it.stops.length, 'stop')))))))
+      : null;
 
     const note = h('p', { class: 'route-note' },
       routed
@@ -176,7 +186,8 @@ export function initRoute({ atlas, store, onSelect, onFit }) {
       statusBox(route),
       list,
       actions,
-      note);
+      note,
+      moreWalks);
   }
 
   return { ...api, render };

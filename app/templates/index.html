@@ -24,6 +24,7 @@
 
   <div class="app" id="app" data-sidebar="auto">
     <aside class="sidebar" id="sidebar" aria-label="Atlas">
+      <div class="sidebar-scroll" id="sidebar-scroll">
       <header class="head">
         <div class="kicker">{{ meta.kicker }}</div>
         <h1 class="wordmark">Paris<br><span>Under</span><br>Ground.</h1>
@@ -50,15 +51,19 @@
       </section>
 
       <div class="tabs" role="tablist" aria-label="Atlas views">
-        <button type="button" role="tab" class="tab" id="tab-atlas" aria-controls="panel-atlas" aria-selected="true">
-          Locations <span class="tab-count" id="tab-atlas-count">–</span>
+        <button type="button" role="tab" class="tab" id="tab-atlas" data-tab="atlas" aria-controls="panel-atlas" aria-selected="true">
+          Places <span class="tab-count" id="tab-atlas-count">–</span>
         </button>
-        <button type="button" role="tab" class="tab" id="tab-route" aria-controls="panel-route" aria-selected="false" tabindex="-1">
-          Walking route <span class="tab-count" id="tab-route-count">0</span>
+        <button type="button" role="tab" class="tab" id="tab-quarters" data-tab="quarters" aria-controls="panel-quarters" aria-selected="false" tabindex="-1">
+          Quarters <span class="tab-count" id="tab-quarters-count">–</span>
+        </button>
+        <button type="button" role="tab" class="tab" id="tab-route" data-tab="route" aria-controls="panel-route" aria-selected="false" tabindex="-1">
+          Walks <span class="tab-count" id="tab-route-count">0</span>
         </button>
       </div>
 
       <div class="panel listing" id="panel-atlas" role="tabpanel" aria-labelledby="tab-atlas">
+        <section class="quarter-overview" id="quarter-overview" aria-live="polite" hidden></section>
         <div class="listing-meta">
           <span id="result-count" aria-live="polite">Loading locations…</span>
           <button type="button" class="text-button" id="clear-filters">Clear filters ↺</button>
@@ -66,7 +71,10 @@
         <ol class="places" id="place-list" tabindex="-1"></ol>
       </div>
 
+      <div class="panel listing quarters-panel" id="panel-quarters" role="tabpanel" aria-labelledby="tab-quarters" hidden></div>
+
       <div class="panel listing route-panel" id="panel-route" role="tabpanel" aria-labelledby="tab-route" hidden></div>
+      </div>
 
       <footer class="foot">
         <button type="button" class="cta" id="route-cta">↗ Explore the Left Bank walking trail</button>

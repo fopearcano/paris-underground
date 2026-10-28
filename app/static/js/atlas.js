@@ -9,6 +9,7 @@ export const STATUS_LABELS = {
   repurposed: 'Repurposed',
   rebuilt: 'Rebuilt',
   private: 'Private building',
+  public: 'Public space',
   unknown: 'Current use unverified',
 };
 
@@ -29,12 +30,14 @@ export async function loadAtlas(fetchImpl = window.fetch.bind(window)) {
 export function prepareAtlas(data) {
   const groups = new Map(data.groups.map((g) => [g.id, g]));
   const movements = new Map(data.movements.map((m) => [m.id, m]));
+  const quarters = new Map(data.quarters.map((q) => [q.id, q]));
   const timeline = data.timeline;
 
   const locations = data.locations.map((loc) => {
     const primary = groups.get(loc.groups[0]);
     const movementLabels = loc.movements.map((id) => movements.get(id)?.label ?? id);
     const groupLabels = loc.groups.map((id) => groups.get(id)?.label ?? id);
+    const quarter = quarters.get(loc.quarter);
     // Leading space so query tokens can be matched at the start of words.
     const searchText = ' ' + normalizeText([
       loc.name,
@@ -42,11 +45,13 @@ export function prepareAtlas(data) {
       loc.address.arrondissement,
       `${parseInt(loc.address.arrondissement, 10) || ''} arrondissement`,
       loc.address.historical_note,
+      quarter?.name,
       ...movementLabels,
       ...groupLabels,
       ...loc.figures.flatMap((f) => [f.name, f.role]),
       ...loc.periods.map((p) => p.label),
       ...loc.tags,
+      loc.then,
       loc.description,
       loc.significance,
       loc.status.summary,
@@ -57,6 +62,7 @@ export function prepareAtlas(data) {
       primaryGroup: primary,
       movementLabels,
       groupLabels,
+      quarterInfo: quarter,
       periodLabel: loc.periods.map((p) => p.label).join(' · '),
       searchText,
     };
@@ -65,10 +71,12 @@ export function prepareAtlas(data) {
   return {
     ...data,
     groupsById: groups,
+    quartersById: quarters,
     locations,
     locationsById: new Map(locations.map((loc) => [loc.id, loc])),
     // Groups with no locations yet (future expansion) stay out of the filter bar.
     activeGroups: data.groups.filter((g) => g.count > 0),
+    activeQuarters: data.quarters.filter((q) => q.count > 0),
     timeline,
   };
 }
@@ -82,6 +90,10 @@ export function matchesGroup(loc, group) {
   return group === 'all' || loc.groups.includes(group);
 }
 
+export function matchesQuarter(loc, quarter) {
+  return quarter === 'all' || loc.quarter === quarter;
+}
+
 /** Every query token must begin some word of the location's searchable text. */
 export function matchesQuery(loc, tokens) {
   return tokens.every((token) => loc.searchText.includes(` ${token}`));
@@ -92,30 +104,39 @@ export function activeInYear(loc, year, timelineEnd) {
   return loc.periods.some((p) => year >= p.start && year <= (p.end ?? timelineEnd));
 }
 
-/** Every filter combined: movement group, search query and timeline year. */
-export function visibleLocations(atlas, state) {
+/** Predicate for every active filter; `except` leaves one out (for faceted counts). */
+function filterFor(atlas, state, except = null) {
   const tokens = queryTokens(state.query);
-  return atlas.locations.filter(
-    (loc) =>
-      matchesGroup(loc, state.group) &&
-      matchesQuery(loc, tokens) &&
-      activeInYear(loc, state.year, atlas.timeline.end),
-  );
+  return (loc) =>
+    (except === 'group' || matchesGroup(loc, state.group)) &&
+    (except === 'quarter' || matchesQuarter(loc, state.quarter)) &&
+    matchesQuery(loc, tokens) &&
+    activeInYear(loc, state.year, atlas.timeline.end);
 }
 
-/** Per-group counts under the current search and year (for the filter pills). */
+/** Every filter combined: movement group, quarter, search query and timeline year. */
+export function visibleLocations(atlas, state) {
+  return atlas.locations.filter(filterFor(atlas, state));
+}
+
+/** Per-group counts under the other filters (for the movement pills). */
 export function groupCounts(atlas, state) {
-  const tokens = queryTokens(state.query);
-  const pool = atlas.locations.filter(
-    (loc) => matchesQuery(loc, tokens) && activeInYear(loc, state.year, atlas.timeline.end),
-  );
+  const pool = atlas.locations.filter(filterFor(atlas, state, 'group'));
   const counts = { all: pool.length };
   for (const group of atlas.activeGroups) counts[group.id] = pool.filter((loc) => loc.groups.includes(group.id)).length;
   return counts;
 }
 
+/** Per-quarter counts under the other filters (for the quarter cards and map labels). */
+export function quarterCounts(atlas, state) {
+  const pool = atlas.locations.filter(filterFor(atlas, state, 'quarter'));
+  const counts = { all: pool.length };
+  for (const quarter of atlas.activeQuarters) counts[quarter.id] = pool.filter((loc) => loc.quarter === quarter.id).length;
+  return counts;
+}
+
 export function hasActiveFilters(state) {
-  return state.group !== 'all' || state.query.trim() !== '' || state.year !== null;
+  return state.group !== 'all' || state.quarter !== 'all' || state.query.trim() !== '' || state.year !== null;
 }
 
 /** Minimal observable store: set() merges a patch and notifies with the changed keys. */

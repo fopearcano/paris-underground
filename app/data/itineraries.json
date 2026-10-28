@@ -5,7 +5,61 @@
       "id": "left-bank",
       "title": "The Left Bank underground walk",
       "description": "Nine stops through the Latin Quarter and Saint-Germain-des-Prés, from the Situationists' bar on the Montagne Sainte-Geneviève to the Lettrists' café on rue du Four.",
-      "stops": ["tonneau", "mistral", "caveau", "beat-hotel", "tabou", "magots", "flore", "club-sg", "moineau"]
+      "stops": [
+        "tonneau",
+        "mistral",
+        "caveau",
+        "beat-hotel",
+        "tabou",
+        "magots",
+        "flore",
+        "club-sg",
+        "moineau"
+      ]
+    },
+    {
+      "id": "montmartre-pigalle",
+      "title": "Montmartre & Pigalle: cabarets and studios",
+      "description": "From the Moulin Rouge up through Pigalle's cafés, cabarets and 1920s jazz clubs to the studios and the Lapin Agile on the Butte.",
+      "stops": [
+        "moulin-rouge",
+        "breton",
+        "nouvelle-athenes",
+        "grand-duc",
+        "chat-noir",
+        "mirliton",
+        "bateau",
+        "musee-montmartre",
+        "lapin-agile"
+      ]
+    },
+    {
+      "id": "latin-quarter-1968",
+      "title": "Latin Quarter: expatriates and May '68",
+      "description": "From the occupied Odéon and Sylvia Beach's bookshop past the Sorbonne and the barricades of rue Gay-Lussac to the flats of Orwell, Hemingway and Joyce and the Situationists' bar.",
+      "stops": [
+        "odeon-1968",
+        "sylvia-beach",
+        "sorbonne-1968",
+        "gay-lussac-1968",
+        "orwell",
+        "hemingway",
+        "joyce",
+        "tonneau"
+      ]
+    },
+    {
+      "id": "belleville-menilmontant",
+      "title": "Belleville & Ménilmontant: popular Paris",
+      "description": "Down the eastern hills from Piaf's legendary doorstep and Perec's vanished street to La Bellevilloise, Chevalier's birthplace and Père-Lachaise.",
+      "stops": [
+        "piaf-belleville",
+        "ronis-belvedere",
+        "rue-vilin",
+        "bellevilloise",
+        "chevalier",
+        "pere-lachaise"
+      ]
     }
   ]
 }

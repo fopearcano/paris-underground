@@ -4,6 +4,7 @@
     {
       "id": "beat-hotel",
       "name": "The Beat Hotel",
+      "quarter": "latin-quarter",
       "address": {
         "street": "9 rue Gît-le-Cœur",
         "postcode": "75006",
@@ -15,7 +16,9 @@
         "precision": "address",
         "note": "Prototype coordinate kept; within 10 m of the geocoded street address."
       },
-      "movements": ["beat-generation"],
+      "movements": [
+        "beat-generation"
+      ],
       "periods": [
         {
           "start": 1957,
@@ -26,13 +29,32 @@
         }
       ],
       "figures": [
-        { "name": "Allen Ginsberg", "role": "Poet" },
-        { "name": "William S. Burroughs", "role": "Novelist" },
-        { "name": "Gregory Corso", "role": "Poet" },
-        { "name": "Brion Gysin", "role": "Painter and writer" },
-        { "name": "Peter Orlovsky", "role": "Poet" },
-        { "name": "Harold Chapman", "role": "Photographer" }
+        {
+          "name": "Allen Ginsberg",
+          "role": "Poet"
+        },
+        {
+          "name": "William S. Burroughs",
+          "role": "Novelist"
+        },
+        {
+          "name": "Gregory Corso",
+          "role": "Poet"
+        },
+        {
+          "name": "Brion Gysin",
+          "role": "Painter and writer"
+        },
+        {
+          "name": "Peter Orlovsky",
+          "role": "Poet"
+        },
+        {
+          "name": "Harold Chapman",
+          "role": "Photographer"
+        }
       ],
+      "then": "A cheap, unnamed lodging house where the Beat writers lived, wrote and cut up their texts.",
       "description": "A cheap, unnamed lodging house run by Madame Rachou that became the Paris base of the Beat writers. Allen Ginsberg, Peter Orlovsky and Gregory Corso stayed here from 1957 and William S. Burroughs from 1958. Burroughs assembled Naked Lunch here for Maurice Girodias's Olympia Press, which published it in 1959, and in the same year Brion Gysin and Burroughs began developing the cut-up technique in the hotel's rooms.",
       "significance": "The most direct connection between Paris and the Beat Generation: less a salon than a laboratory, where texts were cut up, rearranged and tested. A shabby counterpart to the celebrated café culture of Saint-Germain a few streets away.",
       "caveats": [
@@ -57,11 +79,22 @@
           "kind": "encyclopedia"
         }
       ],
-      "tags": ["Naked Lunch", "cut-up", "Olympia Press", "Madame Rachou", "Kaddish", "Dreamachine", "hotel", "Latin Quarter", "Saint-Michel"]
+      "tags": [
+        "Naked Lunch",
+        "cut-up",
+        "Olympia Press",
+        "Madame Rachou",
+        "Kaddish",
+        "Dreamachine",
+        "hotel",
+        "Latin Quarter",
+        "Saint-Michel"
+      ]
     },
     {
       "id": "mistral",
       "name": "Le Mistral / Shakespeare and Company",
+      "quarter": "latin-quarter",
       "address": {
         "street": "37 rue de la Bûcherie",
         "postcode": "75005",
@@ -73,7 +106,9 @@
         "precision": "address",
         "note": "Prototype coordinate kept; matches the shop's mapped position."
       },
-      "movements": ["beat-generation"],
+      "movements": [
+        "beat-generation"
+      ],
       "periods": [
         {
           "start": 1951,
@@ -84,10 +119,20 @@
         }
       ],
       "figures": [
-        { "name": "George Whitman", "role": "Bookseller, founder" },
-        { "name": "Allen Ginsberg", "role": "Poet" },
-        { "name": "Gregory Corso", "role": "Poet" }
+        {
+          "name": "George Whitman",
+          "role": "Bookseller, founder"
+        },
+        {
+          "name": "Allen Ginsberg",
+          "role": "Poet"
+        },
+        {
+          "name": "Gregory Corso",
+          "role": "Poet"
+        }
       ],
+      "then": "George Whitman's English-language bookshop, Le Mistral, a refuge for wandering writers.",
       "description": "George Whitman opened an English-language bookshop here in 1951 under the name Le Mistral. Wandering writers could read, attend readings and sometimes sleep among the shelves, and it became a meeting point for the Beats in Paris. In 1964 Whitman renamed it Shakespeare and Company in homage to Sylvia Beach's celebrated interwar bookshop.",
       "significance": "A Left Bank refuge a few minutes' walk from the Beat Hotel that kept the expatriate English-language literary tradition alive after the war.",
       "caveats": [
@@ -111,11 +156,21 @@
           "kind": "encyclopedia"
         }
       ],
-      "tags": ["bookshop", "bookstore", "George Whitman", "Sylvia Beach", "English-language", "readings", "Notre-Dame", "Latin Quarter"]
+      "tags": [
+        "bookshop",
+        "bookstore",
+        "George Whitman",
+        "Sylvia Beach",
+        "English-language",
+        "readings",
+        "Notre-Dame",
+        "Latin Quarter"
+      ]
     },
     {
       "id": "moineau",
       "name": "Chez Moineau",
+      "quarter": "saint-germain",
       "address": {
         "street": "22 rue du Four",
         "postcode": "75006",
@@ -126,9 +181,14 @@
         "lng": 2.33366,
         "precision": "address",
         "note": "Corrected to the geocoded street number (the prototype pin was 45 m away). The café no longer exists, so its exact frontage is not confirmed.",
-        "prototype": { "lat": 48.8529, "lng": 2.3331 }
+        "prototype": {
+          "lat": 48.8529,
+          "lng": 2.3331
+        }
       },
-      "movements": ["lettrism"],
+      "movements": [
+        "lettrism"
+      ],
       "periods": [
         {
           "start": 1951,
@@ -139,11 +199,24 @@
         }
       ],
       "figures": [
-        { "name": "Guy Debord", "role": "Writer, theorist" },
-        { "name": "Ivan Chtcheglov", "role": "Writer" },
-        { "name": "Vali Myers", "role": "Artist and dancer" },
-        { "name": "Ed van der Elsken", "role": "Photographer" }
+        {
+          "name": "Guy Debord",
+          "role": "Writer, theorist"
+        },
+        {
+          "name": "Ivan Chtcheglov",
+          "role": "Writer"
+        },
+        {
+          "name": "Vali Myers",
+          "role": "Artist and dancer"
+        },
+        {
+          "name": "Ed van der Elsken",
+          "role": "Photographer"
+        }
       ],
+      "then": "A cheap café where the young Lettrist International drank with Left Bank drifters.",
       "description": "A cheap café-bar on rue du Four where the young Lettrist International spent much of its time in the early 1950s, alongside runaways, drifters and Left Bank youth. Dutch photographer Ed van der Elsken documented this milieu, with the Australian artist Vali Myers as its central figure, in the photo-novel Love on the Left Bank (1956).",
       "significance": "This café world connects literary bohemia to Debord's later theories of the dérive and psychogeography.",
       "caveats": [],
@@ -171,11 +244,20 @@
           "kind": "press"
         }
       ],
-      "tags": ["Lettrism", "dérive", "psychogeography", "Love on the Left Bank", "photography", "café", "Saint-Germain-des-Prés"]
+      "tags": [
+        "Lettrism",
+        "dérive",
+        "psychogeography",
+        "Love on the Left Bank",
+        "photography",
+        "café",
+        "Saint-Germain-des-Prés"
+      ]
     },
     {
       "id": "tonneau",
       "name": "Le Tonneau d’Or",
+      "quarter": "latin-quarter",
       "address": {
         "street": "32 rue de la Montagne-Sainte-Geneviève",
         "postcode": "75005",
@@ -186,9 +268,15 @@
         "lng": 2.348451,
         "precision": "address",
         "note": "Corrected to the geocoded street number (the prototype pin was 91 m away).",
-        "prototype": { "lat": 48.84765, "lng": 2.34945 }
+        "prototype": {
+          "lat": 48.84765,
+          "lng": 2.34945
+        }
       },
-      "movements": ["lettrism", "situationism"],
+      "movements": [
+        "lettrism",
+        "situationism"
+      ],
       "periods": [
         {
           "start": 1954,
@@ -206,10 +294,20 @@
         }
       ],
       "figures": [
-        { "name": "Guy Debord", "role": "Writer, theorist" },
-        { "name": "Michèle Bernstein", "role": "Writer" },
-        { "name": "Mohamed Dahou", "role": "Editor of Potlatch" }
+        {
+          "name": "Guy Debord",
+          "role": "Writer, theorist"
+        },
+        {
+          "name": "Michèle Bernstein",
+          "role": "Writer"
+        },
+        {
+          "name": "Mohamed Dahou",
+          "role": "Editor of Potlatch"
+        }
       ],
+      "then": "The bar whose address served as the Lettrists' and then the Situationists' official base.",
       "description": "The bar at this address served as the official base of the Lettrist International: from August 1954 Potlatch gave it as the bulletin's mailing address, care of Mohamed Dahou. The group mockingly wrote it as 'rue de la Montagne-Geneviève', dropping the saint. The address then served the Situationist International until January 1963.",
       "significance": "A political counterpart to the Beat Hotel: rather than individual liberation alone, the aim was to transform everyday life. Strategies of dérive and détournement circulated around this circle.",
       "caveats": [],
@@ -237,11 +335,22 @@
           "kind": "press"
         }
       ],
-      "tags": ["Potlatch", "Internationale situationniste", "Situationist", "dérive", "détournement", "bar", "headquarters", "Latin Quarter", "Panthéon"]
+      "tags": [
+        "Potlatch",
+        "Internationale situationniste",
+        "Situationist",
+        "dérive",
+        "détournement",
+        "bar",
+        "headquarters",
+        "Latin Quarter",
+        "Panthéon"
+      ]
     },
     {
       "id": "tabou",
       "name": "Le Tabou",
+      "quarter": "saint-germain",
       "address": {
         "street": "33 rue Dauphine",
         "postcode": "75006",
@@ -253,7 +362,10 @@
         "precision": "address",
         "note": "Prototype coordinate kept; within 10 m of the geocoded street address."
       },
-      "movements": ["jazz", "existentialism"],
+      "movements": [
+        "jazz",
+        "existentialism"
+      ],
       "periods": [
         {
           "start": 1947,
@@ -264,9 +376,16 @@
         }
       ],
       "figures": [
-        { "name": "Boris Vian", "role": "Writer and trumpeter" },
-        { "name": "Juliette Gréco", "role": "Singer" }
+        {
+          "name": "Boris Vian",
+          "role": "Writer and trumpeter"
+        },
+        {
+          "name": "Juliette Gréco",
+          "role": "Singer"
+        }
       ],
+      "then": "A cellar club where Boris Vian played trumpet for the 'existentialist' night crowd.",
       "description": "A cellar club at 33 rue Dauphine that opened on 11 April 1947. Boris Vian played trumpet in the house band with his brothers and Juliette Gréco made it her haunt; the press soon cast its young night crowd as 'existentialists'. After neighbours' complaints its late licence was revoked, and the crowd drifted to the new Club Saint-Germain.",
       "significance": "A symbol of the post-Liberation underground and a distinctly French precursor to the late-1950s Beat milieu, close to the Beat Hotel.",
       "caveats": [
@@ -290,11 +409,20 @@
           "kind": "encyclopedia"
         }
       ],
-      "tags": ["cellar", "cave", "zazous", "existentialists", "nightlife", "trumpet", "Saint-Germain-des-Prés"]
+      "tags": [
+        "cellar",
+        "cave",
+        "zazous",
+        "existentialists",
+        "nightlife",
+        "trumpet",
+        "Saint-Germain-des-Prés"
+      ]
     },
     {
       "id": "club-sg",
       "name": "Club Saint-Germain",
+      "quarter": "saint-germain",
       "address": {
         "street": "13 rue Saint-Benoît",
         "postcode": "75006",
@@ -305,9 +433,15 @@
         "lng": 2.332966,
         "precision": "address",
         "note": "Corrected to the geocoded street number (the prototype pin was 101 m away).",
-        "prototype": { "lat": 48.85494, "lng": 2.33172 }
+        "prototype": {
+          "lat": 48.85494,
+          "lng": 2.33172
+        }
       },
-      "movements": ["jazz", "existentialism"],
+      "movements": [
+        "jazz",
+        "existentialism"
+      ],
       "periods": [
         {
           "start": 1948,
@@ -318,11 +452,24 @@
         }
       ],
       "figures": [
-        { "name": "Boris Vian", "role": "Co-founder, programmer" },
-        { "name": "Django Reinhardt", "role": "Guitarist" },
-        { "name": "Miles Davis", "role": "Trumpeter" },
-        { "name": "Art Blakey", "role": "Drummer" }
+        {
+          "name": "Boris Vian",
+          "role": "Co-founder, programmer"
+        },
+        {
+          "name": "Django Reinhardt",
+          "role": "Guitarist"
+        },
+        {
+          "name": "Miles Davis",
+          "role": "Trumpeter"
+        },
+        {
+          "name": "Art Blakey",
+          "role": "Drummer"
+        }
       ],
+      "then": "A jazz cellar that booked Django Reinhardt and visiting American bebop musicians.",
       "description": "A jazz cellar founded by a group that included Boris Vian, which quickly displaced Le Tabou as the neighbourhood's late-night venue. It booked Django Reinhardt and Stéphane Grappelli and hosted visiting American musicians such as Miles Davis, Art Blakey and Kenny Dorham.",
       "significance": "One of the emblematic jazz addresses of postwar Saint-Germain-des-Prés, connecting American bebop to French counterculture. Part of a broader neighbourhood ecosystem, not a core Beat headquarters.",
       "caveats": [
@@ -346,11 +493,21 @@
           "kind": "institution"
         }
       ],
-      "tags": ["bebop", "jazz club", "cellar", "nightlife", "Le Bilboquet", "Stéphane Grappelli", "Kenny Dorham", "Saint-Germain-des-Prés"]
+      "tags": [
+        "bebop",
+        "jazz club",
+        "cellar",
+        "nightlife",
+        "Le Bilboquet",
+        "Stéphane Grappelli",
+        "Kenny Dorham",
+        "Saint-Germain-des-Prés"
+      ]
     },
     {
       "id": "caveau",
       "name": "Caveau de la Huchette",
+      "quarter": "latin-quarter",
       "address": {
         "street": "5 rue de la Huchette",
         "postcode": "75005",
@@ -362,7 +519,9 @@
         "precision": "address",
         "note": "Prototype coordinate kept; within 25 m of the mapped venue."
       },
-      "movements": ["jazz"],
+      "movements": [
+        "jazz"
+      ],
       "periods": [
         {
           "start": 1946,
@@ -373,9 +532,16 @@
         }
       ],
       "figures": [
-        { "name": "Sidney Bechet", "role": "Saxophonist" },
-        { "name": "Lionel Hampton", "role": "Vibraphonist" }
+        {
+          "name": "Sidney Bechet",
+          "role": "Saxophonist"
+        },
+        {
+          "name": "Lionel Hampton",
+          "role": "Vibraphonist"
+        }
       ],
+      "then": "A vaulted medieval cellar turned post-Liberation jazz club.",
       "description": "A vaulted cellar in the Latin Quarter that became a jazz club after the Liberation, generally dated to 1946. Unlike most of the postwar cellars it never closed, and traditional jazz, swing and dancing continue there today.",
       "significance": "The most accessible survivor of the Left Bank's cellar culture. Its present-day programme is distinct from its 1940s–1960s history, but the room itself is continuous with it.",
       "caveats": [
@@ -399,11 +565,19 @@
           "kind": "institution"
         }
       ],
-      "tags": ["cellar", "swing", "dancing", "jazz club", "Latin Quarter", "Saint-Michel"]
+      "tags": [
+        "cellar",
+        "swing",
+        "dancing",
+        "jazz club",
+        "Latin Quarter",
+        "Saint-Michel"
+      ]
     },
     {
       "id": "flore",
       "name": "Café de Flore",
+      "quarter": "saint-germain",
       "address": {
         "street": "172 boulevard Saint-Germain",
         "postcode": "75006",
@@ -415,7 +589,9 @@
         "precision": "address",
         "note": "Prototype coordinate kept; within 5 m of the geocoded street address."
       },
-      "movements": ["existentialism"],
+      "movements": [
+        "existentialism"
+      ],
       "periods": [
         {
           "start": 1940,
@@ -433,10 +609,20 @@
         }
       ],
       "figures": [
-        { "name": "Jean-Paul Sartre", "role": "Philosopher, writer" },
-        { "name": "Simone de Beauvoir", "role": "Philosopher, writer" },
-        { "name": "Boris Vian", "role": "Writer and trumpeter" }
+        {
+          "name": "Jean-Paul Sartre",
+          "role": "Philosopher, writer"
+        },
+        {
+          "name": "Simone de Beauvoir",
+          "role": "Philosopher, writer"
+        },
+        {
+          "name": "Boris Vian",
+          "role": "Writer and trumpeter"
+        }
       ],
+      "then": "The café where Sartre and Beauvoir wrote through the Occupation.",
       "description": "One of the two great literary cafés of Saint-Germain-des-Prés. During the Occupation Jean-Paul Sartre and Simone de Beauvoir worked here for whole days; after the Liberation the café became a symbol of the 'existentialist' Saint-Germain that newspapers and visitors came looking for.",
       "significance": "More institutional and celebrated than the shabby Beat Hotel or Debord's cheap cafés. It sets the scene the Beats encountered in Paris, though it was never their main base.",
       "caveats": [],
@@ -458,11 +644,18 @@
           "kind": "venue"
         }
       ],
-      "tags": ["café", "terrace", "Occupation", "philosophy", "Saint-Germain-des-Prés"]
+      "tags": [
+        "café",
+        "terrace",
+        "Occupation",
+        "philosophy",
+        "Saint-Germain-des-Prés"
+      ]
     },
     {
       "id": "magots",
       "name": "Les Deux Magots",
+      "quarter": "saint-germain",
       "address": {
         "street": "6 place Saint-Germain-des-Prés",
         "postcode": "75006",
@@ -474,7 +667,9 @@
         "precision": "address",
         "note": "Prototype coordinate kept; within 20 m of the mapped café."
       },
-      "movements": ["existentialism"],
+      "movements": [
+        "existentialism"
+      ],
       "periods": [
         {
           "start": 1945,
@@ -485,9 +680,16 @@
         }
       ],
       "figures": [
-        { "name": "Jean-Paul Sartre", "role": "Philosopher, writer" },
-        { "name": "Simone de Beauvoir", "role": "Philosopher, writer" }
+        {
+          "name": "Jean-Paul Sartre",
+          "role": "Philosopher, writer"
+        },
+        {
+          "name": "Simone de Beauvoir",
+          "role": "Philosopher, writer"
+        }
       ],
+      "then": "A literary café and prize-giver at the heart of existentialist Saint-Germain.",
       "description": "A literary café facing the church of Saint-Germain-des-Prés, named after the two Chinese figurines ('magots') inside. Its literary prize, the Prix des Deux Magots, was founded in 1933. After the war it shared with the Café de Flore the reputation of being headquarters of existentialist Paris.",
       "significance": "A useful point of contrast: famous café culture and marginal hotel bohemia coexisted only streets apart.",
       "caveats": [],
@@ -509,11 +711,18 @@
           "kind": "encyclopedia"
         }
       ],
-      "tags": ["café", "terrace", "literary prize", "Prix des Deux Magots", "Saint-Germain-des-Prés"]
+      "tags": [
+        "café",
+        "terrace",
+        "literary prize",
+        "Prix des Deux Magots",
+        "Saint-Germain-des-Prés"
+      ]
     },
     {
       "id": "breton",
       "name": "André Breton’s studio",
+      "quarter": "montmartre-pigalle",
       "address": {
         "street": "42 rue Fontaine",
         "postcode": "75009",
@@ -525,9 +734,14 @@
         "lng": 2.333245,
         "precision": "address",
         "note": "Corrected to the geocoded street number near place Blanche. The prototype pin was 300 m too far south.",
-        "prototype": { "lat": 48.88025, "lng": 2.33325 }
+        "prototype": {
+          "lat": 48.88025,
+          "lng": 2.33325
+        }
       },
-      "movements": ["surrealism"],
+      "movements": [
+        "surrealism"
+      ],
       "periods": [
         {
           "start": 1922,
@@ -538,11 +752,24 @@
         }
       ],
       "figures": [
-        { "name": "André Breton", "role": "Poet, Surrealist leader" },
-        { "name": "Simone Kahn", "role": "Writer, Breton's first wife" },
-        { "name": "Paul Éluard", "role": "Poet" },
-        { "name": "Louis Aragon", "role": "Poet, novelist" }
+        {
+          "name": "André Breton",
+          "role": "Poet, Surrealist leader"
+        },
+        {
+          "name": "Simone Kahn",
+          "role": "Writer, Breton's first wife"
+        },
+        {
+          "name": "Paul Éluard",
+          "role": "Poet"
+        },
+        {
+          "name": "Louis Aragon",
+          "role": "Poet, novelist"
+        }
       ],
+      "then": "André Breton's studio-apartment: the Surrealists' meeting place and his collection.",
       "description": "On 1 January 1922 André Breton and his first wife, Simone Kahn, moved into a former artist's studio on the fourth floor of 42 rue Fontaine, near place Blanche. For more than four decades the apartment served as a meeting place for the Surrealist group and housed Breton's collection of paintings, objects and non-Western art. A fragment of the wall behind his desk entered the Centre Pompidou in 2003.",
       "significance": "A laboratory of Surrealist thought whose concern with dream, chance and automatism prefigured later underground experiments such as the cut-up. A conceptual ancestor of the Beats, not a meeting place of the Beat Hotel circle.",
       "caveats": [],
@@ -564,11 +791,20 @@
           "kind": "archive"
         }
       ],
-      "tags": ["Surrealism", "automatism", "dream", "collection", "Mur Breton", "Pigalle", "place Blanche"]
+      "tags": [
+        "Surrealism",
+        "automatism",
+        "dream",
+        "collection",
+        "Mur Breton",
+        "Pigalle",
+        "place Blanche"
+      ]
     },
     {
       "id": "bateau",
       "name": "Le Bateau-Lavoir",
+      "quarter": "montmartre-pigalle",
       "address": {
         "street": "13 place Émile-Goudeau",
         "postcode": "75018",
@@ -580,7 +816,10 @@
         "precision": "address",
         "note": "Prototype coordinate kept; within 20 m of the geocoded street address."
       },
-      "movements": ["montmartre-boheme", "cubism"],
+      "movements": [
+        "montmartre-boheme",
+        "cubism"
+      ],
       "periods": [
         {
           "start": 1904,
@@ -591,10 +830,20 @@
         }
       ],
       "figures": [
-        { "name": "Pablo Picasso", "role": "Painter" },
-        { "name": "Max Jacob", "role": "Poet" },
-        { "name": "Juan Gris", "role": "Painter" }
+        {
+          "name": "Pablo Picasso",
+          "role": "Painter"
+        },
+        {
+          "name": "Max Jacob",
+          "role": "Poet"
+        },
+        {
+          "name": "Juan Gris",
+          "role": "Painter"
+        }
       ],
+      "then": "Ramshackle cheap studios where Picasso painted Les Demoiselles d'Avignon.",
       "description": "A ramshackle building of cheap artists' studios on the Butte Montmartre, nicknamed the Bateau-Lavoir (laundry boat), a name usually credited to Max Jacob. Pablo Picasso lived and worked here from 1904 to 1909 and painted Les Demoiselles d'Avignon (1907) in his studio, a key step towards Cubism.",
       "significance": "Its precarious, communal creativity anticipates the Beat Hotel's social role half a century later: a lineage of cheap shared creative spaces rather than a direct Beat association.",
       "caveats": [],
@@ -616,11 +865,19 @@
           "kind": "encyclopedia"
         }
       ],
-      "tags": ["Cubism", "Les Demoiselles d'Avignon", "studios", "painting", "Abbesses", "Butte Montmartre"]
+      "tags": [
+        "Cubism",
+        "Les Demoiselles d'Avignon",
+        "studios",
+        "painting",
+        "Abbesses",
+        "Butte Montmartre"
+      ]
     },
     {
       "id": "chat-noir",
       "name": "Le Chat Noir (historical premises)",
+      "quarter": "montmartre-pigalle",
       "address": {
         "street": "12 rue Victor-Massé",
         "postcode": "75009",
@@ -632,9 +889,14 @@
         "lng": 2.339257,
         "precision": "address",
         "note": "Corrected to the geocoded street number (the prototype pin was 125 m away). Marks the 1885–1897 premises, not the first 1881 address.",
-        "prototype": { "lat": 48.8802, "lng": 2.3377 }
+        "prototype": {
+          "lat": 48.8802,
+          "lng": 2.3377
+        }
       },
-      "movements": ["montmartre-boheme"],
+      "movements": [
+        "montmartre-boheme"
+      ],
       "periods": [
         {
           "start": 1885,
@@ -645,11 +907,24 @@
         }
       ],
       "figures": [
-        { "name": "Rodolphe Salis", "role": "Founder, impresario" },
-        { "name": "Henri Rivière", "role": "Artist, shadow theatre" },
-        { "name": "Erik Satie", "role": "Composer, pianist" },
-        { "name": "Théophile-Alexandre Steinlen", "role": "Illustrator" }
+        {
+          "name": "Rodolphe Salis",
+          "role": "Founder, impresario"
+        },
+        {
+          "name": "Henri Rivière",
+          "role": "Artist, shadow theatre"
+        },
+        {
+          "name": "Erik Satie",
+          "role": "Composer, pianist"
+        },
+        {
+          "name": "Théophile-Alexandre Steinlen",
+          "role": "Illustrator"
+        }
       ],
+      "then": "Rodolphe Salis's cabaret, with its shadow theatre and illustrated journal.",
       "description": "Rodolphe Salis opened Le Chat Noir in 1881 at 84 boulevard de Rochechouart and in 1885 moved the cabaret to this larger building at 12 rue de Laval (now rue Victor-Massé). Here it staged Henri Rivière's celebrated shadow theatre, published its own illustrated journal and brought poets, chansonniers, musicians and illustrators together until it closed in 1897, the year of Salis's death.",
       "significance": "The archetype of the artistic cabaret, and a symbolic ancestor of later underground Paris: irreverent, self-publishing and built around performance.",
       "caveats": [
@@ -674,7 +949,1614 @@
           "kind": "encyclopedia"
         }
       ],
-      "tags": ["cabaret", "shadow theatre", "théâtre d'ombres", "chanson", "journal", "Pigalle", "Butte Montmartre"]
+      "tags": [
+        "cabaret",
+        "shadow theatre",
+        "théâtre d'ombres",
+        "chanson",
+        "journal",
+        "Pigalle",
+        "Butte Montmartre"
+      ]
+    },
+    {
+      "id": "mirliton",
+      "name": "Le Chat Noir (first premises) / Le Mirliton",
+      "quarter": "montmartre-pigalle",
+      "address": {
+        "street": "84 boulevard de Rochechouart",
+        "postcode": "75018",
+        "arrondissement": "18e",
+        "historical_note": "Now officially boulevard Marguerite-de-Rochechouart."
+      },
+      "coordinates": {
+        "lat": 48.882799,
+        "lng": 2.342706,
+        "precision": "address",
+        "note": "Geocoded street address (Base Adresse Nationale)."
+      },
+      "movements": [
+        "montmartre-boheme",
+        "chanson"
+      ],
+      "periods": [
+        {
+          "start": 1881,
+          "end": 1885,
+          "label": "1881–1885",
+          "certainty": "documented",
+          "note": "Le Chat Noir's first premises, opened by Rodolphe Salis in November 1881."
+        },
+        {
+          "start": 1885,
+          "end": 1895,
+          "label": "1885–c. 1895",
+          "certainty": "approximate",
+          "note": "Aristide Bruant's Le Mirliton, where he sang nightly for about ten years."
+        }
+      ],
+      "figures": [
+        {
+          "name": "Rodolphe Salis",
+          "role": "Founder of Le Chat Noir"
+        },
+        {
+          "name": "Aristide Bruant",
+          "role": "Chansonnier, owner of Le Mirliton"
+        },
+        {
+          "name": "Henri de Toulouse-Lautrec",
+          "role": "Painter, poster artist"
+        }
+      ],
+      "then": "The birthplace of Le Chat Noir (1881), then Aristide Bruant's insult-singing cabaret Le Mirliton.",
+      "description": "Rodolphe Salis opened Le Chat Noir here in November 1881, in a former post office where he had kept a studio selling religious paintings: the first artistic cabaret of Montmartre and the starting point of this atlas's timeline. When Salis moved to larger premises around the corner in 1885, the chansonnier Aristide Bruant took over the room and renamed it Le Mirliton. There he sang his slang songs of the Paris poor every evening for about a decade, famously insulting his customers, and Toulouse-Lautrec immortalised him in posters.",
+      "significance": "The same small room launched two models of underground performance: Salis's ironic literary cabaret, and Bruant's realist chanson of the streets. The latter leads directly to Piaf and the chanson réaliste of the twentieth century.",
+      "caveats": [
+        "The end date of Le Mirliton is approximate; Bruant later toured and performed elsewhere.",
+        "The marker is at the house number; the building's present-day use was not verified."
+      ],
+      "status": {
+        "category": "closed",
+        "summary": "Neither cabaret survives; the address is on what is now officially boulevard Marguerite-de-Rochechouart."
+      },
+      "sources": [
+        {
+          "title": "Le Chat Noir, cabaret sign",
+          "publisher": "Musée Carnavalet – Histoire de Paris",
+          "url": "https://www.carnavalet.paris.fr/en/collections/chat-noirsign-cabaret",
+          "kind": "museum"
+        },
+        {
+          "title": "Aristide Bruant (poster by Toulouse-Lautrec)",
+          "publisher": "Victoria and Albert Museum",
+          "url": "https://collections.vam.ac.uk/item/O731843/aristide-bruant-poster-henri-de-toulouse/",
+          "kind": "museum"
+        },
+        {
+          "title": "Aristide Bruant",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Aristide_Bruant",
+          "kind": "encyclopedia"
+        }
+      ],
+      "tags": [
+        "cabaret",
+        "chanson réaliste",
+        "slang",
+        "argot",
+        "Pigalle",
+        "Anvers",
+        "posters"
+      ]
+    },
+    {
+      "id": "lapin-agile",
+      "name": "Au Lapin Agile",
+      "quarter": "montmartre-pigalle",
+      "address": {
+        "street": "22 rue des Saules",
+        "postcode": "75018",
+        "arrondissement": "18e"
+      },
+      "coordinates": {
+        "lat": 48.888731,
+        "lng": 2.339975,
+        "precision": "address",
+        "note": "Geocoded street address (OpenStreetMap)."
+      },
+      "movements": [
+        "montmartre-boheme",
+        "cubism"
+      ],
+      "periods": [
+        {
+          "start": 1903,
+          "end": 1914,
+          "label": "1903–1914",
+          "certainty": "approximate",
+          "note": "The Frédé years with the Bateau-Lavoir circle; sources date his arrival to 1903 or 1905."
+        }
+      ],
+      "figures": [
+        {
+          "name": "Frédéric Gérard ('Frédé')",
+          "role": "Owner"
+        },
+        {
+          "name": "Pablo Picasso",
+          "role": "Painter"
+        },
+        {
+          "name": "Roland Dorgelès",
+          "role": "Writer"
+        },
+        {
+          "name": "Aristide Bruant",
+          "role": "Chansonnier"
+        }
+      ],
+      "then": "A rustic hilltop cabaret where Picasso's circle drank on credit and staged the Boronali hoax.",
+      "description": "The cabaret's name comes from a sign painted by André Gill in the 1870s, a rabbit leaping out of a pan (the 'lapin à Gill'). Around 1905 Aristide Bruant saved the house from closure, and Frédéric Gérard, 'Frédé', ran it as a haunt of poor artists and writers. Picasso painted Au Lapin Agile (1905) for Frédé in exchange for food and drink; it hung there until 1912 and is now in the Metropolitan Museum of Art. On 8 March 1910 Roland Dorgelès borrowed Frédé's donkey, Lolo, tied a brush to its tail and exhibited the result at the Salon des Indépendants as 'Et le soleil s'endormit sur l'Adriatique' by the invented painter Boronali, an anagram of Aliboron.",
+      "significance": "The Boronali hoax is an early, very Montmartre mockery of the avant-garde art world, made from inside the bohemia it parodied.",
+      "caveats": [
+        "Accounts differ on whether Frédé took over in 1903 or 1905.",
+        "How much of the 1910 painting the donkey actually made is disputed; Dorgelès is thought to have done much of it himself."
+      ],
+      "status": {
+        "category": "operating",
+        "summary": "Still a cabaret of traditional French chanson; check opening nights before visiting."
+      },
+      "sources": [
+        {
+          "title": "Et le soleil s'endormit sur l'Adriatique",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Et_le_soleil_s%27endormit_sur_l%27Adriatique",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "Au Lapin Agile (painting by Picasso)",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Au_Lapin_Agile",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "Café Au Lapin Agile in Montmartre: Lolo the Ass and the Infamous Art Hoax",
+          "publisher": "Bonjour Paris",
+          "url": "https://bonjourparis.com/archives/cafe-lapin-agile-montmartre-lolo-infamous-art-hoax/",
+          "kind": "press"
+        }
+      ],
+      "tags": [
+        "cabaret",
+        "Boronali",
+        "Lolo",
+        "donkey",
+        "hoax",
+        "Salon des Indépendants",
+        "Picasso",
+        "Butte Montmartre"
+      ]
+    },
+    {
+      "id": "moulin-rouge",
+      "name": "Moulin Rouge",
+      "quarter": "montmartre-pigalle",
+      "address": {
+        "street": "82 boulevard de Clichy",
+        "postcode": "75018",
+        "arrondissement": "18e"
+      },
+      "coordinates": {
+        "lat": 48.884109,
+        "lng": 2.332356,
+        "precision": "address",
+        "note": "Geocoded street address (OpenStreetMap)."
+      },
+      "movements": [
+        "montmartre-boheme"
+      ],
+      "periods": [
+        {
+          "start": 1889,
+          "end": 1915,
+          "label": "1889–1915",
+          "certainty": "documented",
+          "note": "From its opening on 6 October 1889 to the fire of 27 February 1915."
+        }
+      ],
+      "figures": [
+        {
+          "name": "Joseph Oller",
+          "role": "Co-founder"
+        },
+        {
+          "name": "Charles Zidler",
+          "role": "Co-founder"
+        },
+        {
+          "name": "Henri de Toulouse-Lautrec",
+          "role": "Painter, poster artist"
+        },
+        {
+          "name": "La Goulue",
+          "role": "Dancer"
+        },
+        {
+          "name": "Jane Avril",
+          "role": "Dancer"
+        }
+      ],
+      "then": "A Belle Époque dance hall where the cancan, La Goulue and Toulouse-Lautrec's posters made Montmartre famous.",
+      "description": "Joseph Oller and Charles Zidler opened the Moulin Rouge at place Blanche on 6 October 1889. Its quadrille dancers, with La Goulue and Jane Avril, popularised the cancan. Toulouse-Lautrec was a regular, and his first poster, made for the Moulin Rouge in 1891, featured La Goulue. The original building burned down on 27 February 1915 and was rebuilt in the 1920s.",
+      "significance": "The point where Montmartre's bohemian nightlife became mass entertainment and an international brand.",
+      "caveats": [
+        "Sources give 1921 or 1925 for the reopening after the fire."
+      ],
+      "status": {
+        "category": "operating",
+        "summary": "Still a cabaret revue (Féerie, staged since 1999). Its windmill sails fell in April 2024 and were restored that July."
+      },
+      "sources": [
+        {
+          "title": "Moulin Rouge",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Moulin_Rouge",
+          "kind": "encyclopedia"
+        }
+      ],
+      "tags": [
+        "cancan",
+        "dance hall",
+        "place Blanche",
+        "posters",
+        "Belle Époque",
+        "revue"
+      ]
+    },
+    {
+      "id": "nouvelle-athenes",
+      "name": "La Nouvelle Athènes",
+      "quarter": "montmartre-pigalle",
+      "address": {
+        "street": "9 place Pigalle",
+        "postcode": "75009",
+        "arrondissement": "9e",
+        "historical_note": "On the corner of rue Frochot; also given as 66 rue Jean-Baptiste-Pigalle."
+      },
+      "coordinates": {
+        "lat": 48.881813,
+        "lng": 2.33713,
+        "precision": "address",
+        "note": "Geocoded street address (Base Adresse Nationale)."
+      },
+      "movements": [
+        "montmartre-boheme"
+      ],
+      "periods": [
+        {
+          "start": 1874,
+          "end": 1890,
+          "label": "1870s–1880s",
+          "certainty": "approximate",
+          "note": "The Impressionists' café; artists met here in 1874 to plan the first Impressionist exhibition."
+        },
+        {
+          "start": 1960,
+          "end": 1979,
+          "label": "1960s–1970s",
+          "certainty": "approximate",
+          "note": "The New Moon, a lesbian cabaret, occupied the premises."
+        }
+      ],
+      "figures": [
+        {
+          "name": "Edgar Degas",
+          "role": "Painter"
+        },
+        {
+          "name": "Édouard Manet",
+          "role": "Painter"
+        }
+      ],
+      "then": "The Impressionists' café, later the Sphinx strip club and the New Moon lesbian cabaret.",
+      "description": "A café on place Pigalle frequented by Degas, Manet and the modern painters and writers of the 1870s and 1880s; artists met here in 1874 to plan the first Impressionist exhibition, and Degas set his painting of absinthe drinkers in it. The building then had a long second life as nightlife: Le Sphinx, a strip-tease club, in the 1920s–1940s; the New Moon, a lesbian cabaret, in the 1960s and 1970s; then a rock venue in the 1980s and 1990s.",
+      "significance": "A single corner that traces Pigalle's arc from avant-garde café to the margins of Paris nightlife, and one of the clearest 'then and now' contrasts in the atlas.",
+      "caveats": [
+        "Sources give the address as 9 place Pigalle or 66 rue Pigalle (the corner building)."
+      ],
+      "status": {
+        "category": "demolished",
+        "summary": "The building burned down in 2004 and was demolished; at last report an organic grocery occupied the new corner building."
+      },
+      "sources": [
+        {
+          "title": "La Nouvelle Athènes",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/La_Nouvelle_Ath%C3%A8nes",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "Place Pigalle",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Place_Pigalle",
+          "kind": "encyclopedia"
+        }
+      ],
+      "tags": [
+        "Impressionism",
+        "absinthe",
+        "café",
+        "New Moon",
+        "Le Sphinx",
+        "lesbian cabaret",
+        "place Pigalle",
+        "rock"
+      ]
+    },
+    {
+      "id": "grand-duc",
+      "name": "Le Grand Duc",
+      "quarter": "montmartre-pigalle",
+      "address": {
+        "street": "52 rue Jean-Baptiste-Pigalle",
+        "postcode": "75009",
+        "arrondissement": "9e",
+        "historical_note": "Then simply rue Pigalle."
+      },
+      "coordinates": {
+        "lat": 48.880571,
+        "lng": 2.335359,
+        "precision": "street",
+        "note": "Marker at no. 52, the number given by Sorbonne Université's 'Montmartre virtuel' project (unreachable when last checked); other sources say only 'rue Pigalle'."
+      },
+      "movements": [
+        "jazz"
+      ],
+      "periods": [
+        {
+          "start": 1924,
+          "end": 1928,
+          "label": "1920s",
+          "certainty": "approximate",
+          "note": "Langston Hughes worked here in 1924; Bricktop began her Paris career here."
+        }
+      ],
+      "figures": [
+        {
+          "name": "Langston Hughes",
+          "role": "Poet"
+        },
+        {
+          "name": "Eugene Bullard",
+          "role": "Manager, former aviator"
+        },
+        {
+          "name": "Ada 'Bricktop' Smith",
+          "role": "Singer, hostess"
+        }
+      ],
+      "then": "A tiny after-hours club at the heart of 1920s Black American jazz in Pigalle.",
+      "description": "A small cabaret on rue Pigalle where Black American musicians and entertainers gathered after their own shows. In 1924 the poet Langston Hughes worked here, as he recalled in The Big Sea, in the kitchen and waiting tables, often until dawn. On 11 May 1924 Ada 'Bricktop' Smith arrived from New York to replace Florence Jones as the club's singer: shocked by the tiny room, she burst into tears and was consoled by Hughes. The club is associated with Eugene Bullard, the first African American military aviator, who employed Bricktop there.",
+      "significance": "Le Grand Duc marks the jazz age in Paris twenty years before Saint-Germain's cellars: Black American artists finding in Pigalle a freedom denied them at home.",
+      "caveats": [
+        "Sources disagree on who owned the club: most name Eugene Bullard; one names Georges Jamerson as owner in 1924, with Bullard as manager.",
+        "Hughes's job is variously given as cook, waiter, dishwasher or busboy.",
+        "The street number (52) could not be re-checked against an accessible source."
+      ],
+      "status": {
+        "category": "closed",
+        "summary": "The cabaret is long gone; the present-day use of the address was not verified."
+      },
+      "sources": [
+        {
+          "title": "Ada 'Bricktop' Smith and American jazz in Montmartre",
+          "publisher": "Musical Geography",
+          "url": "https://musicalgeography.org/2016/06/17/ada-bricktop-smith-and-american-jazz-in-montmartre/",
+          "kind": "press"
+        },
+        {
+          "title": "Ada 'Bricktop' Smith",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ada_%22Bricktop%22_Smith",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "Eugene Bullard",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Eugene_Bullard",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "The Big Sea: 'Late Place' (Langston Hughes)",
+          "publisher": "Toronto Metropolitan University Pressbooks",
+          "url": "https://pressbooks.library.torontomu.ca/thebigsea/chapter/late-place/",
+          "kind": "book"
+        }
+      ],
+      "tags": [
+        "jazz age",
+        "Harlem",
+        "Black American musicians",
+        "after-hours",
+        "The Big Sea",
+        "Pigalle"
+      ]
+    },
+    {
+      "id": "musee-montmartre",
+      "name": "Musée de Montmartre (12 rue Cortot)",
+      "quarter": "montmartre-pigalle",
+      "address": {
+        "street": "12 rue Cortot",
+        "postcode": "75018",
+        "arrondissement": "18e"
+      },
+      "coordinates": {
+        "lat": 48.88805,
+        "lng": 2.34063,
+        "precision": "address",
+        "note": "Geocoded street address (OpenStreetMap)."
+      },
+      "movements": [
+        "montmartre-boheme"
+      ],
+      "periods": [
+        {
+          "start": 1912,
+          "end": 1926,
+          "label": "1912–1926",
+          "certainty": "approximate",
+          "note": "Suzanne Valadon, Maurice Utrillo and André Utter settled in the studio-apartment in 1912."
+        }
+      ],
+      "figures": [
+        {
+          "name": "Suzanne Valadon",
+          "role": "Painter"
+        },
+        {
+          "name": "Maurice Utrillo",
+          "role": "Painter"
+        },
+        {
+          "name": "André Utter",
+          "role": "Painter"
+        },
+        {
+          "name": "Pierre-Auguste Renoir",
+          "role": "Painter"
+        }
+      ],
+      "then": "Artists' studios where Renoir worked and Valadon, Utrillo and Utter lived and painted.",
+      "description": "Some of the oldest houses on the Butte, where Renoir had a studio in 1875–1876 while he painted the Bal du moulin de la Galette. In 1912 the painter Suzanne Valadon settled into a studio-apartment here with her son Maurice Utrillo and her partner André Utter. Their often stormy household was one of the last great artists' homes of old Montmartre.",
+      "significance": "A rare case where a bohemian address became the place that keeps Montmartre's memory, including the Chat Noir's posters and the cabaret culture of the Butte.",
+      "caveats": [
+        "The end date of Valadon's household here is approximate.",
+        "Renoir's studio dates are given as 1875–1876 or 1876."
+      ],
+      "status": {
+        "category": "repurposed",
+        "summary": "The Musée de Montmartre since 1960 (a Musée de France since 2003); Valadon's studio-apartment is restored and open to visitors."
+      },
+      "sources": [
+        {
+          "title": "Musée de Montmartre (official site)",
+          "publisher": "Musée de Montmartre",
+          "url": "https://www.museedemontmartre.fr/en",
+          "kind": "museum"
+        },
+        {
+          "title": "Musée de Montmartre",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Mus%C3%A9e_de_Montmartre",
+          "kind": "encyclopedia"
+        }
+      ],
+      "tags": [
+        "museum",
+        "studio",
+        "Valadon",
+        "Utrillo",
+        "Renoir",
+        "Bal du moulin de la Galette",
+        "gardens",
+        "Butte Montmartre"
+      ]
+    },
+    {
+      "id": "sylvia-beach",
+      "name": "Shakespeare and Company (Sylvia Beach)",
+      "quarter": "latin-quarter",
+      "address": {
+        "street": "12 rue de l'Odéon",
+        "postcode": "75006",
+        "arrondissement": "6e"
+      },
+      "coordinates": {
+        "lat": 48.850923,
+        "lng": 2.338595,
+        "precision": "address",
+        "note": "Geocoded street address (Base Adresse Nationale)."
+      },
+      "movements": [
+        "lost-generation",
+        "expatriates"
+      ],
+      "periods": [
+        {
+          "start": 1921,
+          "end": 1941,
+          "label": "1921–1941",
+          "certainty": "documented",
+          "note": "At this address from May 1921 until Sylvia Beach closed the shop in 1941."
+        }
+      ],
+      "figures": [
+        {
+          "name": "Sylvia Beach",
+          "role": "Bookseller, publisher"
+        },
+        {
+          "name": "James Joyce",
+          "role": "Novelist"
+        },
+        {
+          "name": "Adrienne Monnier",
+          "role": "Bookseller (no. 7)"
+        },
+        {
+          "name": "Ernest Hemingway",
+          "role": "Novelist"
+        }
+      ],
+      "then": "Sylvia Beach's English-language bookshop and lending library, publisher of Ulysses (1922).",
+      "description": "Sylvia Beach opened Shakespeare and Company at 8 rue Dupuytren in 1919 and moved it here in May 1921, across the street from Adrienne Monnier's bookshop at no. 7. When no one else would publish James Joyce's Ulysses, Beach did, in 1922, and the shop became the post office, library and meeting place of English-language writers in Paris. During the German occupation Beach was forced to close at the end of 1941. As an American citizen she was briefly interned.",
+      "significance": "The original of the name George Whitman later gave Le Mistral, and the hub of the interwar 'Lost Generation' on the Left Bank.",
+      "caveats": [
+        "Not the same as the present-day Shakespeare and Company on rue de la Bûcherie (see Le Mistral).",
+        "The story that Hemingway 'liberated' the shop in 1944 rests on a single source."
+      ],
+      "status": {
+        "category": "closed",
+        "summary": "The shop never reopened after 1941; a plaque at no. 12 recalls the publication of Ulysses."
+      },
+      "sources": [
+        {
+          "title": "Shakespeare and Company (1919–1941)",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Shakespeare_and_Company_(1919%E2%80%931941)",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "Sylvia Beach",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sylvia_Beach",
+          "kind": "encyclopedia"
+        }
+      ],
+      "tags": [
+        "bookshop",
+        "lending library",
+        "Ulysses",
+        "publishing",
+        "Odéon",
+        "Lost Generation",
+        "Occupation"
+      ]
+    },
+    {
+      "id": "joyce",
+      "name": "James Joyce at Valery Larbaud's flat",
+      "quarter": "latin-quarter",
+      "address": {
+        "street": "71 rue du Cardinal-Lemoine",
+        "postcode": "75005",
+        "arrondissement": "5e"
+      },
+      "coordinates": {
+        "lat": 48.845498,
+        "lng": 2.350311,
+        "precision": "address",
+        "note": "Geocoded street address (Base Adresse Nationale)."
+      },
+      "movements": [
+        "expatriates"
+      ],
+      "periods": [
+        {
+          "start": 1921,
+          "end": 1921,
+          "label": "1921",
+          "certainty": "documented",
+          "note": "Joyce stayed here from June to September 1921."
+        }
+      ],
+      "figures": [
+        {
+          "name": "James Joyce",
+          "role": "Novelist"
+        },
+        {
+          "name": "Valery Larbaud",
+          "role": "Writer, translator"
+        }
+      ],
+      "then": "The borrowed flat where Joyce worked on the last episodes of Ulysses.",
+      "description": "In the summer of 1921 the French writer Valery Larbaud lent James Joyce and his family his apartment, set back in a courtyard at 71 rue du Cardinal-Lemoine. Joyce worked here on the final episodes of Ulysses, which Sylvia Beach published in February 1922.",
+      "significance": "Within a few hundred metres, the same street housed Joyce in 1921 and Hemingway from 1922: a compact map of expatriate modernism.",
+      "caveats": [
+        "The claim that Joyce 'finished' Ulysses here is widely repeated but hedged in the sources.",
+        "One guide gives the number as 73."
+      ],
+      "status": {
+        "category": "private",
+        "summary": "Private residential building; a plaque recalls Joyce and Ulysses."
+      },
+      "sources": [
+        {
+          "title": "James Joyce at 71 rue du Cardinal-Lemoine",
+          "publisher": "BYU Studies",
+          "url": "https://byustudies.byu.edu/article/james-joyce-at-71-rue-du-cardinal-lemoine",
+          "kind": "press"
+        },
+        {
+          "title": "James Joyce in Paris: Following in the Author's Footsteps",
+          "publisher": "Bonjour Paris",
+          "url": "https://bonjourparis.com/history/james-joyce-paris/",
+          "kind": "press"
+        }
+      ],
+      "tags": [
+        "Ulysses",
+        "modernism",
+        "Irish",
+        "Valery Larbaud",
+        "Contrescarpe",
+        "Mouffetard"
+      ]
+    },
+    {
+      "id": "hemingway",
+      "name": "Hemingway's first Paris flat",
+      "quarter": "latin-quarter",
+      "address": {
+        "street": "74 rue du Cardinal-Lemoine",
+        "postcode": "75005",
+        "arrondissement": "5e"
+      },
+      "coordinates": {
+        "lat": 48.844846,
+        "lng": 2.349596,
+        "precision": "address",
+        "note": "Geocoded street address (OpenStreetMap)."
+      },
+      "movements": [
+        "lost-generation"
+      ],
+      "periods": [
+        {
+          "start": 1922,
+          "end": 1923,
+          "label": "1922–1923",
+          "certainty": "documented",
+          "note": "From January 1922 to August 1923."
+        }
+      ],
+      "figures": [
+        {
+          "name": "Ernest Hemingway",
+          "role": "Novelist"
+        },
+        {
+          "name": "Hadley Richardson",
+          "role": "Hemingway's first wife"
+        }
+      ],
+      "then": "The cheap flat where the young Hemingway lived and learned to write, 1922–1923.",
+      "description": "Ernest Hemingway and his first wife, Hadley, rented a small apartment here from January 1922 to August 1923, near the place de la Contrescarpe. These were the poor, formative years he later recalled in A Moveable Feast.",
+      "significance": "The modest start of the most mythologised American life in Paris, a few steps from Joyce's borrowed flat and Orwell's slum lodgings.",
+      "caveats": [
+        "The Hemingways arrived in Paris in December 1921 and first stayed in a hotel; the flat dates from January 1922."
+      ],
+      "status": {
+        "category": "private",
+        "summary": "Private residential building; a plaque marks Hemingway's flat."
+      },
+      "sources": [
+        {
+          "title": "Hemingway in Paris: a walking tour",
+          "publisher": "Paris Travel Planner",
+          "url": "https://francetravelplanner.com/go/paris/itin/walking_tours/hemingway_in_paris.html",
+          "kind": "press"
+        },
+        {
+          "title": "A Moveable Feast",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/A_Moveable_Feast",
+          "kind": "encyclopedia"
+        }
+      ],
+      "tags": [
+        "A Moveable Feast",
+        "Contrescarpe",
+        "Mouffetard",
+        "American",
+        "expatriate"
+      ]
+    },
+    {
+      "id": "orwell",
+      "name": "George Orwell's lodging house",
+      "quarter": "latin-quarter",
+      "address": {
+        "street": "6 rue du Pot-de-Fer",
+        "postcode": "75005",
+        "arrondissement": "5e"
+      },
+      "coordinates": {
+        "lat": 48.843083,
+        "lng": 2.349103,
+        "precision": "address",
+        "note": "Geocoded street address (Base Adresse Nationale)."
+      },
+      "movements": [
+        "expatriates"
+      ],
+      "periods": [
+        {
+          "start": 1928,
+          "end": 1929,
+          "label": "1928–1929",
+          "certainty": "approximate",
+          "note": "Orwell lived in Paris from 1928 to late 1929; his stay here is given as about 18 months."
+        }
+      ],
+      "figures": [
+        {
+          "name": "George Orwell",
+          "role": "Writer"
+        }
+      ],
+      "then": "A slum lodging house where Orwell lived in poverty and worked as a dishwasher.",
+      "description": "Eric Blair, not yet George Orwell, lodged in a cheap boarding house here while he wrote, fell ill, ran out of money and worked as a plongeur (dishwasher) in a Paris hotel kitchen. The street became the 'rue du Coq d'Or' of Down and Out in Paris and London (1933), and the lodging house its Hôtel des Trois Moineaux.",
+      "significance": "The literary underworld at its most literal: a reportage from below of the Paris that served the tourists.",
+      "caveats": [
+        "Sources name the real hotel differently (Hôtel des Trois Moineaux in the book; Hôtel des Bons Amis in one account).",
+        "No commemorative plaque was found in the sources consulted."
+      ],
+      "status": {
+        "category": "private",
+        "summary": "Private building, not open to the public; accounts differ on what occupies the ground floor."
+      },
+      "sources": [
+        {
+          "title": "George Orwell's Paris",
+          "publisher": "Bonjour Paris",
+          "url": "https://bonjourparis.com/books/george-orwells-paris/",
+          "kind": "press"
+        },
+        {
+          "title": "Down and Out in Paris and London",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Down_and_Out_in_Paris_and_London",
+          "kind": "encyclopedia"
+        }
+      ],
+      "tags": [
+        "Down and Out in Paris and London",
+        "poverty",
+        "plongeur",
+        "dishwasher",
+        "Mouffetard",
+        "rue du Coq d'Or"
+      ]
+    },
+    {
+      "id": "sorbonne-1968",
+      "name": "La Sorbonne, occupied",
+      "quarter": "latin-quarter",
+      "address": {
+        "street": "47 rue des Écoles",
+        "postcode": "75005",
+        "arrondissement": "5e"
+      },
+      "coordinates": {
+        "lat": 48.849594,
+        "lng": 2.344168,
+        "precision": "address",
+        "note": "Geocoded street address (OpenStreetMap)."
+      },
+      "movements": [
+        "may-1968",
+        "situationism"
+      ],
+      "periods": [
+        {
+          "start": 1968,
+          "end": 1968,
+          "label": "May–June 1968",
+          "certainty": "documented",
+          "note": "Occupied from 13 May until police evacuated it in mid-June 1968."
+        }
+      ],
+      "figures": [
+        {
+          "name": "René Viénet",
+          "role": "Situationist"
+        },
+        {
+          "name": "René Riesel",
+          "role": "Enragé"
+        }
+      ],
+      "then": "The occupied university, a round-the-clock assembly with Situationists on its occupation committee.",
+      "description": "Students occupied the Sorbonne on 13 May 1968, the day of the general strike that brought students and workers into the streets together. For a month the building became a permanent assembly, its walls covered in slogans. On 14 May the Enragés and Situationists formed a committee inside the occupied Sorbonne and joined the first Sorbonne Occupation Committee. On the evening of 17 May, supporters of the Sorbonne Occupation Committee founded the Council for Maintaining the Occupations.",
+      "significance": "The moment when the Lettrists' and Situationists' ideas, born in cafés like Chez Moineau and Le Tonneau d'Or, briefly took over a national institution.",
+      "caveats": [
+        "Sources agree on a mid-June evacuation; the exact date (16 June) was not confirmed by two sources."
+      ],
+      "status": {
+        "category": "operating",
+        "summary": "Still a university building, home to several Paris universities and their chancellery."
+      },
+      "sources": [
+        {
+          "title": "Sorbonne Occupation Committee",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sorbonne_Occupation_Committee",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "Chronology 1968",
+          "publisher": "Situationist International Online",
+          "url": "https://sionline.researche-editions.cddc.vt.edu/chronology/1968.html",
+          "kind": "archive"
+        },
+        {
+          "title": "May 1968 timeline",
+          "publisher": "Marxists Internet Archive",
+          "url": "https://www.marxists.org/history/france/may-1968/timeline.htm",
+          "kind": "archive"
+        }
+      ],
+      "tags": [
+        "May 68",
+        "occupation",
+        "students",
+        "Enragés",
+        "Situationists",
+        "general strike",
+        "university"
+      ]
+    },
+    {
+      "id": "gay-lussac-1968",
+      "name": "Rue Gay-Lussac: Night of the Barricades",
+      "quarter": "latin-quarter",
+      "address": {
+        "street": "rue Gay-Lussac",
+        "postcode": "75005",
+        "arrondissement": "5e",
+        "maps_query": "Rue Gay-Lussac, 75005 Paris"
+      },
+      "coordinates": {
+        "lat": 48.841918,
+        "lng": 2.343245,
+        "precision": "street",
+        "note": "Marker on the street; the barricades ran along much of its length."
+      },
+      "movements": [
+        "may-1968"
+      ],
+      "periods": [
+        {
+          "start": 1968,
+          "end": 1968,
+          "label": "10–11 May 1968",
+          "certainty": "documented",
+          "note": "The 'Night of the Barricades'."
+        }
+      ],
+      "figures": [],
+      "then": "The epicentre of the Night of the Barricades, 10–11 May 1968.",
+      "description": "On the night of 10–11 May 1968 students built dozens of barricades across the Latin Quarter, many of them on the broad Haussmannian rue Gay-Lussac. Riot police assaulted around sixty barricades before dawn, with hundreds of arrests and many injured. The violence of the night turned public opinion and led to the general strike of 13 May.",
+      "significance": "The night the Latin Quarter's long tradition of student revolt became a national crisis.",
+      "caveats": [],
+      "status": {
+        "category": "public",
+        "summary": "A quiet residential street today."
+      },
+      "sources": [
+        {
+          "title": "Paris, sur les traces de Mai 68",
+          "publisher": "Le Routard",
+          "url": "https://www.routard.com/fr/mag/dossier/a/paris-sur-les-traces-de-mai-68",
+          "kind": "press"
+        },
+        {
+          "title": "May 1968 timeline",
+          "publisher": "Marxists Internet Archive",
+          "url": "https://www.marxists.org/history/france/may-1968/timeline.htm",
+          "kind": "archive"
+        }
+      ],
+      "tags": [
+        "May 68",
+        "barricades",
+        "CRS",
+        "riot",
+        "students",
+        "Night of the Barricades"
+      ]
+    },
+    {
+      "id": "odeon-1968",
+      "name": "Théâtre de l'Odéon, occupied",
+      "quarter": "latin-quarter",
+      "address": {
+        "street": "Place de l'Odéon",
+        "postcode": "75006",
+        "arrondissement": "6e",
+        "maps_query": "Odéon-Théâtre de l'Europe, place de l'Odéon, 75006 Paris"
+      },
+      "coordinates": {
+        "lat": 48.849639,
+        "lng": 2.339073,
+        "precision": "building",
+        "note": "Marker on the theatre building."
+      },
+      "movements": [
+        "may-1968"
+      ],
+      "periods": [
+        {
+          "start": 1968,
+          "end": 1968,
+          "label": "May–June 1968",
+          "certainty": "documented",
+          "note": "Occupied from 15 May (some accounts say 14 May) until mid-June 1968."
+        }
+      ],
+      "figures": [
+        {
+          "name": "Jean-Louis Barrault",
+          "role": "Theatre director"
+        }
+      ],
+      "then": "A national theatre turned into a permanent public forum by artists, students and workers.",
+      "description": "In mid-May 1968 artists, theatre people, students and workers occupied the Odéon after a performance. They turned the national theatre into a round-the-clock open forum on popular theatre, creation in the consumer society and 'revolution through art'. The occupation lasted until mid-June.",
+      "significance": "The occupation of a theatre by its own public: the May 68 version of the cabaret's dream of abolishing the stage.",
+      "caveats": [
+        "Sources date the start of the occupation to 14 or 15 May."
+      ],
+      "status": {
+        "category": "operating",
+        "summary": "A working national theatre, the Odéon–Théâtre de l'Europe."
+      },
+      "sources": [
+        {
+          "title": "Occupy Odéon",
+          "publisher": "Marxists Internet Archive",
+          "url": "https://www.marxists.org/history/france/may-1968/occupy-odeon.htm",
+          "kind": "archive"
+        },
+        {
+          "title": "Paris, sur les traces de Mai 68",
+          "publisher": "Le Routard",
+          "url": "https://www.routard.com/fr/mag/dossier/a/paris-sur-les-traces-de-mai-68",
+          "kind": "press"
+        }
+      ],
+      "tags": [
+        "May 68",
+        "theatre",
+        "occupation",
+        "forum",
+        "Odéon"
+      ]
+    },
+    {
+      "id": "piaf-belleville",
+      "name": "Édith Piaf's legendary birthplace",
+      "quarter": "belleville",
+      "address": {
+        "street": "72 rue de Belleville",
+        "postcode": "75020",
+        "arrondissement": "20e"
+      },
+      "coordinates": {
+        "lat": 48.873495,
+        "lng": 2.383751,
+        "precision": "address",
+        "note": "Geocoded street address (Base Adresse Nationale)."
+      },
+      "movements": [
+        "chanson"
+      ],
+      "periods": [
+        {
+          "start": 1915,
+          "end": 1915,
+          "label": "1915",
+          "certainty": "documented",
+          "note": "Édith Piaf was born on 19 December 1915."
+        }
+      ],
+      "figures": [
+        {
+          "name": "Édith Piaf",
+          "role": "Singer"
+        }
+      ],
+      "then": "The doorstep where, according to legend, Édith Piaf was born in 1915.",
+      "description": "A plaque on this building says that Édith Giovanna Gassion, the future Édith Piaf, was born on its steps on 19 December 1915, delivered by her mother with the help of two policemen. Her birth certificate records a birth at the Hôpital Tenon, the hospital of the 20th arrondissement.",
+      "significance": "The legend fits the 'Môme Piaf' persona of a street singer born on the pavement of working-class Paris. The atlas keeps it as a case study in how myth attaches itself to an address.",
+      "caveats": [
+        "The doorstep birth is a legend; the civil register records the Hôpital Tenon. Her biographer Robert Belleret calls the plaque 'half a lie'."
+      ],
+      "status": {
+        "category": "private",
+        "summary": "Residential building; the plaque on the façade still repeats the doorstep legend."
+      },
+      "sources": [
+        {
+          "title": "Une balade sur les pas d'Édith Piaf",
+          "publisher": "Ville de Paris",
+          "url": "https://www.paris.fr/pages/une-balade-sur-les-pas-d-edith-piaf-18776",
+          "kind": "institution"
+        },
+        {
+          "title": "Édith Piaf, 100 ans et une voix qui vibre toujours",
+          "publisher": "RTBF",
+          "url": "https://www.rtbf.be/article/edith-piaf-100-ans-et-une-voix-qui-vibre-toujours-9161023",
+          "kind": "press"
+        }
+      ],
+      "tags": [
+        "Piaf",
+        "chanson réaliste",
+        "legend",
+        "plaque",
+        "Hôpital Tenon",
+        "Môme"
+      ]
+    },
+    {
+      "id": "rue-vilin",
+      "name": "Rue Vilin (Georges Perec's childhood)",
+      "quarter": "belleville",
+      "address": {
+        "street": "rue Vilin (now Parc de Belleville)",
+        "postcode": "75020",
+        "arrondissement": "20e",
+        "historical_note": "Perec was born at no. 24; the street's line is now the park's terraced paths.",
+        "maps_query": "Parc de Belleville, rue Piat, 75020 Paris"
+      },
+      "coordinates": {
+        "lat": 48.870341,
+        "lng": 2.383651,
+        "precision": "approximate",
+        "note": "Marker on the surviving stretch of rue Vilin inside the park; the original no. 24 was demolished."
+      },
+      "movements": [
+        "working-class-paris"
+      ],
+      "periods": [
+        {
+          "start": 1936,
+          "end": 1942,
+          "label": "1936–1942",
+          "certainty": "documented",
+          "note": "Perec's childhood at no. 24, until the family was separated in 1942."
+        }
+      ],
+      "figures": [
+        {
+          "name": "Georges Perec",
+          "role": "Writer (Oulipo)"
+        },
+        {
+          "name": "Willy Ronis",
+          "role": "Photographer"
+        }
+      ],
+      "then": "A steep working-class street where Perec's mother ran a hairdressing shop at no. 24.",
+      "description": "Georges Perec was born in 1936 and spent his first six years at 24 rue Vilin, where his mother ran a hairdressing salon, until the family was separated in 1942. His mother was later deported. The steep street, photographed by Willy Ronis and Robert Doisneau, was declared unsanitary and demolished from the late 1960s. Between 1969 and 1975 Perec returned again and again to describe it for his project Lieux, recording its disappearance house by house. The shop appears on the cover of W ou le souvenir d'enfance (1975).",
+      "significance": "Perec turned the destruction of a working-class street into literature about memory and absence, the most poignant 'then and now' in the atlas.",
+      "caveats": [],
+      "status": {
+        "category": "demolished",
+        "summary": "Demolished in the 1970s; the Parc de Belleville (1988) took its upper part, and a short path keeps the name."
+      },
+      "sources": [
+        {
+          "title": "En remontant la rue Vilin",
+          "publisher": "Ville de Paris",
+          "url": "https://www.paris.fr/evenements/en-remontant-la-rue-vilin-92716",
+          "kind": "institution"
+        },
+        {
+          "title": "Parc de Belleville",
+          "publisher": "Ville de Paris",
+          "url": "https://www.paris.fr/lieux/parc-de-belleville-1777",
+          "kind": "institution"
+        },
+        {
+          "title": "This is not the place: Perec, the Situationists and Belleville",
+          "publisher": "The White Review",
+          "url": "https://www.thewhitereview.org/feature/this-is-not-the-place-perec-the-situationists-and-belleville/",
+          "kind": "press"
+        },
+        {
+          "title": "Georges Perec: the house of his childhood in Belleville",
+          "publisher": "INA",
+          "url": "https://mediaclip.ina.fr/en/i22035566-georges-perec-the-house-of-his-childhood-in-belleville.html",
+          "kind": "archive"
+        }
+      ],
+      "tags": [
+        "Perec",
+        "Oulipo",
+        "W ou le souvenir d'enfance",
+        "Lieux",
+        "demolition",
+        "slum clearance",
+        "Parc de Belleville",
+        "memory"
+      ]
+    },
+    {
+      "id": "ronis-belvedere",
+      "name": "Belleville heights (Willy Ronis)",
+      "quarter": "belleville",
+      "address": {
+        "street": "27 rue Piat (Belvédère Willy-Ronis)",
+        "postcode": "75020",
+        "arrondissement": "20e",
+        "maps_query": "Belvédère Willy-Ronis, 27 rue Piat, 75020 Paris"
+      },
+      "coordinates": {
+        "lat": 48.871582,
+        "lng": 2.385321,
+        "precision": "building",
+        "note": "Marker on the Belvédère Willy-Ronis viewpoint at the top of the park."
+      },
+      "movements": [
+        "working-class-paris"
+      ],
+      "periods": [
+        {
+          "start": 1947,
+          "end": 1954,
+          "label": "1947–1954",
+          "certainty": "documented",
+          "note": "Ronis first photographed the area in 1947; Belleville-Ménilmontant was published in 1954."
+        }
+      ],
+      "figures": [
+        {
+          "name": "Willy Ronis",
+          "role": "Photographer"
+        }
+      ],
+      "then": "The hillside streets Willy Ronis photographed for Belleville-Ménilmontant (1954).",
+      "description": "Willy Ronis first came to Belleville in 1947, drawn by a district where time seemed to stand still, and photographed its streets, rue Vilin among them, over the following years. The pictures were published in 1954 as Belleville-Ménilmontant (Arthaud) and reissued in 1984, 1989 and 1999. Much of what they show was demolished in the slum clearances that followed. The viewpoint at the top of the Parc de Belleville was named after him in 2015.",
+      "significance": "Ronis's book is now the main visual record of the Belleville that slum clearance erased, and its viewpoint looks out over the redevelopment that replaced it.",
+      "caveats": [
+        "The City of Paris dates the naming of the viewpoint to 2015; a press invitation suggests the ceremony took place in 2020."
+      ],
+      "status": {
+        "category": "public",
+        "summary": "A public viewpoint at the top of the Parc de Belleville (opened 1988), named after Ronis, with a panorama over Paris."
+      },
+      "sources": [
+        {
+          "title": "Parc de Belleville",
+          "publisher": "Ville de Paris",
+          "url": "https://www.paris.fr/lieux/parc-de-belleville-1777",
+          "kind": "institution"
+        },
+        {
+          "title": "Willy Ronis",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Willy_Ronis",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "A bygone Paris: on Belleville and Willy Ronis",
+          "publisher": "Youssef Youssef (Substack)",
+          "url": "https://youssefyoussef.substack.com/p/a-bygone-paris-on-belleville-and",
+          "kind": "press"
+        }
+      ],
+      "tags": [
+        "photography",
+        "humanist photography",
+        "Belleville-Ménilmontant",
+        "viewpoint",
+        "panorama",
+        "Parc de Belleville"
+      ]
+    },
+    {
+      "id": "bellevilloise",
+      "name": "La Bellevilloise",
+      "quarter": "menilmontant",
+      "address": {
+        "street": "19–21 rue Boyer",
+        "postcode": "75020",
+        "arrondissement": "20e",
+        "maps_query": "La Bellevilloise, 19 rue Boyer, 75020 Paris"
+      },
+      "coordinates": {
+        "lat": 48.868282,
+        "lng": 2.392217,
+        "precision": "address",
+        "note": "Geocoded street address (Base Adresse Nationale)."
+      },
+      "movements": [
+        "working-class-paris"
+      ],
+      "periods": [
+        {
+          "start": 1877,
+          "end": 1949,
+          "label": "1877–1949",
+          "certainty": "approximate",
+          "note": "Founded in 1877; at the heart of eastern Paris's cooperative and cultural life until 1949."
+        }
+      ],
+      "figures": [
+        {
+          "name": "Emmanuel Chaine",
+          "role": "Architect"
+        }
+      ],
+      "then": "Paris's first workers' cooperative, with shops, a Maison du Peuple and a cultural programme.",
+      "description": "Founded in 1877, in the aftermath of the Commune, as the first cooperative in Paris, La Bellevilloise sold goods 'from producer to consumer'. It also offered working families political education, lectures, music and theatre. Its building at no. 19 went up in 1908–1910, and an extension named the Maison du Peuple at no. 25 was built in 1925–1927. The cooperative shaped the economic and cultural life of eastern Paris until 1949.",
+      "significance": "The organised, collective counterpart to the bohemian underground: a culture made by and for the working class of the eastern hills.",
+      "caveats": [
+        "The founding history comes mainly from venue and tourism sources rather than scholarly histories."
+      ],
+      "status": {
+        "category": "repurposed",
+        "summary": "An independent arts, concert and restaurant venue since the mid-2000s."
+      },
+      "sources": [
+        {
+          "title": "La Bellevilloise",
+          "publisher": "Seine-Saint-Denis Tourisme",
+          "url": "https://uk.tourisme93.com/la-bellevilloise.html",
+          "kind": "institution"
+        },
+        {
+          "title": "La Bellevilloise",
+          "publisher": "Wikipédia (français)",
+          "url": "https://fr.wikipedia.org/wiki/La_Bellevilloise",
+          "kind": "encyclopedia"
+        }
+      ],
+      "tags": [
+        "cooperative",
+        "Maison du Peuple",
+        "workers",
+        "socialism",
+        "concert venue",
+        "Commune"
+      ]
+    },
+    {
+      "id": "chevalier",
+      "name": "Maurice Chevalier's birthplace",
+      "quarter": "menilmontant",
+      "address": {
+        "street": "rue du Retrait (no. 27 or 29)",
+        "postcode": "75020",
+        "arrondissement": "20e",
+        "maps_query": "29 rue du Retrait, 75020 Paris"
+      },
+      "coordinates": {
+        "lat": 48.86883,
+        "lng": 2.393907,
+        "precision": "street",
+        "note": "Marker between nos. 27 and 29, the two numbers given by sources."
+      },
+      "movements": [
+        "chanson"
+      ],
+      "periods": [
+        {
+          "start": 1888,
+          "end": 1888,
+          "label": "1888",
+          "certainty": "documented",
+          "note": "Born on 12 September 1888."
+        }
+      ],
+      "figures": [
+        {
+          "name": "Maurice Chevalier",
+          "role": "Singer, actor"
+        }
+      ],
+      "then": "The street where Maurice Chevalier was born into a family of Ménilmontant workers.",
+      "description": "Maurice Chevalier was born on rue du Retrait on 12 September 1888, the son of a house painter and a lace-maker. The family soon moved to nearby rue Julien-Lacroix. He started out singing in the cafés-concerts of eastern Paris before becoming the archetypal Parisian entertainer of the music hall and of Hollywood.",
+      "significance": "Ménilmontant's most famous son: the working-class street kid who became the international image of the Parisian.",
+      "caveats": [
+        "Sources give the house number as 27 or 29; no plaque was found in the sources consulted."
+      ],
+      "status": {
+        "category": "unknown",
+        "summary": "The exact house is disputed; no. 29 is reported to house a day nursery."
+      },
+      "sources": [
+        {
+          "title": "12 September in Paris: the birth of Maurice Chevalier in Ménilmontant",
+          "publisher": "Sortir à Paris",
+          "url": "https://www.sortiraparis.com/en/what-to-visit-in-paris/history-heritage/articles/351391-ephemeris-for-september-12-in-paris-the-birth-of-maurice-chevalier-in-menilmontant",
+          "kind": "press"
+        },
+        {
+          "title": "Maurice Chevalier",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Maurice_Chevalier",
+          "kind": "encyclopedia"
+        }
+      ],
+      "tags": [
+        "music hall",
+        "café-concert",
+        "Hollywood",
+        "Ménilmontant"
+      ]
+    },
+    {
+      "id": "pere-lachaise",
+      "name": "Père-Lachaise cemetery",
+      "quarter": "menilmontant",
+      "address": {
+        "street": "Boulevard de Ménilmontant (main entrance)",
+        "postcode": "75020",
+        "arrondissement": "20e",
+        "maps_query": "Cimetière du Père-Lachaise, 75020 Paris"
+      },
+      "coordinates": {
+        "lat": 48.86113,
+        "lng": 2.394009,
+        "precision": "approximate",
+        "note": "Marker at the centre of the cemetery; the main entrance is on boulevard de Ménilmontant."
+      },
+      "movements": [
+        "expatriates",
+        "chanson",
+        "montmartre-boheme"
+      ],
+      "periods": [
+        {
+          "start": 1909,
+          "end": 1914,
+          "label": "1909–1914",
+          "certainty": "documented",
+          "note": "Oscar Wilde's remains moved here in 1909; Jacob Epstein's tomb was unveiled in 1914."
+        },
+        {
+          "start": 1918,
+          "end": 1920,
+          "label": "1918–1920",
+          "certainty": "documented",
+          "note": "Guillaume Apollinaire buried in 1918, Amedeo Modigliani in 1920."
+        },
+        {
+          "start": 1946,
+          "end": 1946,
+          "label": "1946",
+          "certainty": "documented",
+          "note": "Gertrude Stein buried."
+        },
+        {
+          "start": 1960,
+          "end": 1963,
+          "label": "1960–1963",
+          "certainty": "documented",
+          "note": "Richard Wright (1960) and Édith Piaf (1963)."
+        }
+      ],
+      "figures": [
+        {
+          "name": "Oscar Wilde",
+          "role": "Writer"
+        },
+        {
+          "name": "Guillaume Apollinaire",
+          "role": "Poet"
+        },
+        {
+          "name": "Amedeo Modigliani",
+          "role": "Painter"
+        },
+        {
+          "name": "Gertrude Stein",
+          "role": "Writer"
+        },
+        {
+          "name": "Richard Wright",
+          "role": "Novelist"
+        },
+        {
+          "name": "Édith Piaf",
+          "role": "Singer"
+        }
+      ],
+      "then": "Where the writers, painters and singers of underground Paris were buried, from Wilde to Piaf.",
+      "description": "The literary underworld's final address. Oscar Wilde, who died in Paris in 1900, was moved here from Bagneux in 1909, and Jacob Epstein's sculpted tomb caused a scandal before it was unveiled in 1914. Apollinaire, who coined the word 'surrealism', was buried here in 1918, and Modigliani in 1920. Gertrude Stein followed in 1946, Richard Wright, the American novelist of Paris exile, in 1960, and Édith Piaf in 1963.",
+      "significance": "A map of the atlas in miniature: bohemian Montmartre, the expatriates and the chanson of the eastern districts lie a few paths apart.",
+      "caveats": [
+        "Wilde's tomb reached the cemetery in 1912 and was kept covered until 1914."
+      ],
+      "status": {
+        "category": "operating",
+        "summary": "Still an active cemetery, often described as the most visited in the world; Wilde's tomb has been behind a glass screen since 2011."
+      },
+      "sources": [
+        {
+          "title": "Oscar Wilde's tomb",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Oscar_Wilde%27s_tomb",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "Père Lachaise Cemetery",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/P%C3%A8re_Lachaise_Cemetery",
+          "kind": "encyclopedia"
+        }
+      ],
+      "tags": [
+        "cemetery",
+        "graves",
+        "Wilde",
+        "Apollinaire",
+        "Modigliani",
+        "Stein",
+        "Richard Wright",
+        "Piaf",
+        "Commune"
+      ]
+    },
+    {
+      "id": "catacombs",
+      "name": "The Catacombs of Paris",
+      "quarter": "denfert-rochereau",
+      "address": {
+        "street": "1 avenue du Colonel Henri Rol-Tanguy",
+        "postcode": "75014",
+        "arrondissement": "14e"
+      },
+      "coordinates": {
+        "lat": 48.833744,
+        "lng": 2.332292,
+        "precision": "building",
+        "note": "Marker at the visitors' entrance, beside the eastern Ledoux pavilion."
+      },
+      "movements": [
+        "catacombs"
+      ],
+      "periods": [
+        {
+          "start": 1897,
+          "end": 1897,
+          "label": "1897",
+          "certainty": "documented",
+          "note": "A clandestine concert on the night of 1–2 April 1897."
+        }
+      ],
+      "figures": [],
+      "then": "The municipal ossuary in old limestone quarries, scene of a clandestine midnight concert in 1897.",
+      "description": "The Catacombs occupy part of the old limestone quarries under southern Paris, into which the remains of millions of Parisians were moved from the city's cemeteries. On the night of 1–2 April 1897 a clandestine concert was held in the ossuary, with guests entering through rue Dareau from 11 pm. Around forty or fifty musicians played among the bones, and a Le Figaro journalist reported on the evening on 4 April.",
+      "significance": "Paris underground in the literal sense, and a fin-de-siècle taste for the macabre shared with Montmartre's cabarets.",
+      "caveats": [
+        "Accounts give 40 to 50 musicians; that Saint-Saëns's Danse macabre was played is often repeated but not confirmed by a primary source here."
+      ],
+      "status": {
+        "category": "operating",
+        "summary": "Open to the public as a Paris Musées site; the visit descends into the ossuary galleries."
+      },
+      "sources": [
+        {
+          "title": "1 lieu, 3 histoires : les catacombes",
+          "publisher": "Ville de Paris",
+          "url": "https://www.paris.fr/pages/1-lieu-3-histoires-les-catacombes-34819",
+          "kind": "institution"
+        },
+        {
+          "title": "Music in the Catacombs",
+          "publisher": "Musical Geography",
+          "url": "https://musicalgeography.org/2015/06/19/music-in-the-catacombs",
+          "kind": "press"
+        },
+        {
+          "title": "Paris insolite : un concert clandestin au cœur des Catacombes",
+          "publisher": "Paris Zigzag",
+          "url": "https://www.pariszigzag.fr/?p=85421",
+          "kind": "press"
+        }
+      ],
+      "tags": [
+        "ossuary",
+        "quarries",
+        "bones",
+        "underground",
+        "concert",
+        "macabre",
+        "Barrière d'Enfer"
+      ]
+    },
+    {
+      "id": "liberation-post",
+      "name": "Colonel Rol-Tanguy's command post",
+      "quarter": "denfert-rochereau",
+      "address": {
+        "street": "4 avenue du Colonel Henri Rol-Tanguy",
+        "postcode": "75014",
+        "arrondissement": "14e"
+      },
+      "coordinates": {
+        "lat": 48.834111,
+        "lng": 2.331722,
+        "precision": "building",
+        "note": "Marker on the western Ledoux pavilion; the shelter lies about 20 m below the square."
+      },
+      "movements": [
+        "resistance"
+      ],
+      "periods": [
+        {
+          "start": 1944,
+          "end": 1944,
+          "label": "August 1944",
+          "certainty": "documented",
+          "note": "Rol-Tanguy's command post from 20 August 1944 until the Liberation of Paris on 25 August."
+        }
+      ],
+      "figures": [
+        {
+          "name": "Henri Rol-Tanguy",
+          "role": "Commander of the FFI in Île-de-France"
+        }
+      ],
+      "then": "A secret air-raid shelter 20 m underground where the Paris insurrection was directed in August 1944.",
+      "description": "Built in 1938–1939 as an air-raid shelter for the city's technical services and hardly used until then, this bunker beneath place Denfert-Rochereau became, on 20 August 1944, the command post of Colonel Henri Rol-Tanguy. As commander of the French Forces of the Interior (FFI) in Île-de-France, he directed the popular uprising from here, using the city's telephone and tunnel networks, until Paris was liberated on 25 August.",
+      "significance": "The Resistance as a literal underground: an insurrection directed from below the streets.",
+      "caveats": [],
+      "status": {
+        "category": "repurposed",
+        "summary": "Since 25 August 2019 part of the Musée de la Libération de Paris – musée du Général Leclerc – musée Jean Moulin; visitors descend about 100 steps to the shelter."
+      },
+      "sources": [
+        {
+          "title": "5 things to know about the liberation of Paris",
+          "publisher": "Paris Musées",
+          "url": "https://parismusees.paris.fr/en/news/5-things-to-know-about-the-liberation-of-paris",
+          "kind": "museum"
+        },
+        {
+          "title": "Dans les coulisses du musée de la Libération de Paris",
+          "publisher": "Ville de Paris",
+          "url": "https://www.paris.fr/pages/dans-les-coulisses-du-nouveau-musee-de-la-liberation-de-paris-6493",
+          "kind": "institution"
+        }
+      ],
+      "tags": [
+        "Resistance",
+        "FFI",
+        "Liberation",
+        "bunker",
+        "shelter",
+        "1944",
+        "museum",
+        "underground"
+      ]
     }
   ]
 }

@@ -20,7 +20,7 @@ Precision = Literal["address", "building", "street", "approximate"]
 Certainty = Literal["documented", "approximate"]
 # Present-day status of the site, kept separate from its historical period.
 StatusCategory = Literal[
-    "operating", "closed", "demolished", "repurposed", "rebuilt", "private", "unknown"
+    "operating", "closed", "demolished", "repurposed", "rebuilt", "private", "public", "unknown"
 ]
 SourceKind = Literal["museum", "institution", "archive", "encyclopedia", "venue", "press", "book"]
 
@@ -50,6 +50,8 @@ class Address(Strict):
     arrondissement: str
     city: str = "Paris"
     historical_note: str | None = None
+    # Search text for Google Maps when `street` is not a plain postal address.
+    maps_query: str | None = None
 
     @property
     def full(self) -> str:
@@ -97,17 +99,32 @@ class Source(Strict):
 class Location(Strict):
     id: Slug
     name: str
+    quarter: Slug
     address: Address
     coordinates: Coordinates
     movements: list[Slug] = Field(min_length=1)
     periods: list[Period] = Field(min_length=1)
     figures: list[Figure] = Field(default_factory=list)
+    # One-line summary of the place in its period, shown opposite `status` ("today").
+    then: str = Field(min_length=20, max_length=160)
     description: str = Field(min_length=40)
     significance: str
     caveats: list[str] = Field(default_factory=list)
     status: Status
     sources: list[Source] = Field(min_length=1)
     tags: list[str] = Field(default_factory=list)
+
+
+class Quarter(Strict):
+    """A historic district, with a then-and-now overview."""
+
+    id: Slug
+    name: str
+    arrondissements: str
+    label_position: tuple[float, float]
+    then: str = Field(min_length=80)
+    now: str = Field(min_length=80)
+    sources: list[Source] = Field(min_length=1)
 
 
 class Group(Strict):
@@ -171,6 +188,11 @@ class MovementsFile(Strict):
     schema_version: Literal[1]
     groups: list[Group]
     movements: list[Movement]
+
+
+class QuartersFile(Strict):
+    schema_version: Literal[1]
+    quarters: list[Quarter]
 
 
 class ItinerariesFile(Strict):

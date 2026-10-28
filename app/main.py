@@ -105,6 +105,7 @@ def create_app(settings: Settings | None = None, router: WalkingRouter | None = 
             "routing": {"enabled": router.enabled, "max_stops": MAX_ROUTE_STOPS},
             "groups": store.groups_payload(),
             "movements": [m.model_dump() for m in store.movements],
+            "quarters": store.quarters_payload(),
             "locations": store.locations_payload(),
             "itineraries": [i.model_dump() for i in store.itineraries],
         }
@@ -126,6 +127,10 @@ def create_app(settings: Settings | None = None, router: WalkingRouter | None = 
             "groups": store.groups_payload(),
             "movements": [m.model_dump() for m in store.movements],
         }
+
+    @app.get("/api/quarters", tags=["atlas"])
+    async def quarters() -> list[dict[str, Any]]:
+        return store.quarters_payload()
 
     @app.get("/api/itineraries", tags=["atlas"])
     async def itineraries() -> list[dict[str, Any]]:

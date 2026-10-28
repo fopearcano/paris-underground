@@ -8,11 +8,13 @@ const TILE_TIMEOUT_MS = 12000;
 const TILE_FAILURE_THRESHOLD = 4;
 // Clustering stops at FOCUS_ZOOM, so a focused marker is always drawn on its own.
 const FOCUS_ZOOM = 17;
+// Quarter labels are an overview aid: hidden once the map is zoomed in close.
+const QUARTER_LABEL_MAX_ZOOM = 15;
 
 /**
  * @returns {object|null} the map API, or null if Leaflet itself failed to load.
  */
-export function createAtlasMap({ container, atlas, onSelect, onTileStatus, getOverlays }) {
+export function createAtlasMap({ container, atlas, onSelect, onSelectQuarter, onTileStatus, getOverlays }) {
   const L = window.L;
   if (!L) return null;
   const cfg = atlas.map;
@@ -168,6 +170,34 @@ export function createAtlasMap({ container, atlas, onSelect, onTileStatus, getOv
     el.setAttribute('aria-label', `${loc.number}. ${loc.name} — ${loc.periodLabel}`);
   }
 
+  // ---- Quarter labels ------------------------------------------------------
+
+  map.createPane('quarterPane');
+  map.getPane('quarterPane').style.zIndex = 450; // above route lines (400), below markers (600)
+  const quarterLabels = new Map();
+  for (const quarter of atlas.activeQuarters) {
+    const label = L.marker(quarter.label_position, { pane: 'quarterPane', icon: quarterIcon(L, quarter, quarter.count, false), keyboard: true });
+    label._puKey = `${quarter.count}|false`;
+    label.on('click', () => onSelectQuarter(quarter.id));
+    label.on('keypress', (event) => {
+      if (!isActivationKey(event.originalEvent)) return;
+      L.DomEvent.preventDefault(event.originalEvent);
+      onSelectQuarter(quarter.id);
+    });
+    label.on('add', () => labelQuarter(label, quarter, quarter.count));
+    label.addTo(map);
+    quarterLabels.set(quarter.id, { label, quarter });
+  }
+  function labelQuarter(label, quarter, count) {
+    const el = label.getElement();
+    if (!el) return;
+    el.dataset.quarter = quarter.id;
+    el.setAttribute('aria-label', `${quarter.name} quarter: ${count} ${count === 1 ? 'place' : 'places'}. Show it then and now.`);
+  }
+  const syncQuarterLabels = () => container.classList.toggle('hide-quarters', map.getZoom() > QUARTER_LABEL_MAX_ZOOM);
+  map.on('zoomend', syncQuarterLabels);
+  syncQuarterLabels();
+
   // ---- Routes --------------------------------------------------------------
 
   const routeLayer = L.layerGroup().addTo(map);
@@ -251,6 +281,18 @@ export function createAtlasMap({ container, atlas, onSelect, onTileStatus, getOv
       }
     },
 
+    /** Highlight the active quarter and show each quarter's count under the other filters. */
+    updateQuarters(activeId, counts) {
+      for (const { label, quarter } of quarterLabels.values()) {
+        const count = counts[quarter.id] ?? 0;
+        const key = `${count}|${quarter.id === activeId}`;
+        if (key === label._puKey) continue;
+        label._puKey = key;
+        label.setIcon(quarterIcon(L, quarter, count, quarter.id === activeId));
+        labelQuarter(label, quarter, count);
+      }
+    },
+
     focusLocation(id, { animate = true } = {}) {
       const marker = markers.get(id);
       if (!marker) return;
@@ -305,6 +347,17 @@ export function createAtlasMap({ container, atlas, onSelect, onTileStatus, getOv
     markerFor: (id) => markers.get(id),
   };
   return api;
+}
+
+function quarterIcon(L, quarter, count, active) {
+  const classes = ['pu-quarter'];
+  if (active) classes.push('is-active');
+  if (count === 0) classes.push('is-empty');
+  return L.divIcon({
+    className: classes.join(' '),
+    html: `<span class="pq-inner"><span class="pq-name">${escapeHTML(quarter.name)}</span><span class="pq-count">${count}</span></span>`,
+    iconSize: null,
+  });
 }
 
 function isActivationKey(event) {

@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "quarters": [
+    {
+      "id": "montmartre-pigalle",
+      "name": "Montmartre & Pigalle",
+      "arrondissements": "9e · 18e",
+      "label_position": [
+        48.8893,
+        2.317
+      ],
+      "then": "A hilltop village of windmills and vineyards until Paris annexed it in 1860, Montmartre offered cheap rents just outside the old city. From the 1880s its slopes and the boulevards below filled with artistic cabarets (Le Chat Noir, Le Mirliton, the Lapin Agile), dance halls such as the Moulin Rouge (1889), and ramshackle studios like the Bateau-Lavoir. In the 1920s rue Pigalle became a centre of Black American jazz, with clubs such as Le Grand Duc. After the Liberation, Allied soldiers nicknamed the red-light district 'Pig Alley'.",
+      "now": "The hilltop is one of the most visited parts of Paris. The Moulin Rouge and the Lapin Agile still perform, and the Musée de Montmartre occupies former studios. Other sites are gone or rebuilt: the Bateau-Lavoir was rebuilt after a 1970 fire, and La Nouvelle Athènes burned down in 2004. Below the hill, many of Pigalle's sex shops have given way to bars, boutiques and hotels, in an area now marketed as 'SoPi' (South Pigalle).",
+      "sources": [
+        {
+          "title": "Pigalle, Paris",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pigalle,_Paris",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "Montmartre",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Montmartre",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "La Nouvelle Athènes",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/La_Nouvelle_Ath%C3%A8nes",
+          "kind": "encyclopedia"
+        }
+      ]
+    },
+    {
+      "id": "latin-quarter",
+      "name": "Latin Quarter",
+      "arrondissements": "5e · 6e",
+      "label_position": [
+        48.8455,
+        2.369
+      ],
+      "then": "Named after the Latin once spoken by its students, the quarter around the Sorbonne mixed lecture halls, cheap hotels and bookshops. Between the wars it sheltered expatriate writers: Joyce finishing Ulysses, Hemingway's first flat, Orwell's poverty on rue du Pot-de-Fer, and Sylvia Beach publishing Ulysses on rue de l'Odéon. After 1945 came cellar jazz on rue de la Huchette, the Beats at Saint-Michel and the Situationists' bar on the Montagne Sainte-Geneviève. In May 1968 its streets were barricaded, and the Sorbonne and the Odéon theatre were occupied.",
+      "now": "It is still a university district, but rents and tourism have reshaped it, and the bookshops that defined it are thinning. Gibert Jeune closed its four shops on place Saint-Michel in 2021, after 135 years; one of the sites is due to become a burger restaurant. Shakespeare and Company and the Caveau de la Huchette survive, and the barricaded streets of 1968 are quiet residential streets again.",
+      "sources": [
+        {
+          "title": "Latin Quarter, Paris",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Latin_Quarter,_Paris",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "L'ancienne librairie historique Gibert Jeune remplacée par des burgers",
+          "publisher": "ActuaLitté",
+          "url": "https://actualitte.com/article/131906/librairie/l-ancienne-librairie-historique-gibert-jeune-remplacee-par-des-burgers",
+          "kind": "press"
+        },
+        {
+          "title": "Paris, sur les traces de Mai 68",
+          "publisher": "Le Routard",
+          "url": "https://www.routard.com/fr/mag/dossier/a/paris-sur-les-traces-de-mai-68",
+          "kind": "press"
+        }
+      ]
+    },
+    {
+      "id": "saint-germain",
+      "name": "Saint-Germain-des-Prés",
+      "arrondissements": "6e",
+      "label_position": [
+        48.8606,
+        2.3205
+      ],
+      "then": "After the Liberation, Saint-Germain-des-Prés became the stage of 'existentialist' Paris. Sartre and Beauvoir held court at the Flore and the Deux Magots, while Boris Vian's trumpet and Juliette Gréco filled the cellars of Le Tabou and the Club Saint-Germain. In cheaper bars such as Chez Moineau, the young Lettrists drank with Left Bank drifters.",
+      "now": "The two great cafés still trade on their literary past, but the cellars have closed. Le Tabou's building is now the Hôtel d'Aubusson, the Club Saint-Germain's site later housed Le Bilboquet, and Chez Moineau is gone.",
+      "sources": [
+        {
+          "title": "Balade dans le Paris enjazzé de Boris Vian",
+          "publisher": "Ville de Paris",
+          "url": "https://www.paris.fr/pages/balade-dans-le-paris-enjazze-de-boris-vian-19064",
+          "kind": "institution"
+        },
+        {
+          "title": "Le Tabou",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Le_Tabou",
+          "kind": "encyclopedia"
+        }
+      ]
+    },
+    {
+      "id": "belleville",
+      "name": "Belleville",
+      "arrondissements": "19e · 20e",
+      "label_position": [
+        48.879,
+        2.378
+      ],
+      "then": "A village of vineyards annexed to Paris in 1860, Belleville filled with workers displaced by Haussmann's rebuilding and became a stronghold of the 1871 Commune. Immigrant communities followed in waves: Central European Jews and Spaniards in the 1930s, North Africans after the war. Legend set Édith Piaf's birth on a Belleville doorstep, and Georges Perec spent his childhood on rue Vilin. From 1947 Willy Ronis photographed its streets, rue Vilin among them, for Belleville-Ménilmontant (1954).",
+      "now": "Slum clearance from the 1960s onwards demolished much of the old hillside, including rue Vilin. Its line is now the Parc de Belleville (1988), whose viewpoint bears Willy Ronis's name. Belleville has been home to one of Paris's Chinatowns since the 1980s, artists have taken over former workshops since the 1990s, and walls such as rue Dénoyez carry ever-changing street art.",
+      "sources": [
+        {
+          "title": "Belleville, Paris",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Belleville,_Paris",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "Parc de Belleville",
+          "publisher": "Ville de Paris",
+          "url": "https://www.paris.fr/lieux/parc-de-belleville-1777",
+          "kind": "institution"
+        },
+        {
+          "title": "Willy Ronis",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Willy_Ronis",
+          "kind": "encyclopedia"
+        }
+      ]
+    },
+    {
+      "id": "menilmontant",
+      "name": "Ménilmontant",
+      "arrondissements": "20e",
+      "label_position": [
+        48.8628,
+        2.4045
+      ],
+      "then": "Ménilmontant was a hilltop hamlet of the commune of Belleville, annexed with it in 1860. It grew into a working-class and immigrant district and was a hotbed of radicalism during the Commune, whose last fighting ended in Père-Lachaise cemetery. Maurice Chevalier was born here in 1888. La Bellevilloise, founded in 1877 as Paris's first cooperative, gave the district shops, a Maison du Peuple and a cultural life. Charles Trenet sang the district's name in his song 'Ménilmontant'.",
+      "now": "Old factory and cooperative buildings have become concert venues, La Bellevilloise among them. Rue de Ménilmontant climbs past bars towards cobbled streets of artists' studios. Père-Lachaise, on the district's southern edge, is often described as the most visited cemetery in the world.",
+      "sources": [
+        {
+          "title": "Ménilmontant",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/M%C3%A9nilmontant",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "La Bellevilloise",
+          "publisher": "Seine-Saint-Denis Tourisme",
+          "url": "https://uk.tourisme93.com/la-bellevilloise.html",
+          "kind": "institution"
+        }
+      ]
+    },
+    {
+      "id": "denfert-rochereau",
+      "name": "Denfert-Rochereau",
+      "arrondissements": "14e",
+      "label_position": [
+        48.8288,
+        2.3205
+      ],
+      "then": "The square grew up around the Barrière d'Enfer, a toll gate in the Farmers-General wall flanked by two pavilions by Claude-Nicolas Ledoux. Beneath it lie old limestone quarries, part of which became the municipal ossuary, the Catacombs. In 1879 the square was renamed after Colonel Denfert-Rochereau, defender of Belfort, and in 1880 it received Bartholdi's Lion of Belfort. In 1897 the Catacombs hosted a clandestine midnight concert. In August 1944 Colonel Rol-Tanguy directed the Paris insurrection from a shelter 20 metres below the square.",
+      "now": "The Catacombs are a museum run by Paris Musées. Since 25 August 2019 the western Ledoux pavilion has housed the Musée de la Libération de Paris, from which visitors descend about 100 steps to Rol-Tanguy's command post.",
+      "sources": [
+        {
+          "title": "1 lieu, 3 histoires : la place Denfert-Rochereau",
+          "publisher": "Ville de Paris",
+          "url": "https://www.paris.fr/pages/1-lieu-3-histoires-la-place-denfert-rochereau-33149",
+          "kind": "institution"
+        },
+        {
+          "title": "Place Denfert-Rochereau",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Place_Denfert-Rochereau",
+          "kind": "encyclopedia"
+        }
+      ]
+    }
+  ]
+}

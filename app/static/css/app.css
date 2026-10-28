@@ -184,8 +184,8 @@ html:not([data-ready]) .sidebar { transition: none !important; }
 
 .tabs { display: flex; gap: 2px; padding: 0 13px; border-bottom: 1px solid var(--line); background: var(--panel); }
 .tab {
-  position: relative; display: inline-flex; align-items: center; gap: 7px;
-  padding: 11px 8px 10px; border: 0; background: none;
+  position: relative; display: inline-flex; align-items: center; gap: 6px;
+  padding: 11px 7px 10px; border: 0; background: none;
   color: var(--text-2); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
 }
 .tab:hover { color: var(--text); }
@@ -199,7 +199,10 @@ html:not([data-ready]) .sidebar { transition: none !important; }
 
 /* ---------- Location list ---------- */
 
-.panel { flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #444 var(--panel); }
+/* Header, filters, tabs and lists scroll as one column; the tabs stay pinned. */
+.sidebar-scroll { flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #444 var(--panel); }
+.tabs { position: sticky; top: 0; z-index: 2; }
+.place, .quarter-overview { scroll-margin-top: 52px; }
 .listing { padding: 6px 13px 22px; }
 .listing-meta {
   display: flex; align-items: center; justify-content: space-between;
@@ -300,6 +303,79 @@ html:not([data-ready]) .sidebar { transition: none !important; }
 .route-actions .primary:hover { background: var(--accent-hi); }
 .route-note { margin-top: 16px; color: var(--text-3); font-size: 10px; line-height: 1.6; }
 .route-note a { color: var(--text-2); }
+
+/* ---------- Quarters: overview, cards, then & today ---------- */
+
+.tn-label {
+  display: inline-block; margin-bottom: 5px;
+  color: var(--text-2); font-size: 9.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+}
+.tn-label--now { color: var(--accent); }
+
+.quarter-overview {
+  margin: 8px 6px 4px; padding: 14px 14px 12px;
+  background: var(--panel); border: 1px solid var(--line); border-left: 2px solid var(--accent); border-radius: var(--radius);
+}
+.q-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.q-kicker { color: var(--text-2); font-size: 9.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.q-title { margin: 3px 0 0; font: 700 19px/1.1 var(--font-display); letter-spacing: -.03em; text-transform: uppercase; }
+.q-then-now { display: grid; gap: 10px; margin-top: 12px; }
+.q-col p {
+  margin: 0; color: #DCDFD8; font-size: 11.5px; line-height: 1.6;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden;
+}
+.quarter-overview.is-expanded .q-col p { display: block; -webkit-line-clamp: unset; }
+.q-foot { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 12px; margin-top: 8px; }
+.q-more { font-size: 10px; }
+.q-sources { margin: 0; color: var(--text-3); font-size: 10px; }
+.q-sources a { color: var(--text-2); }
+.q-sources a:hover { color: var(--accent); }
+
+.quarters-panel { padding: 12px 13px 22px; }
+.quarters-intro { margin: 2px 8px 12px; color: var(--text-2); font-size: 11.5px; line-height: 1.55; }
+.quarter-cards { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.quarter-card {
+  display: flex; flex-direction: column; gap: 5px; width: 100%; padding: 12px 13px;
+  background: transparent; border: 1px solid var(--line); border-radius: var(--radius); text-align: left;
+  transition: background .15s, border-color .15s;
+}
+.quarter-card:hover { background: #1B1E1D; border-color: var(--line-2); }
+.quarter-card[aria-pressed="true"] { background: #25251C; border-color: #5A5431; }
+.qc-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.qc-name { font: 700 15px/1.2 var(--font-display); }
+.qc-count { color: var(--accent); font-size: 10px; font-weight: 700; white-space: nowrap; }
+.qc-arr { color: var(--text-3); font-size: 10px; letter-spacing: .08em; }
+.qc-line { color: #C9CDC8; font-size: 11px; line-height: 1.5; }
+.qc-line strong { color: var(--text-2); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+
+.then-now {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 16px;
+  border: 1px solid var(--line); border-radius: 7px; overflow: hidden;
+}
+.then-now .tn-col { padding: 11px 12px 12px; }
+.then-now .tn-col + .tn-col { border-left: 1px solid var(--line); background: rgba(242, 211, 91, .045); }
+.then-now p { margin: 6px 0 0; color: #E0E3DC; font-size: 11.5px; line-height: 1.55; }
+.then-now .tn-col:first-child p { margin-top: 0; }
+
+.quarter-chip {
+  margin-top: 10px; padding: 5px 9px;
+  background: transparent; border: 1px solid var(--line-2); border-radius: 12px;
+  color: var(--text); font-size: 10.5px; font-weight: 600;
+}
+.quarter-chip:hover { border-color: var(--accent); color: var(--accent); }
+
+.more-walks { margin-top: 18px; }
+.more-walks h3 { margin: 0 0 8px; color: var(--text-2); font-size: 9.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.more-walks--start { margin-top: 14px; }
+.more-walks ul { display: grid; gap: 7px; margin: 0; padding: 0; list-style: none; }
+.more-walks button {
+  display: flex; flex-direction: column; gap: 3px; width: 100%; padding: 10px 12px;
+  background: transparent; border: 1px solid var(--line); border-radius: 6px; text-align: left;
+}
+.more-walks button:hover { border-color: var(--accent); background: #22231B; }
+.more-walks strong { font: 700 13px/1.25 var(--font-display); }
+.more-walks span { color: var(--text-2); font-size: 10.5px; line-height: 1.45; }
+.more-walks--start button:first-child strong { color: var(--accent); }
 
 /* ---------- Map area ---------- */
 
@@ -549,6 +625,28 @@ html:not([data-ready]) .sidebar { transition: none !important; }
 .pin-tooltip strong { display: block; font: 700 12px var(--font-display); }
 .pin-tooltip span { color: var(--text-2); font-size: 10px; }
 .leaflet-tooltip-top.pin-tooltip::before { border-top-color: #55594D; }
+
+/* Quarter labels: clickable district names over the map at city scale. */
+.pu-quarter { width: 0 !important; height: 0 !important; background: none; border: 0; }
+.pu-quarter:focus-visible { outline: none; }
+.pq-inner {
+  position: absolute; left: 0; top: 0; transform: translate(-50%, -50%);
+  display: inline-flex; align-items: center; gap: 7px; padding: 5px 9px 5px 11px; white-space: nowrap;
+  background: rgba(11, 13, 14, .78); border: 1px solid rgba(242, 211, 91, .45); border-radius: 14px;
+  color: var(--text); font: 700 10px/1 var(--font-display); letter-spacing: .14em; text-transform: uppercase;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .5); cursor: pointer; transition: border-color .15s, background .15s;
+}
+.pq-count {
+  min-width: 16px; padding: 2px 4px; border-radius: 8px; background: var(--accent-soft);
+  color: var(--accent); font-size: 9px; letter-spacing: 0; text-align: center;
+}
+.pu-quarter:hover .pq-inner, .pu-quarter:focus-visible .pq-inner { border-color: var(--accent); background: rgba(11, 13, 14, .92); }
+.pu-quarter.is-active .pq-inner { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.pu-quarter.is-active .pq-count { background: rgba(21, 22, 12, .15); color: var(--accent-ink); }
+.pu-quarter.is-empty .pq-inner { opacity: .45; }
+.map.is-street .pq-inner { background: rgba(255, 255, 255, .9); color: #17180E; border-color: rgba(23, 24, 14, .35); }
+.map.is-street .pu-quarter.is-active .pq-inner { background: var(--accent); }
+.map.hide-quarters .leaflet-quarterPane-pane { display: none; }
 
 .route-line { pointer-events: none; }
 

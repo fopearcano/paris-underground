@@ -3,7 +3,7 @@
 import { PRECISION_LABELS, STATUS_LABELS } from './atlas.js';
 import { $, h, googleMapsSearchUrl } from './utils.js';
 
-export function initDetail({ atlas, store, onClose, onToggleRoute }) {
+export function initDetail({ atlas, onClose, onToggleRoute, onSelectQuarter }) {
   const panel = $('#detail');
   const mapArea = $('#map-area');
   let renderedId = null;
@@ -29,7 +29,26 @@ export function initDetail({ atlas, store, onClose, onToggleRoute }) {
       h('h2', { id: 'detail-title', tabindex: '-1' }, loc.name),
       h('div', { class: 'detail-addr' },
         `${address.street}, Paris ${address.arrondissement}`,
-        address.historical_note ? h('small', {}, address.historical_note) : null));
+        address.historical_note ? h('small', {}, address.historical_note) : null),
+      loc.quarterInfo
+        ? h('button', {
+            type: 'button',
+            class: 'quarter-chip',
+            id: 'detail-quarter',
+            title: `Show the ${loc.quarterInfo.name} quarter, then and now`,
+            onclick: () => onSelectQuarter(loc.quarter),
+          }, `Quarter: ${loc.quarterInfo.name} →`)
+        : null);
+
+    // The place in its period beside what stands there today.
+    const thenNow = h('section', { class: 'then-now', 'aria-label': 'Then and today' },
+      h('div', { class: 'tn-col' },
+        h('span', { class: 'tn-label' }, `Then · ${loc.periodLabel}`),
+        h('p', {}, loc.then)),
+      h('div', { class: 'tn-col' },
+        h('span', { class: 'tn-label tn-label--now' }, 'Today'),
+        h('span', { class: `status status--${loc.status.category}` }, STATUS_LABELS[loc.status.category]),
+        h('p', {}, loc.status.summary)));
 
     const facts = h('dl', { class: 'facts' },
       h('div', {}, h('dt', {}, loc.movements.length > 1 ? 'Movements' : 'Movement'), h('dd', {}, loc.movementLabels.join(', '))),
@@ -43,14 +62,13 @@ export function initDetail({ atlas, store, onClose, onToggleRoute }) {
 
     const body = h('div', { class: 'detail-body' },
       facts,
+      thenNow,
       section('Historical record', { kind: 'documented', text: 'Documented', title: 'Supported by the sources listed below' },
         h('p', {}, loc.description)),
       loc.figures.length
         ? section('Associated figures', null, h('ul', { class: 'figures' },
           loc.figures.map((f) => h('li', {}, h('strong', {}, f.name), h('span', {}, f.role)))))
         : null,
-      h('div', { class: 'today' }, section('Today', null,
-        h('p', {}, h('span', { class: `status status--${loc.status.category}` }, STATUS_LABELS[loc.status.category]), loc.status.summary))),
       h('div', { class: 'detail-context' }, section('Significance', { kind: 'interpretation', text: 'Interpretation', title: 'Editorial context, not a documented fact' },
         h('p', {}, loc.significance))),
       evidence.length ? section('Dates & evidence', null, h('div', { class: 'caveats' }, h('ul', {}, evidence))) : null,

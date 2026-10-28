@@ -83,7 +83,8 @@ export function plural(n, word, pluralWord = `${word}s`) {
 
 /** "9 rue Gît-le-Cœur, 75006 Paris, France" — used for Google Maps queries. */
 export function mapsQuery(loc) {
-  return `${loc.address.street}, ${loc.address.postcode} ${loc.address.city}, France`;
+  const { maps_query: query, street, postcode, city } = loc.address;
+  return `${query ?? `${street}, ${postcode} ${city}`}, France`;
 }
 
 export function googleMapsSearchUrl(loc) {

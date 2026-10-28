@@ -15,7 +15,7 @@
       "short_label": "Jazz / Existentialism",
       "color": "#C5D8EC",
       "order": 2,
-      "description": "The cellars, clubs and cafés of post-Liberation Saint-Germain-des-Prés and the Latin Quarter."
+      "description": "Jazz in Paris, from the 1920s clubs of rue Pigalle to the post-Liberation cellars and cafés of Saint-Germain-des-Prés and the Latin Quarter."
     },
     {
       "id": "lettrist-situationist",
@@ -39,45 +39,134 @@
       "short_label": "Bohème",
       "color": "#B7DDA9",
       "order": 5,
-      "description": "Cabarets, cheap studios and artists' Montmartre, from the 1880s to the First World War."
+      "description": "Cabarets, dance halls, cheap studios and artists' cafés of Montmartre and Pigalle, from the 1880s to the 1920s."
+    },
+    {
+      "id": "popular-paris",
+      "label": "Chanson & Popular Paris",
+      "short_label": "Popular Paris",
+      "color": "#F2A7C9",
+      "order": 6,
+      "description": "Working-class eastern Paris: chanson, cooperatives and the streets of Belleville and Ménilmontant."
+    },
+    {
+      "id": "lost-generation",
+      "label": "Lost Generation & Expatriates",
+      "short_label": "Expatriates",
+      "color": "#8FD3C8",
+      "order": 7,
+      "description": "English-language writers in interwar Paris: the Lost Generation and fellow expatriates."
+    },
+    {
+      "id": "subterranean",
+      "label": "Subterranean Paris",
+      "short_label": "Subterranean",
+      "color": "#C9BFAE",
+      "order": 8,
+      "description": "Paris underground in the literal sense: the quarries and ossuary beneath Denfert-Rochereau and the 1944 Resistance command post."
+    },
+    {
+      "id": "may-1968",
+      "label": "May 1968",
+      "short_label": "May '68",
+      "color": "#E8665E",
+      "order": 9,
+      "description": "The student revolt and occupations of May–June 1968 in the Latin Quarter."
     },
     {
       "id": "nineteenth-century",
       "label": "Nineteenth-century literary Paris",
       "short_label": "19th century",
       "color": "#E7B98A",
-      "order": 6,
+      "order": 10,
       "description": "Reserved for future entries: Baudelaire, Rimbaud, Verlaine and the Symbolists and Decadents. Hidden until a location uses it."
+    }
+  ],
+  "movements": [
+    {
+      "id": "beat-generation",
+      "label": "Beat Generation",
+      "group": "beat"
+    },
+    {
+      "id": "jazz",
+      "label": "Jazz",
+      "group": "jazz-existentialism"
+    },
+    {
+      "id": "existentialism",
+      "label": "Existentialism",
+      "group": "jazz-existentialism"
+    },
+    {
+      "id": "lettrism",
+      "label": "Lettrist International",
+      "group": "lettrist-situationist"
+    },
+    {
+      "id": "situationism",
+      "label": "Situationist International",
+      "group": "lettrist-situationist"
+    },
+    {
+      "id": "surrealism",
+      "label": "Surrealism",
+      "group": "surrealism"
+    },
+    {
+      "id": "dada",
+      "label": "Dada",
+      "group": "surrealism"
+    },
+    {
+      "id": "montmartre-boheme",
+      "label": "Montmartre Bohème",
+      "group": "montmartre-boheme"
+    },
+    {
+      "id": "cubism",
+      "label": "Cubism",
+      "group": "montmartre-boheme"
+    },
+    {
+      "id": "symbolism",
+      "label": "Symbolists & Decadents",
+      "group": "nineteenth-century"
+    },
+    {
+      "id": "chanson",
+      "label": "Chanson & music hall",
+      "group": "popular-paris"
+    },
+    {
+      "id": "working-class-paris",
+      "label": "Working-class Paris",
+      "group": "popular-paris"
     },
     {
       "id": "lost-generation",
       "label": "Lost Generation",
-      "short_label": "Lost Generation",
-      "color": "#8FD3C8",
-      "order": 7,
-      "description": "Reserved for future entries: expatriate American writers of the 1920s and 1930s. Hidden until a location uses it."
+      "group": "lost-generation"
+    },
+    {
+      "id": "expatriates",
+      "label": "Expatriate writers",
+      "group": "lost-generation"
+    },
+    {
+      "id": "catacombs",
+      "label": "Catacombs & quarries",
+      "group": "subterranean"
+    },
+    {
+      "id": "resistance",
+      "label": "Resistance & Liberation",
+      "group": "subterranean"
     },
     {
       "id": "may-1968",
       "label": "May 1968",
-      "short_label": "May '68",
-      "color": "#F28BB0",
-      "order": 8,
-      "description": "Reserved for future entries: the student occupations and general strike of May–June 1968. Hidden until a location uses it."
+      "group": "may-1968"
     }
-  ],
-  "movements": [
-    { "id": "beat-generation", "label": "Beat Generation", "group": "beat" },
-    { "id": "jazz", "label": "Jazz", "group": "jazz-existentialism" },
-    { "id": "existentialism", "label": "Existentialism", "group": "jazz-existentialism" },
-    { "id": "lettrism", "label": "Lettrist International", "group": "lettrist-situationist" },
-    { "id": "situationism", "label": "Situationist International", "group": "lettrist-situationist" },
-    { "id": "surrealism", "label": "Surrealism", "group": "surrealism" },
-    { "id": "dada", "label": "Dada", "group": "surrealism" },
-    { "id": "montmartre-boheme", "label": "Montmartre Bohème", "group": "montmartre-boheme" },
-    { "id": "cubism", "label": "Cubism", "group": "montmartre-boheme" },
-    { "id": "symbolism", "label": "Symbolists & Decadents", "group": "nineteenth-century" },
-    { "id": "lost-generation", "label": "Lost Generation", "group": "lost-generation" },
-    { "id": "may-1968", "label": "May 1968", "group": "may-1968" }
   ]
 }

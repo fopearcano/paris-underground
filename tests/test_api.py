@@ -77,23 +77,28 @@ def test_default_tile_url_is_standard_osm():
 def test_health(client):
     body = client.get("/api/health").json()
     assert body["status"] == "ok"
-    assert body["locations"] == 12
+    assert body["locations"] == 33
 
 
 def test_atlas_bundle(client):
     body = client.get("/api/atlas").json()
-    assert len(body["locations"]) == 12
+    assert len(body["locations"]) == 33
     assert body["timeline"]["start"] == 1881 and body["timeline"]["end"] == 1968
     assert body["map"]["tile_url"].startswith("https://tile.openstreetmap.org/")
     assert "OpenStreetMap" in body["map"]["tile_attribution"]
     assert body["routing"] == {"enabled": True, "max_stops": 11}
     numbers = [loc["number"] for loc in body["locations"]]
-    assert numbers == list(range(1, 13))
+    assert numbers == list(range(1, 34))
     beat = body["locations"][0]
     assert beat["groups"] == ["beat"]
     assert beat["address"]["full"] == "9 rue Gît-le-Cœur, 75006 Paris"
     active = [g["id"] for g in body["groups"] if g["count"]]
-    assert active == ["beat", "jazz-existentialism", "lettrist-situationist", "surrealism", "montmartre-boheme"]
+    assert active == ["beat", "jazz-existentialism", "lettrist-situationist", "surrealism", "montmartre-boheme",
+                      "popular-paris", "lost-generation", "subterranean", "may-1968"]
+    assert {q["id"]: q["count"] for q in body["quarters"]} == {
+        "montmartre-pigalle": 9, "latin-quarter": 11, "saint-germain": 5,
+        "belleville": 3, "menilmontant": 3, "denfert-rochereau": 2}
+    assert all(loc["quarter"] and loc["then"] for loc in body["locations"])
 
 
 def test_single_location(client):
@@ -103,7 +108,15 @@ def test_single_location(client):
     assert client.get("/api/locations/nowhere").status_code == 404
 
 
+def test_quarters(client):
+    quarters = client.get("/api/quarters").json()
+    belleville = next(q for q in quarters if q["id"] == "belleville")
+    assert belleville["name"] == "Belleville" and belleville["count"] == 3
+    assert "Willy Ronis" in belleville["then"] and "Parc de Belleville" in belleville["now"]
+
+
 def test_movements_and_itineraries(client):
-    assert len(client.get("/api/movements").json()["groups"]) == 8
+    assert len(client.get("/api/movements").json()["groups"]) == 10
     walks = client.get("/api/itineraries").json()
-    assert walks[0]["id"] == "left-bank" and len(walks[0]["stops"]) == 9
+    assert [w["id"] for w in walks] == ["left-bank", "montmartre-pigalle", "latin-quarter-1968", "belleville-menilmontant"]
+    assert walks[0]["stops"] == ["tonneau", "mistral", "caveau", "beat-hotel", "tabou", "magots", "flore", "club-sg", "moineau"]

@@ -1,6 +1,6 @@
 // Entry point: loads the atlas data and wires the modules together through one store.
 
-import { createStore, loadAtlas, visibleLocations } from './atlas.js';
+import { createStore, loadAtlas, quarterCounts, visibleLocations } from './atlas.js';
 import { initDetail } from './detail.js';
 import { createAtlasMap } from './map.js';
 import { initRoute, restoredRoute, routeDrawing } from './route.js';
@@ -32,6 +32,7 @@ async function boot() {
 
   const store = createStore({
     group: 'all',
+    quarter: 'all',
     query: '',
     year: null,
     selectedId: null,
@@ -46,8 +47,8 @@ async function boot() {
 
   // ---- Modules ----
 
-  const sidebar = initSidebar({ atlas, store, onSelect: select, onToggleSidebar: toggleSidebar });
-  const detail = initDetail({ atlas, store, onClose: () => select(null), onToggleRoute: (id) => route.toggleStop(id) });
+  const sidebar = initSidebar({ atlas, store, onSelect: select, onSelectQuarter: selectQuarter, onToggleSidebar: toggleSidebar });
+  const detail = initDetail({ atlas, onClose: () => select(null), onToggleRoute: (id) => route.toggleStop(id), onSelectQuarter: selectQuarter });
   const timeline = initTimeline({ atlas, store });
   const route = initRoute({ atlas, store, onSelect: select, onFit: fitRoute });
 
@@ -56,6 +57,7 @@ async function boot() {
     container: mapContainer,
     atlas,
     onSelect: select,
+    onSelectQuarter: selectQuarter,
     onTileStatus: (tiles) => store.set({ tiles }),
     getOverlays: overlayRects,
   });
@@ -78,17 +80,15 @@ async function boot() {
   function select(id, { source = 'code' } = {}) {
     if (!id) {
       store.set({ selectedId: null });
-      setHash(null);
       return;
     }
     const loc = atlas.locationsById.get(id);
     if (!loc) return;
     // A place opened from the route or a link may be hidden by filters: reveal it.
     if (!visibleLocations(atlas, store.get()).some((l) => l.id === id)) {
-      store.set({ group: 'all', query: '', year: null });
+      store.set({ group: 'all', quarter: 'all', query: '', year: null });
     }
     store.set({ selectedId: id });
-    setHash(id);
     announce(`${loc.name}, ${loc.periodLabel}. Details opened.`);
     if (isCompactLayout() && source !== 'map') toggleSidebar(false, { restoreFocus: false });
     mapApi?.focusLocation(id);
@@ -96,10 +96,20 @@ async function boot() {
     if (source === 'map') detail.focusTitle();
   }
 
-  function toggleSidebar(open, { restoreFocus = true } = {}) {
+  /** Filter to one quarter ('all' for the whole city) and show its then/today overview. */
+  function selectQuarter(id) {
+    if (id !== 'all' && !atlas.quartersById.has(id)) return;
+    store.set({ quarter: id, tab: 'atlas', fitRequest: Date.now() });
+    if (id === 'all') return;
+    announce(`${atlas.quartersById.get(id).name}: then and today.`);
+    if (!store.get().sidebarOpen) toggleSidebar(true, { focus: false });
+    sidebar.revealOverview();
+  }
+
+  function toggleSidebar(open, { restoreFocus = true, focus = true } = {}) {
     store.set({ sidebarOpen: open });
     if (!isCompactLayout()) return;
-    if (open) $('#sidebar-close').focus();
+    if (open && focus) $('#sidebar-close').focus();
     else if (restoreFocus) $('#sidebar-toggle').focus();
   }
 
@@ -111,15 +121,20 @@ async function boot() {
     mapApi.fitLatLngs(latlngs);
   }
 
-  function setHash(id) {
-    const target = id ? `#place=${encodeURIComponent(id)}` : '';
+  /** Shareable URL: #place=… for an open place, otherwise #quarter=… for a quarter. */
+  function syncHash(state) {
+    const target = state.selectedId ? `#place=${state.selectedId}` : state.quarter !== 'all' ? `#quarter=${state.quarter}` : '';
     if (window.location.hash === target) return;
     history.replaceState(null, '', target || window.location.pathname + window.location.search);
   }
 
-  function hashPlace() {
-    const match = /^#place=([a-z0-9-]+)$/.exec(window.location.hash);
-    return match && atlas.locationsById.has(match[1]) ? match[1] : null;
+  function parseHash() {
+    const match = /^#(place|quarter)=([a-z0-9-]+)$/.exec(window.location.hash);
+    if (!match) return {};
+    const [, kind, id] = match;
+    if (kind === 'place' && atlas.locationsById.has(id)) return { place: id };
+    if (kind === 'quarter' && atlas.quartersById.has(id)) return { quarter: id };
+    return {};
   }
 
   // ---- Static controls ----
@@ -147,8 +162,9 @@ async function boot() {
     store.set({ sidebarOpen: !event.matches });
   });
   window.addEventListener('hashchange', () => {
-    const id = hashPlace();
-    if (id && id !== store.get().selectedId) select(id, { source: 'link' });
+    const { place, quarter } = parseHash();
+    if (place && place !== store.get().selectedId) select(place, { source: 'link' });
+    else if (quarter && quarter !== store.get().quarter) selectQuarter(quarter);
   });
 
   // ---- Rendering ----
@@ -183,7 +199,8 @@ async function boot() {
 
     sidebar.render(state, changed, visible);
     if (has('selectedId', 'route')) detail.render(state);
-    if (has('group', 'query', 'year')) timeline.render(state, visible);
+    if (has('group', 'quarter', 'query', 'year')) timeline.render(state, visible);
+    if (has('selectedId', 'quarter')) syncHash(state);
     if (has('route', 'tab')) route.render(state);
     if (has('tiles')) renderTiles(state.tiles);
     if (has('basemap')) {
@@ -197,15 +214,15 @@ async function boot() {
 
     if (state.selectedId && !visibleIds.has(state.selectedId)) {
       // A filter hid the selected place: close its panel once this render is complete.
-      setHash(null);
       store.set({ selectedId: null });
     }
   }
 
   function renderMap(state, changed, has, visibleIds) {
-    if (has('group', 'query', 'year', 'selectedId', 'route')) {
+    if (has('group', 'quarter', 'query', 'year', 'selectedId', 'route')) {
       mapApi.update({ visibleIds, selectedId: state.selectedId, year: state.year, routeStops: state.route.stops });
     }
+    if (has('group', 'quarter', 'query', 'year')) mapApi.updateQuarters(state.quarter, quarterCounts(atlas, state));
     if (has('basemap')) mapApi.setBasemap(state.basemap);
     if (has('route')) {
       const drawing = routeDrawing(state.route);
@@ -215,14 +232,16 @@ async function boot() {
     if (changed?.has('routeFitRequest')) fitRoute();
   }
 
+  // Read any #place= / #quarter= link before the first render rewrites the URL.
+  const initial = parseHash();
   store.subscribe(render);
   render(store.get(), null);
 
   // ---- Initial view ----
 
   mapApi?.fitVisible({ animate: false });
-  const initial = hashPlace();
-  if (initial) select(initial, { source: 'link' });
+  if (initial.place) select(initial.place, { source: 'link' });
+  else if (initial.quarter) selectQuarter(initial.quarter);
   route.resume();
 
   // Test and debugging hook (read-only use).

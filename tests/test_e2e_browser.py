@@ -10,11 +10,14 @@ from __future__ import annotations
 
 import hashlib
 import io
+import json
 import math
 import time
 from urllib.parse import urlsplit
 
 import pytest
+
+from app.config import DATA_DIR
 
 pytestmark = pytest.mark.e2e
 
@@ -24,7 +27,8 @@ PLACEHOLDER_TILES = {
     "b02c44252dac5a5e820ecef1e9bf9200e9407c042df668a466a1aa81a9ecca7a": "OpenStreetMap 'Access blocked' tile",
 }
 
-ALL_IDS = ["beat-hotel", "mistral", "moineau", "tonneau", "tabou", "club-sg", "caveau", "flore", "magots", "breton", "bateau", "chat-noir"]
+ALL_IDS = [loc["id"] for loc in json.loads((DATA_DIR / "locations.json").read_text(encoding="utf-8"))["locations"]]
+TOTAL = len(ALL_IDS)
 LEFT_BANK_WALK = ["tonneau", "mistral", "caveau", "beat-hotel", "tabou", "magots", "flore", "club-sg", "moineau"]
 
 
@@ -165,7 +169,7 @@ def test_page_loads_over_http_without_errors(page, base_url):
     assert page.title().startswith("PARIS UNDERGROUND")
     assert page.inner_text("h1.wordmark").split() == ["PARIS", "UNDER", "GROUND."]
     assert page.eval_on_selector("h1.wordmark span", "e => getComputedStyle(e).color") == "rgb(242, 211, 91)"
-    assert page.inner_text("#metric-locations") == "12"
+    assert page.inner_text("#metric-locations") == str(TOTAL)
     page.wait_for_timeout(1500)
     # Only this server and the OSM tile server: no CDN, no font service, no keyed basemap.
     assert hosts <= {urlsplit(base_url).hostname, "tile.openstreetmap.org"}, hosts
@@ -221,8 +225,8 @@ def test_fallback_when_tiles_are_blocked(page, base_url):
     assert "tile.openstreetmap.org" in page.inner_text("#map-fallback-text")
     assert page.locator("#map-area.tiles-down").count() == 1
     # Markers, list and details keep working without a basemap.
-    wait_markers(page, 12)
-    assert len(list_ids(page)) == 12
+    wait_markers(page, TOTAL)
+    assert len(list_ids(page)) == TOTAL
     page.click(".place[data-id='breton']")
     assert page.text_content("#detail-title") == "André Breton’s studio"
 
@@ -232,9 +236,9 @@ def test_fallback_when_tiles_are_blocked(page, base_url):
 # ---------------------------------------------------------------------------
 
 
-def test_all_twelve_markers_display_at_their_coordinates(page, base_url):
+def test_all_markers_display_at_their_coordinates(page, base_url):
     open_atlas(page, base_url)
-    wait_markers(page, 12)
+    wait_markers(page, TOTAL)
     locations = page.evaluate("window.__atlas.atlas.locations.map((l) => ({ id: l.id, ...l.coordinates }))")
     assert [loc["id"] for loc in locations] == ALL_IDS
     map_box = page.locator("#map").bounding_box()
@@ -276,10 +280,18 @@ def test_sidebar_selection_centres_map_and_opens_details(page, base_url):
 
 def test_keyboard_marker_activation_and_escape(page, base_url):
     open_atlas(page, base_url)
-    page.focus(".leaflet-marker-icon[data-id='breton']")
+    # Enter on a cluster zooms into it.
+    zoom = page.evaluate("window.__atlas.map.getZoom()")
+    page.focus(".leaflet-marker-pane .pu-cluster")
+    page.keyboard.press("Enter")
+    wait_map_settled(page)
+    assert page.evaluate("window.__atlas.map.getZoom()") > zoom
+    # Enter on a pin opens its details.
+    page.evaluate("window.__atlas.mapApi.fitVisible({ animate: false })")
+    page.focus(".leaflet-marker-icon[data-id='pere-lachaise']")
     page.keyboard.press("Enter")
     page.wait_for_selector("#detail:not([hidden])")
-    assert page.text_content("#detail-title") == "André Breton’s studio"
+    assert page.text_content("#detail-title") == "Père-Lachaise cemetery"
     page.keyboard.press("Escape")
     assert page.locator("#detail").is_hidden()
     page.keyboard.press("/")
@@ -300,10 +312,14 @@ def test_deep_link_opens_a_place(page, base_url):
     "group,expected",
     [
         ("beat", ["beat-hotel", "mistral"]),
-        ("jazz-existentialism", ["tabou", "club-sg", "caveau", "flore", "magots"]),
-        ("lettrist-situationist", ["moineau", "tonneau"]),
+        ("jazz-existentialism", ["tabou", "club-sg", "caveau", "flore", "magots", "grand-duc"]),
+        ("lettrist-situationist", ["moineau", "tonneau", "sorbonne-1968"]),
         ("surrealism", ["breton"]),
-        ("montmartre-boheme", ["bateau", "chat-noir"]),
+        ("montmartre-boheme", ["bateau", "chat-noir", "mirliton", "lapin-agile", "moulin-rouge", "nouvelle-athenes", "musee-montmartre", "pere-lachaise"]),
+        ("popular-paris", ["mirliton", "piaf-belleville", "rue-vilin", "ronis-belvedere", "bellevilloise", "chevalier", "pere-lachaise"]),
+        ("lost-generation", ["sylvia-beach", "joyce", "hemingway", "orwell", "pere-lachaise"]),
+        ("subterranean", ["catacombs", "liberation-post"]),
+        ("may-1968", ["sorbonne-1968", "gay-lussac-1968", "odeon-1968"]),
     ],
 )
 def test_movement_filters(page, base_url, group, expected):
@@ -311,7 +327,7 @@ def test_movement_filters(page, base_url, group, expected):
     page.click(f".pill[data-group='{group}']")
     assert shown_ids(page) == expected
     assert page.get_attribute(f".pill[data-group='{group}']", "aria-pressed") == "true"
-    assert page.text_content("#result-count") == f"{len(expected)} of 12 locations"
+    assert page.text_content("#result-count") == f"{len(expected)} of {TOTAL} locations"
     wait_map_settled(page)
     wait_markers(page, len(expected))
     page.click("#clear-filters")
@@ -335,7 +351,8 @@ def test_filtering_out_the_selected_place_closes_its_panel(page, base_url):
 def test_filter_pill_labels(page, base_url):
     open_atlas(page, base_url)
     labels = page.eval_on_selector_all(".pill .pill-label", "els => els.map((e) => e.textContent)")
-    assert labels == ["All", "Beat Generation", "Jazz & Existentialism", "Lettrists & Situationists", "Surrealism", "Montmartre Bohème"]
+    assert labels == ["All", "Beat Generation", "Jazz & Existentialism", "Lettrists & Situationists", "Surrealism", "Montmartre Bohème",
+                      "Chanson & Popular Paris", "Lost Generation & Expatriates", "Subterranean Paris", "May 1968"]
 
 
 def test_search(page, base_url):
@@ -345,9 +362,12 @@ def test_search(page, base_url):
         "git le coeur": ["beat-hotel"],  # accents and ligatures are ignored
         "rue du Four": ["moineau"],  # street names
         "Vian": ["tabou", "club-sg", "flore"],  # people
-        "situationist": ["moineau", "tonneau"],  # movements (via "Lettrists & Situationists")
+        "situationist": ["moineau", "tonneau", "sorbonne-1968"],  # movements (via "Lettrists & Situationists")
         "shadow theatre": ["chat-noir"],  # descriptive keywords
-        "picasso cubism": ["bateau"],
+        "picasso cubism": ["bateau", "lapin-agile"],
+        "Belleville": ["piaf-belleville", "rue-vilin", "ronis-belvedere"],  # quarter names
+        "Perec": ["rue-vilin"],
+        "barricades": ["gay-lussac-1968"],
     }
     for query, expected in cases.items():
         page.fill("#search", query)
@@ -369,13 +389,13 @@ def test_search(page, base_url):
 def test_timeline(page, base_url):
     open_atlas(page, base_url)
     expectations = {
-        1881: [],
-        1890: ["chat-noir"],
-        1907: ["bateau"],
-        1925: ["breton"],
-        1942: ["flore", "breton"],
+        1881: ["mirliton", "nouvelle-athenes", "bellevilloise"],
+        1890: ["chat-noir", "mirliton", "moulin-rouge", "nouvelle-athenes", "bellevilloise"],
+        1907: ["bateau", "lapin-agile", "moulin-rouge", "bellevilloise"],
+        1925: ["breton", "grand-duc", "musee-montmartre", "sylvia-beach", "bellevilloise"],
+        1944: ["flore", "breton", "bellevilloise", "liberation-post"],
         1958: ["beat-hotel", "mistral", "tonneau", "club-sg", "caveau", "flore", "magots", "breton"],
-        1965: ["caveau", "breton"],
+        1968: ["caveau", "nouvelle-athenes", "sorbonne-1968", "gay-lussac-1968", "odeon-1968"],
     }
     for year, expected in expectations.items():
         set_year(page, year)
@@ -453,7 +473,7 @@ def test_walking_itinerary(page, base_url, artifacts):
     distance = page.inner_text("#route-distance")
     assert distance.endswith(" km") and 1.5 < float(distance.split()[0]) < 4.0
     assert page.locator(".route-leg").count() == 8
-    assert page.locator(".leaflet-marker-pane .pin-route").count() >= 1
+    wait_until(page, "document.querySelectorAll('.leaflet-marker-pane .pin-route').length >= 1")
     page.screenshot(path=str(artifacts / "walking-route.png"))
 
     params = _google_dir_params(page.get_attribute("#route-gmaps", "href"))
@@ -495,7 +515,104 @@ def test_building_a_custom_route_from_the_detail_panel(page, base_url):
     assert page.eval_on_selector_all(".route-stop", "els => els.map((e) => e.dataset.id)") == ["beat-hotel", "tabou"]
     page.click(".route-stop[data-id='tabou'] [aria-label^='Move'][aria-label$='earlier']")
     assert page.eval_on_selector_all(".route-stop", "els => els.map((e) => e.dataset.id)") == ["tabou", "beat-hotel"]
-    assert page.locator(".leaflet-marker-pane .pin-route").count() >= 1
+    wait_until(page, "document.querySelectorAll('.leaflet-marker-pane .pin-route').length >= 1")
+
+
+# ---------------------------------------------------------------------------
+# Quarters and "then / today"
+# ---------------------------------------------------------------------------
+
+QUARTERS = {
+    "montmartre-pigalle": ["breton", "bateau", "chat-noir", "mirliton", "lapin-agile", "moulin-rouge", "nouvelle-athenes", "grand-duc", "musee-montmartre"],
+    "latin-quarter": ["beat-hotel", "mistral", "tonneau", "caveau", "sylvia-beach", "joyce", "hemingway", "orwell", "sorbonne-1968", "gay-lussac-1968", "odeon-1968"],
+    "saint-germain": ["moineau", "tabou", "club-sg", "flore", "magots"],
+    "belleville": ["piaf-belleville", "rue-vilin", "ronis-belvedere"],
+    "menilmontant": ["bellevilloise", "chevalier", "pere-lachaise"],
+    "denfert-rochereau": ["catacombs", "liberation-post"],
+}
+
+
+def test_quarters_tab_lists_the_districts(page, base_url):
+    open_atlas(page, base_url)
+    page.click("#tab-quarters")
+    assert page.get_attribute("#tab-quarters", "aria-selected") == "true"
+    assert page.eval_on_selector_all(".quarter-card", "els => els.map((e) => e.dataset.quarter)") == list(QUARTERS)
+    assert page.text_content(".quarter-card[data-quarter='belleville'] .qc-count") == "3 places"
+
+
+@pytest.mark.parametrize("quarter,expected", QUARTERS.items())
+def test_selecting_a_quarter_filters_and_compares_then_and_today(page, base_url, quarter, expected):
+    open_atlas(page, base_url)
+    page.click("#tab-quarters")
+    page.click(f".quarter-card[data-quarter='{quarter}']")
+    assert page.get_attribute("#tab-atlas", "aria-selected") == "true"
+    assert shown_ids(page) == expected
+    overview = page.locator("#quarter-overview")
+    assert overview.is_visible()
+    assert overview.locator(".tn-label").all_text_contents() == ["Then", "Today"]
+    assert page.url.endswith(f"#quarter={quarter}")
+    wait_map_settled(page)
+    wait_markers(page, len(expected))
+    assert page.locator(f".pu-quarter.is-active[data-quarter='{quarter}']").count() == 1
+    page.click("#quarter-clear")
+    assert shown_ids(page) == ALL_IDS
+    assert overview.is_hidden()
+
+
+def test_map_quarter_label_selects_the_quarter(page, base_url):
+    open_atlas(page, base_url)
+    page.click(".pu-quarter[data-quarter='denfert-rochereau'] .pq-inner")
+    assert shown_ids(page) == QUARTERS["denfert-rochereau"]
+    assert "Rol-Tanguy" in page.text_content("#quarter-overview")
+
+
+def test_quarter_deep_link(page, base_url):
+    open_atlas(page, base_url, "/#quarter=menilmontant")
+    assert shown_ids(page) == QUARTERS["menilmontant"]
+    assert page.text_content("#quarter-overview .q-title") == "Ménilmontant"
+
+
+def test_quarter_combines_with_movement_year_and_search(page, base_url):
+    open_atlas(page, base_url)
+    page.click("#tab-quarters")
+    page.click(".quarter-card[data-quarter='latin-quarter']")
+    page.click(".pill[data-group='may-1968']")
+    assert shown_ids(page) == ["sorbonne-1968", "gay-lussac-1968", "odeon-1968"]
+    set_year(page, 1958)
+    assert shown_ids(page) == []
+    page.click("#timeline-all")
+    page.click(".pill[data-group='all']")
+    page.fill("#search", "Hemingway")
+    assert shown_ids(page) == ["sylvia-beach", "joyce", "hemingway"]
+    page.click("#clear-filters")
+    assert shown_ids(page) == ALL_IDS
+    assert page.locator("#quarter-overview").is_hidden()
+
+
+def test_detail_compares_then_and_today(page, base_url):
+    open_atlas(page, base_url)
+    page.click(".place[data-id='rue-vilin']")
+    then_now = page.locator("#detail .then-now").text_content()
+    assert "Then · 1936–1942" in then_now and "hairdressing" in then_now
+    assert "Today" in then_now and "Demolished" in then_now and "Parc de Belleville" in then_now
+    # The quarter chip opens the district overview; the place stays open (it is in Belleville).
+    page.click("#detail-quarter")
+    assert shown_ids(page) == QUARTERS["belleville"]
+    assert page.locator("#detail").is_visible()
+    assert page.url.endswith("#place=rue-vilin")
+
+
+def test_other_walks_can_be_loaded(page, base_url):
+    page.route("**/api/walking-route**", lambda route: route.fulfill(status=503, content_type="application/json", body='{"detail": "offline", "fallback": "straight-line"}'))
+    open_atlas(page, base_url)
+    page.click("#tab-route")
+    walks = page.eval_on_selector_all(".more-walks [data-itinerary]", "els => els.map((e) => e.dataset.itinerary)")
+    assert walks == ["left-bank", "montmartre-pigalle", "latin-quarter-1968", "belleville-menilmontant"]
+    page.click(".more-walks [data-itinerary='belleville-menilmontant']")
+    stops = page.eval_on_selector_all(".route-stop", "els => els.map((e) => e.dataset.id)")
+    assert stops == ["piaf-belleville", "ronis-belvedere", "rue-vilin", "bellevilloise", "chevalier", "pere-lachaise"]
+    others = page.eval_on_selector_all(".more-walks [data-itinerary]", "els => els.map((e) => e.dataset.itinerary)")
+    assert others == ["left-bank", "montmartre-pigalle", "latin-quarter-1968"]
 
 
 # ---------------------------------------------------------------------------
@@ -577,14 +694,25 @@ def test_every_source_link_opens_in_the_browser(context):
     locations = json.loads((DATA_DIR / "locations.json").read_text(encoding="utf-8"))["locations"]
     urls = sorted({source["url"] for loc in locations for source in loc["sources"]})
     page = context.new_page()
+
+    def check(url):
+        try:
+            response = page.goto(url, wait_until="commit", timeout=45_000)
+        except Exception as exc:  # DNS, TLS or timeout
+            return str(exc).splitlines()[0]
+        if response is None:
+            return "no response"
+        return None if response.status < 400 or response.status == 429 else response.status
+
     failures = []
     for url in urls:
-        try:
-            response = page.goto(url, wait_until="commit", timeout=30_000)
-        except Exception as exc:  # DNS, TLS or timeout
-            failures.append((url, str(exc).splitlines()[0]))
-            continue
-        if response is None or (response.status >= 400 and response.status != 429):
-            failures.append((url, response.status if response else "no response"))
+        problem = check(url)
+        # Third-party servers hiccup: retry once on a server error or timeout.
+        # Client errors such as 403 or 404 fail at once.
+        if problem is not None and (not isinstance(problem, int) or problem >= 500):
+            page.wait_for_timeout(3000)
+            problem = check(url)
+        if problem is not None:
+            failures.append((url, problem))
     page.close()
     assert not failures, failures
