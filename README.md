@@ -53,7 +53,7 @@ The original HTML file was opened from disk and inspected in a real browser. Thr
 
 ## Features
 
-- **Map.** Zoom and pan; numbered, colour-coded pins; clusters (rounded squares, so a cluster count never reads as a location number); hover tooltips; a highlighted selected pin; a fit-to-visible control. Selecting a place centres it without hiding it behind the detail panel.
+- **Map.** Zoom and pan; numbered pins in a vivid green that stands out on both basemaps, with the selected pin in fuchsia; green clusters (rounded squares, so a cluster count never reads as a location number); hover tooltips that show the place's movement colour and name; a fit-to-visible control. Selecting a place centres it without hiding it behind the detail panel.
 - **NIGHT / STREET.** One OSM tile layer; NIGHT only adds the tile-pane filter. The choice is remembered per browser.
 - **Movement filters.** All, Beat Generation, Jazz & Existentialism, Lettrists & Situationists, Surrealism, Montmartre Bohème, Chanson & Popular Paris, Lost Generation & Expatriates, Subterranean Paris and May 1968. Each filter shows a live count, and filters combine with the quarter, search and the timeline. *Clear filters* resets them all.
 - **Quarters.** Six districts, each with a researched *Then* and *Today* overview: Montmartre & Pigalle, the Latin Quarter, Saint-Germain-des-Prés, Belleville, Ménilmontant and Denfert-Rochereau. Choose one from the *Quarters* tab, from its label on the map, or from the quarter chip in a place's details. The map and list are then filtered to that district, the map fits to it, and the overview appears above the list. Quarter labels are clickable at city scale and show live counts.

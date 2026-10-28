@@ -278,6 +278,21 @@ def test_sidebar_selection_centres_map_and_opens_details(page, base_url):
     assert page.locator(".leaflet-marker-icon[data-id='flore']").is_visible()
 
 
+def test_pins_are_green_and_the_selected_pin_fuchsia(page, base_url):
+    open_atlas(page, base_url)
+    background = "(sel) => getComputedStyle(document.querySelector(sel)).backgroundColor"
+    page.click(".place[data-id='flore']")
+    wait_map_settled(page)
+    assert page.evaluate(background, ".leaflet-marker-icon[data-id='flore'] .pin-inner") == "rgb(255, 47, 208)"
+    assert page.evaluate(background, ".leaflet-marker-icon[data-id='magots'] .pin-inner") == "rgb(43, 224, 127)"
+    # The movement colour moves to the tooltip.
+    page.hover(".leaflet-marker-icon[data-id='magots']")
+    page.locator(".pin-tooltip .tt-dot").wait_for()
+    assert page.evaluate(background, ".pin-tooltip .tt-dot") == "rgb(197, 216, 236)"  # Jazz & Existentialism
+    page.keyboard.press("Escape")
+    assert page.evaluate(background, ".leaflet-marker-icon[data-id='flore'] .pin-inner") == "rgb(43, 224, 127)"
+
+
 def test_keyboard_marker_activation_and_escape(page, base_url):
     open_atlas(page, base_url)
     # Enter on a cluster zooms into it.

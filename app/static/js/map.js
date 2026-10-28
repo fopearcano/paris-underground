@@ -149,7 +149,7 @@ export function createAtlasMap({ container, atlas, onSelect, onSelectQuarter, on
     });
     marker._puKey = '';
     marker.bindTooltip(
-      `<strong>${escapeHTML(loc.name)}</strong><span>${escapeHTML(loc.periodLabel)} · ${escapeHTML(loc.groupLabels[0])}</span>`,
+      `<strong>${escapeHTML(loc.name)}</strong><span><i class="tt-dot" style="background:${loc.color}"></i>${escapeHTML(loc.groupLabels[0])} · ${escapeHTML(loc.periodLabel)}</span>`,
       { direction: 'top', offset: [0, -17], className: 'pin-tooltip', opacity: 1 },
     );
     marker.on('click', () => onSelect(loc.id, { source: 'map' }));
@@ -371,7 +371,7 @@ function pinIcon(L, loc, { selected = false, inPeriod = false, routeIndex = -1 }
   const badge = routeIndex >= 0 ? `<span class="pin-route" title="Walking route stop ${routeIndex + 1}">${routeIndex + 1}</span>` : '';
   return L.divIcon({
     className: classes.join(' '),
-    html: `<span class="pin-outer" style="--c:${loc.color};--c-soft:${loc.color}44"><span class="pin-inner">${loc.number}</span>${badge}</span>`,
+    html: `<span class="pin-outer"><span class="pin-inner">${loc.number}</span>${badge}</span>`,
     iconSize: [34, 34],
     iconAnchor: [17, 17],
     tooltipAnchor: [0, 0],
