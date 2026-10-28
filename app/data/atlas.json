@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "title": "Paris Underground",
+  "subtitle": "From Montmartre's bohemia to the Beat Hotel: the hidden cultural geography of Paris, 1881–1968.",
+  "kicker": "The literary underworld · An atlas",
+  "field_notes": {
+    "label": "Historical field notes",
+    "title": "Paris · Rive Gauche & Montmartre"
+  },
+  "timeline": {
+    "start": 1881,
+    "end": 1968,
+    "ticks": [1881, 1900, 1920, 1945, 1968],
+    "note": "Dates mark each place's cultural significance, not its opening hours or business history. Present-day status is shown separately in each place's details."
+  },
+  "map": {
+    "center": [48.8655, 2.3405],
+    "zoom": 14,
+    "min_zoom": 11,
+    "bounds": [[48.78, 2.18], [48.95, 2.52]]
+  },
+  "last_reviewed": "2026-10-28"
+}

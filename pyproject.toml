@@ -1,0 +1,17 @@
+[project]
+name = "paris-underground"
+version = "1.0.0"
+description = "Interactive historical atlas of underground Paris, 1881–1968"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+  "e2e: drives a real Chromium browser against a live server (needs Playwright)",
+  "network: needs internet access (OpenStreetMap tiles, routing, external sources)",
+]
+filterwarnings = [
+  "ignore::DeprecationWarning:websockets.*",
+  "ignore:Using `httpx` with `starlette.testclient` is deprecated",
+]

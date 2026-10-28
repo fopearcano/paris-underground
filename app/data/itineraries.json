@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "itineraries": [
+    {
+      "id": "left-bank",
+      "title": "The Left Bank underground walk",
+      "description": "Nine stops through the Latin Quarter and Saint-Germain-des-Prés, from the Situationists' bar on the Montagne Sainte-Geneviève to the Lettrists' café on rue du Four.",
+      "stops": ["tonneau", "mistral", "caveau", "beat-hotel", "tabou", "magots", "flore", "club-sg", "moineau"]
+    }
+  ]
+}

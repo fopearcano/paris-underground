@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0B0D0E">
+  <meta name="color-scheme" content="dark">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="{{ meta.subtitle }}">
+  <title>PARIS UNDERGROUND — The Literary Underworld (1881–1968)</title>
+  <link rel="icon" href="/static/assets/favicon.svg?v={{ v }}" type="image/svg+xml">
+  <link rel="preload" href="/static/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/static/fonts/dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/static/vendor/leaflet/leaflet.css?v={{ v }}">
+  <link rel="stylesheet" href="/static/vendor/leaflet.markercluster/MarkerCluster.css?v={{ v }}">
+  <link rel="stylesheet" href="/static/css/fonts.css?v={{ v }}">
+  <link rel="stylesheet" href="/static/css/app.css?v={{ v }}">
+  <script defer src="/static/vendor/leaflet/leaflet.js?v={{ v }}"></script>
+  <script defer src="/static/vendor/leaflet.markercluster/leaflet.markercluster.js?v={{ v }}"></script>
+  <script type="module" src="/static/js/main.js?v={{ v }}"></script>
+</head>
+<body>
+  <a class="skip-link" href="#place-list">Skip to the list of locations</a>
+
+  <div class="app" id="app" data-sidebar="auto">
+    <aside class="sidebar" id="sidebar" aria-label="Atlas">
+      <header class="head">
+        <div class="kicker">{{ meta.kicker }}</div>
+        <h1 class="wordmark">Paris<br><span>Under</span><br>Ground.</h1>
+        <p class="subtitle">{{ meta.subtitle }}</p>
+        <dl class="metrics">
+          <div class="metric"><dt>Locations</dt><dd id="metric-locations">–</dd></div>
+          <div class="metric"><dt>Movements</dt><dd id="metric-movements">–</dd></div>
+          <div class="metric"><dt>Timeline</dt><dd id="metric-timeline">{{ meta.timeline.start }}–{{ (meta.timeline.end|string)[2:] }}</dd></div>
+        </dl>
+        <button type="button" class="icon-button sidebar-close" id="sidebar-close" aria-label="Close the atlas panel">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </header>
+
+      <section class="toolbar" aria-label="Search and filters">
+        <label class="caption" for="search">Explore the underground</label>
+        <div class="searchbox">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input id="search" type="search" placeholder="Search places, writers, movements, streets…" autocomplete="off" spellcheck="false" aria-describedby="search-hint">
+          <kbd class="search-key" aria-hidden="true">/</kbd>
+        </div>
+        <p class="sr-only" id="search-hint">Results update as you type. Search covers names, people, movements, streets and descriptions.</p>
+        <div class="pills" id="filters" role="group" aria-label="Filter by movement"></div>
+      </section>
+
+      <div class="tabs" role="tablist" aria-label="Atlas views">
+        <button type="button" role="tab" class="tab" id="tab-atlas" aria-controls="panel-atlas" aria-selected="true">
+          Locations <span class="tab-count" id="tab-atlas-count">–</span>
+        </button>
+        <button type="button" role="tab" class="tab" id="tab-route" aria-controls="panel-route" aria-selected="false" tabindex="-1">
+          Walking route <span class="tab-count" id="tab-route-count">0</span>
+        </button>
+      </div>
+
+      <div class="panel listing" id="panel-atlas" role="tabpanel" aria-labelledby="tab-atlas">
+        <div class="listing-meta">
+          <span id="result-count" aria-live="polite">Loading locations…</span>
+          <button type="button" class="text-button" id="clear-filters">Clear filters ↺</button>
+        </div>
+        <ol class="places" id="place-list" tabindex="-1"></ol>
+      </div>
+
+      <div class="panel listing route-panel" id="panel-route" role="tabpanel" aria-labelledby="tab-route" hidden></div>
+
+      <footer class="foot">
+        <button type="button" class="cta" id="route-cta">↗ Explore the Left Bank walking trail</button>
+        <small>Click a marker for its story. Walking directions open in Google Maps.</small>
+      </footer>
+    </aside>
+
+    <div class="scrim" id="scrim" hidden></div>
+
+    <main class="map-area" id="map-area" aria-label="Interactive map">
+      <div id="map" class="map is-night" role="region" aria-label="Map of underground Paris" aria-describedby="map-help"></div>
+      <p class="sr-only" id="map-help">Markers are numbered as in the list. Tab to a marker and press Enter for its story.</p>
+
+      <div class="map-fallback" id="map-fallback" role="status" hidden>
+        <div class="map-fallback-card">
+          <strong id="map-fallback-title">Basemap unavailable</strong>
+          <p id="map-fallback-text">The OpenStreetMap tiles could not be loaded. Historical markers and the location list still work.</p>
+          <div class="map-fallback-actions">
+            <button type="button" class="chip-button" id="map-fallback-retry">Retry tiles</button>
+            <button type="button" class="text-button" id="map-fallback-dismiss">Dismiss</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="topbar">
+        <div class="topbar-left">
+          <button type="button" class="sidebar-toggle" id="sidebar-toggle" aria-controls="sidebar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+            <span class="sidebar-toggle-label">Atlas</span>
+          </button>
+          <div class="topchip">
+            <small>{{ meta.field_notes.label }}</small>
+            <strong>{{ meta.field_notes.title }}</strong>
+          </div>
+        </div>
+        <div class="switcher" role="group" aria-label="Map style">
+          <button type="button" id="mode-night" data-basemap="night" aria-pressed="true">Night</button>
+          <button type="button" id="mode-street" data-basemap="street" aria-pressed="false">Street</button>
+        </div>
+      </div>
+
+      <article class="detail" id="detail" hidden aria-labelledby="detail-title" tabindex="-1"></article>
+
+      <section class="timeline" id="timeline" aria-labelledby="timeline-title">
+        <div class="tl-head">
+          <strong><span class="tl-icon" aria-hidden="true">⏳</span> <span id="timeline-title">All periods · {{ meta.timeline.start }}–{{ meta.timeline.end }}</span></strong>
+          <button type="button" class="text-button" id="timeline-all" disabled>Show all periods ↗</button>
+        </div>
+        <div class="tl-track">
+          <div class="tl-ribbon" id="timeline-ribbon" aria-hidden="true"></div>
+          <input id="year" type="range" min="{{ meta.timeline.start }}" max="{{ meta.timeline.end }}" value="1958" step="1" aria-label="Year of historical activity" aria-describedby="timeline-note">
+          <div class="tl-labels" id="timeline-labels" aria-hidden="true"></div>
+        </div>
+        <p class="tl-note" id="timeline-note">{{ meta.timeline.note }}</p>
+      </section>
+    </main>
+  </div>
+
+  <div class="sr-only" id="announcer" aria-live="polite" aria-atomic="true"></div>
+  <noscript>
+    <div class="noscript">This atlas needs JavaScript to display its map. The location data is also available as JSON at <a href="/api/locations">/api/locations</a>.</div>
+  </noscript>
+</body>
+</html>

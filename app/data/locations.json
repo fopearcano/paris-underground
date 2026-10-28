@@ -1,0 +1,680 @@
+{
+  "schema_version": 1,
+  "locations": [
+    {
+      "id": "beat-hotel",
+      "name": "The Beat Hotel",
+      "address": {
+        "street": "9 rue Gît-le-Cœur",
+        "postcode": "75006",
+        "arrondissement": "6e"
+      },
+      "coordinates": {
+        "lat": 48.853847,
+        "lng": 2.342753,
+        "precision": "address",
+        "note": "Prototype coordinate kept; within 10 m of the geocoded street address."
+      },
+      "movements": ["beat-generation"],
+      "periods": [
+        {
+          "start": 1957,
+          "end": 1963,
+          "label": "1957–1963",
+          "certainty": "documented",
+          "note": "From the arrival of Allen Ginsberg and Peter Orlovsky in 1957 to Madame Rachou's retirement in early 1963."
+        }
+      ],
+      "figures": [
+        { "name": "Allen Ginsberg", "role": "Poet" },
+        { "name": "William S. Burroughs", "role": "Novelist" },
+        { "name": "Gregory Corso", "role": "Poet" },
+        { "name": "Brion Gysin", "role": "Painter and writer" },
+        { "name": "Peter Orlovsky", "role": "Poet" },
+        { "name": "Harold Chapman", "role": "Photographer" }
+      ],
+      "description": "A cheap, unnamed lodging house run by Madame Rachou that became the Paris base of the Beat writers. Allen Ginsberg, Peter Orlovsky and Gregory Corso stayed here from 1957 and William S. Burroughs from 1958. Burroughs assembled Naked Lunch here for Maurice Girodias's Olympia Press, which published it in 1959, and in the same year Brion Gysin and Burroughs began developing the cut-up technique in the hotel's rooms.",
+      "significance": "The most direct connection between Paris and the Beat Generation: less a salon than a laboratory, where texts were cut up, rearranged and tested. A shabby counterpart to the celebrated café culture of Saint-Germain a few streets away.",
+      "caveats": [
+        "Sources differ on whether the hotel closed in 1963 or 1964; Madame Rachou retired in early 1963.",
+        "Ginsberg's work on 'Kaddish' in Paris is widely reported, but most of the poem was written after his return to New York."
+      ],
+      "status": {
+        "category": "repurposed",
+        "summary": "The building is now an upmarket hotel. A commemorative plaque unveiled in 2009 on the façade names former residents."
+      },
+      "sources": [
+        {
+          "title": "Beat Generation (exhibition, 22 June – 3 October 2016)",
+          "publisher": "Centre Pompidou",
+          "url": "https://www.centrepompidou.fr/en/program/calendar/event/c58Xyrx",
+          "kind": "museum"
+        },
+        {
+          "title": "Beat Hotel",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Beat_Hotel",
+          "kind": "encyclopedia"
+        }
+      ],
+      "tags": ["Naked Lunch", "cut-up", "Olympia Press", "Madame Rachou", "Kaddish", "Dreamachine", "hotel", "Latin Quarter", "Saint-Michel"]
+    },
+    {
+      "id": "mistral",
+      "name": "Le Mistral / Shakespeare and Company",
+      "address": {
+        "street": "37 rue de la Bûcherie",
+        "postcode": "75005",
+        "arrondissement": "5e"
+      },
+      "coordinates": {
+        "lat": 48.85258,
+        "lng": 2.34711,
+        "precision": "address",
+        "note": "Prototype coordinate kept; matches the shop's mapped position."
+      },
+      "movements": ["beat-generation"],
+      "periods": [
+        {
+          "start": 1951,
+          "end": 1964,
+          "label": "1951–1964",
+          "certainty": "documented",
+          "note": "Opened as Le Mistral in 1951; renamed Shakespeare and Company in 1964."
+        }
+      ],
+      "figures": [
+        { "name": "George Whitman", "role": "Bookseller, founder" },
+        { "name": "Allen Ginsberg", "role": "Poet" },
+        { "name": "Gregory Corso", "role": "Poet" }
+      ],
+      "description": "George Whitman opened an English-language bookshop here in 1951 under the name Le Mistral. Wandering writers could read, attend readings and sometimes sleep among the shelves, and it became a meeting point for the Beats in Paris. In 1964 Whitman renamed it Shakespeare and Company in homage to Sylvia Beach's celebrated interwar bookshop.",
+      "significance": "A Left Bank refuge a few minutes' walk from the Beat Hotel that kept the expatriate English-language literary tradition alive after the war.",
+      "caveats": [
+        "Not the same premises as Sylvia Beach's original Shakespeare and Company (1919–1941), which stood on rue Dupuytren and then at 12 rue de l'Odéon."
+      ],
+      "status": {
+        "category": "operating",
+        "summary": "Still operating as Shakespeare and Company, an independent English-language bookshop."
+      },
+      "sources": [
+        {
+          "title": "History",
+          "publisher": "Shakespeare and Company",
+          "url": "https://www.shakespeareandcompany.com/history",
+          "kind": "venue"
+        },
+        {
+          "title": "Shakespeare and Company (bookstore)",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Shakespeare_and_Company_(bookstore)",
+          "kind": "encyclopedia"
+        }
+      ],
+      "tags": ["bookshop", "bookstore", "George Whitman", "Sylvia Beach", "English-language", "readings", "Notre-Dame", "Latin Quarter"]
+    },
+    {
+      "id": "moineau",
+      "name": "Chez Moineau",
+      "address": {
+        "street": "22 rue du Four",
+        "postcode": "75006",
+        "arrondissement": "6e"
+      },
+      "coordinates": {
+        "lat": 48.852729,
+        "lng": 2.33366,
+        "precision": "address",
+        "note": "Corrected to the geocoded street number (the prototype pin was 45 m away). The café no longer exists, so its exact frontage is not confirmed.",
+        "prototype": { "lat": 48.8529, "lng": 2.3331 }
+      },
+      "movements": ["lettrism"],
+      "periods": [
+        {
+          "start": 1951,
+          "end": 1954,
+          "label": "Early 1950s",
+          "certainty": "approximate",
+          "note": "The Lettrist circle's Chez Moineau years are documented only approximately."
+        }
+      ],
+      "figures": [
+        { "name": "Guy Debord", "role": "Writer, theorist" },
+        { "name": "Ivan Chtcheglov", "role": "Writer" },
+        { "name": "Vali Myers", "role": "Artist and dancer" },
+        { "name": "Ed van der Elsken", "role": "Photographer" }
+      ],
+      "description": "A cheap café-bar on rue du Four where the young Lettrist International spent much of its time in the early 1950s, alongside runaways, drifters and Left Bank youth. Dutch photographer Ed van der Elsken documented this milieu, with the Australian artist Vali Myers as its central figure, in the photo-novel Love on the Left Bank (1956).",
+      "significance": "This café world connects literary bohemia to Debord's later theories of the dérive and psychogeography.",
+      "caveats": [],
+      "status": {
+        "category": "closed",
+        "summary": "The café no longer operates as Chez Moineau."
+      },
+      "sources": [
+        {
+          "title": "Letterist International",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Letterist_International",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "Ed van der Elsken, Group of Young People with Vali Meyers and 'Benny' at Chez Moineau, Paris",
+          "publisher": "Rijksmuseum",
+          "url": "https://www.rijksmuseum.nl/en/collection/object/Group-of-Young-People-with-Vali-Meyers-and-Benny-at-Chez-Moineau-Paris--5640327985922b9402a13fb4101b8832",
+          "kind": "museum"
+        },
+        {
+          "title": "Le Paris des situationnistes",
+          "publisher": "Urbain, trop urbain",
+          "url": "https://www.urbain-trop-urbain.fr/le-paris-des-situationnistes/",
+          "kind": "press"
+        }
+      ],
+      "tags": ["Lettrism", "dérive", "psychogeography", "Love on the Left Bank", "photography", "café", "Saint-Germain-des-Prés"]
+    },
+    {
+      "id": "tonneau",
+      "name": "Le Tonneau d’Or",
+      "address": {
+        "street": "32 rue de la Montagne-Sainte-Geneviève",
+        "postcode": "75005",
+        "arrondissement": "5e"
+      },
+      "coordinates": {
+        "lat": 48.848132,
+        "lng": 2.348451,
+        "precision": "address",
+        "note": "Corrected to the geocoded street number (the prototype pin was 91 m away).",
+        "prototype": { "lat": 48.84765, "lng": 2.34945 }
+      },
+      "movements": ["lettrism", "situationism"],
+      "periods": [
+        {
+          "start": 1954,
+          "end": 1957,
+          "label": "1954–1957",
+          "certainty": "documented",
+          "note": "Official address of the Lettrist International and its bulletin Potlatch from August 1954."
+        },
+        {
+          "start": 1957,
+          "end": 1963,
+          "label": "1957–1963",
+          "certainty": "documented",
+          "note": "Remained the Situationist International's address until January 1963."
+        }
+      ],
+      "figures": [
+        { "name": "Guy Debord", "role": "Writer, theorist" },
+        { "name": "Michèle Bernstein", "role": "Writer" },
+        { "name": "Mohamed Dahou", "role": "Editor of Potlatch" }
+      ],
+      "description": "The bar at this address served as the official base of the Lettrist International: from August 1954 Potlatch gave it as the bulletin's mailing address, care of Mohamed Dahou. The group mockingly wrote it as 'rue de la Montagne-Geneviève', dropping the saint. The address then served the Situationist International until January 1963.",
+      "significance": "A political counterpart to the Beat Hotel: rather than individual liberation alone, the aim was to transform everyday life. Strategies of dérive and détournement circulated around this circle.",
+      "caveats": [],
+      "status": {
+        "category": "closed",
+        "summary": "The bar no longer exists in its historical form."
+      },
+      "sources": [
+        {
+          "title": "Potlatch #9-10-11 (17–31 August 1954), English translation",
+          "publisher": "Situationist International Online",
+          "url": "https://sionline.researche-editions.cddc.vt.edu/presitu/potlatch91011.html",
+          "kind": "archive"
+        },
+        {
+          "title": "Letterist International",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Letterist_International",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "Le Paris des situationnistes",
+          "publisher": "Urbain, trop urbain",
+          "url": "https://www.urbain-trop-urbain.fr/le-paris-des-situationnistes/",
+          "kind": "press"
+        }
+      ],
+      "tags": ["Potlatch", "Internationale situationniste", "Situationist", "dérive", "détournement", "bar", "headquarters", "Latin Quarter", "Panthéon"]
+    },
+    {
+      "id": "tabou",
+      "name": "Le Tabou",
+      "address": {
+        "street": "33 rue Dauphine",
+        "postcode": "75006",
+        "arrondissement": "6e"
+      },
+      "coordinates": {
+        "lat": 48.85472,
+        "lng": 2.33944,
+        "precision": "address",
+        "note": "Prototype coordinate kept; within 10 m of the geocoded street address."
+      },
+      "movements": ["jazz", "existentialism"],
+      "periods": [
+        {
+          "start": 1947,
+          "end": 1950,
+          "label": "1947–c. 1950",
+          "certainty": "approximate",
+          "note": "Opened 11 April 1947. Its heyday faded after the Club Saint-Germain opened in 1948; no reliable closing date is documented."
+        }
+      ],
+      "figures": [
+        { "name": "Boris Vian", "role": "Writer and trumpeter" },
+        { "name": "Juliette Gréco", "role": "Singer" }
+      ],
+      "description": "A cellar club at 33 rue Dauphine that opened on 11 April 1947. Boris Vian played trumpet in the house band with his brothers and Juliette Gréco made it her haunt; the press soon cast its young night crowd as 'existentialists'. After neighbours' complaints its late licence was revoked, and the crowd drifted to the new Club Saint-Germain.",
+      "significance": "A symbol of the post-Liberation underground and a distinctly French precursor to the late-1950s Beat milieu, close to the Beat Hotel.",
+      "caveats": [
+        "The prototype dated Le Tabou to 1947–1962; no source consulted supports a 1962 end date, so the period here ends with its documented decline around 1950."
+      ],
+      "status": {
+        "category": "repurposed",
+        "summary": "Former cellar club; the Hôtel d'Aubusson occupies the property."
+      },
+      "sources": [
+        {
+          "title": "Balade dans le Paris enjazzé de Boris Vian",
+          "publisher": "Ville de Paris",
+          "url": "https://www.paris.fr/pages/balade-dans-le-paris-enjazze-de-boris-vian-19064",
+          "kind": "institution"
+        },
+        {
+          "title": "Le Tabou",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Le_Tabou",
+          "kind": "encyclopedia"
+        }
+      ],
+      "tags": ["cellar", "cave", "zazous", "existentialists", "nightlife", "trumpet", "Saint-Germain-des-Prés"]
+    },
+    {
+      "id": "club-sg",
+      "name": "Club Saint-Germain",
+      "address": {
+        "street": "13 rue Saint-Benoît",
+        "postcode": "75006",
+        "arrondissement": "6e"
+      },
+      "coordinates": {
+        "lat": 48.854552,
+        "lng": 2.332966,
+        "precision": "address",
+        "note": "Corrected to the geocoded street number (the prototype pin was 101 m away).",
+        "prototype": { "lat": 48.85494, "lng": 2.33172 }
+      },
+      "movements": ["jazz", "existentialism"],
+      "periods": [
+        {
+          "start": 1948,
+          "end": 1960,
+          "label": "1948–1950s",
+          "certainty": "approximate",
+          "note": "Opened in 1948 (some sources say 1947). Its end as a jazz club is not reliably dated."
+        }
+      ],
+      "figures": [
+        { "name": "Boris Vian", "role": "Co-founder, programmer" },
+        { "name": "Django Reinhardt", "role": "Guitarist" },
+        { "name": "Miles Davis", "role": "Trumpeter" },
+        { "name": "Art Blakey", "role": "Drummer" }
+      ],
+      "description": "A jazz cellar founded by a group that included Boris Vian, which quickly displaced Le Tabou as the neighbourhood's late-night venue. It booked Django Reinhardt and Stéphane Grappelli and hosted visiting American musicians such as Miles Davis, Art Blakey and Kenny Dorham.",
+      "significance": "One of the emblematic jazz addresses of postwar Saint-Germain-des-Prés, connecting American bebop to French counterculture. Part of a broader neighbourhood ecosystem, not a core Beat headquarters.",
+      "caveats": [
+        "Opening year given as 1947 by Wikipedia and 1948 by the Paris municipal libraries; 1948 is used here."
+      ],
+      "status": {
+        "category": "unknown",
+        "summary": "The building later housed the supper club Le Bilboquet. Present-day use not verified; check before visiting."
+      },
+      "sources": [
+        {
+          "title": "Club Saint-Germain",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Club_Saint-Germain",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "Balade dans le Paris enjazzé de Boris Vian",
+          "publisher": "Ville de Paris",
+          "url": "https://www.paris.fr/pages/balade-dans-le-paris-enjazze-de-boris-vian-19064",
+          "kind": "institution"
+        }
+      ],
+      "tags": ["bebop", "jazz club", "cellar", "nightlife", "Le Bilboquet", "Stéphane Grappelli", "Kenny Dorham", "Saint-Germain-des-Prés"]
+    },
+    {
+      "id": "caveau",
+      "name": "Caveau de la Huchette",
+      "address": {
+        "street": "5 rue de la Huchette",
+        "postcode": "75005",
+        "arrondissement": "5e"
+      },
+      "coordinates": {
+        "lat": 48.85271,
+        "lng": 2.34602,
+        "precision": "address",
+        "note": "Prototype coordinate kept; within 25 m of the mapped venue."
+      },
+      "movements": ["jazz"],
+      "periods": [
+        {
+          "start": 1946,
+          "end": null,
+          "label": "1946–present",
+          "certainty": "documented",
+          "note": "A jazz venue since 1946 and still active today."
+        }
+      ],
+      "figures": [
+        { "name": "Sidney Bechet", "role": "Saxophonist" },
+        { "name": "Lionel Hampton", "role": "Vibraphonist" }
+      ],
+      "description": "A vaulted cellar in the Latin Quarter that became a jazz club after the Liberation, generally dated to 1946. Unlike most of the postwar cellars it never closed, and traditional jazz, swing and dancing continue there today.",
+      "significance": "The most accessible survivor of the Left Bank's cellar culture. Its present-day programme is distinct from its 1940s–1960s history, but the room itself is continuous with it.",
+      "caveats": [
+        "Most sources date the jazz club to 1946; the body of the Wikipedia article gives 1949."
+      ],
+      "status": {
+        "category": "operating",
+        "summary": "Still an operating jazz and swing club."
+      },
+      "sources": [
+        {
+          "title": "Le Caveau de la Huchette",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Le_Caveau_de_la_Huchette",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "Caveau de la Huchette",
+          "publisher": "Visit Paris Region",
+          "url": "https://www.visitparisregion.com/fr/caveau-de-la-huchette",
+          "kind": "institution"
+        }
+      ],
+      "tags": ["cellar", "swing", "dancing", "jazz club", "Latin Quarter", "Saint-Michel"]
+    },
+    {
+      "id": "flore",
+      "name": "Café de Flore",
+      "address": {
+        "street": "172 boulevard Saint-Germain",
+        "postcode": "75006",
+        "arrondissement": "6e"
+      },
+      "coordinates": {
+        "lat": 48.8541,
+        "lng": 2.33255,
+        "precision": "address",
+        "note": "Prototype coordinate kept; within 5 m of the geocoded street address."
+      },
+      "movements": ["existentialism"],
+      "periods": [
+        {
+          "start": 1940,
+          "end": 1944,
+          "label": "1940–1944",
+          "certainty": "documented",
+          "note": "During the Occupation, Sartre and Beauvoir wrote at the Flore for whole days."
+        },
+        {
+          "start": 1945,
+          "end": 1960,
+          "label": "1945–1960",
+          "certainty": "approximate",
+          "note": "The postwar existentialist milieu of Saint-Germain-des-Prés."
+        }
+      ],
+      "figures": [
+        { "name": "Jean-Paul Sartre", "role": "Philosopher, writer" },
+        { "name": "Simone de Beauvoir", "role": "Philosopher, writer" },
+        { "name": "Boris Vian", "role": "Writer and trumpeter" }
+      ],
+      "description": "One of the two great literary cafés of Saint-Germain-des-Prés. During the Occupation Jean-Paul Sartre and Simone de Beauvoir worked here for whole days; after the Liberation the café became a symbol of the 'existentialist' Saint-Germain that newspapers and visitors came looking for.",
+      "significance": "More institutional and celebrated than the shabby Beat Hotel or Debord's cheap cafés. It sets the scene the Beats encountered in Paris, though it was never their main base.",
+      "caveats": [],
+      "status": {
+        "category": "operating",
+        "summary": "Still operating as a café."
+      },
+      "sources": [
+        {
+          "title": "Café de Flore",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Caf%C3%A9_de_Flore",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "Café de Flore (official site)",
+          "publisher": "Café de Flore",
+          "url": "https://cafedeflore.fr/",
+          "kind": "venue"
+        }
+      ],
+      "tags": ["café", "terrace", "Occupation", "philosophy", "Saint-Germain-des-Prés"]
+    },
+    {
+      "id": "magots",
+      "name": "Les Deux Magots",
+      "address": {
+        "street": "6 place Saint-Germain-des-Prés",
+        "postcode": "75006",
+        "arrondissement": "6e"
+      },
+      "coordinates": {
+        "lat": 48.85392,
+        "lng": 2.33318,
+        "precision": "address",
+        "note": "Prototype coordinate kept; within 20 m of the mapped café."
+      },
+      "movements": ["existentialism"],
+      "periods": [
+        {
+          "start": 1945,
+          "end": 1960,
+          "label": "1945–1960",
+          "certainty": "approximate",
+          "note": "The postwar existentialist milieu; the café's literary role began much earlier."
+        }
+      ],
+      "figures": [
+        { "name": "Jean-Paul Sartre", "role": "Philosopher, writer" },
+        { "name": "Simone de Beauvoir", "role": "Philosopher, writer" }
+      ],
+      "description": "A literary café facing the church of Saint-Germain-des-Prés, named after the two Chinese figurines ('magots') inside. Its literary prize, the Prix des Deux Magots, was founded in 1933. After the war it shared with the Café de Flore the reputation of being headquarters of existentialist Paris.",
+      "significance": "A useful point of contrast: famous café culture and marginal hotel bohemia coexisted only streets apart.",
+      "caveats": [],
+      "status": {
+        "category": "operating",
+        "summary": "Still operating as a café."
+      },
+      "sources": [
+        {
+          "title": "Notre histoire",
+          "publisher": "Les Deux Magots",
+          "url": "https://lesdeuxmagots.fr/notre-histoire/",
+          "kind": "venue"
+        },
+        {
+          "title": "Les Deux Magots",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Les_Deux_Magots",
+          "kind": "encyclopedia"
+        }
+      ],
+      "tags": ["café", "terrace", "literary prize", "Prix des Deux Magots", "Saint-Germain-des-Prés"]
+    },
+    {
+      "id": "breton",
+      "name": "André Breton’s studio",
+      "address": {
+        "street": "42 rue Fontaine",
+        "postcode": "75009",
+        "arrondissement": "9e",
+        "historical_note": "The street is now officially rue Pierre-Fontaine."
+      },
+      "coordinates": {
+        "lat": 48.882946,
+        "lng": 2.333245,
+        "precision": "address",
+        "note": "Corrected to the geocoded street number near place Blanche. The prototype pin was 300 m too far south.",
+        "prototype": { "lat": 48.88025, "lng": 2.33325 }
+      },
+      "movements": ["surrealism"],
+      "periods": [
+        {
+          "start": 1922,
+          "end": 1966,
+          "label": "1922–1966",
+          "certainty": "documented",
+          "note": "Breton lived here from 1 January 1922 until his death in 1966."
+        }
+      ],
+      "figures": [
+        { "name": "André Breton", "role": "Poet, Surrealist leader" },
+        { "name": "Simone Kahn", "role": "Writer, Breton's first wife" },
+        { "name": "Paul Éluard", "role": "Poet" },
+        { "name": "Louis Aragon", "role": "Poet, novelist" }
+      ],
+      "description": "On 1 January 1922 André Breton and his first wife, Simone Kahn, moved into a former artist's studio on the fourth floor of 42 rue Fontaine, near place Blanche. For more than four decades the apartment served as a meeting place for the Surrealist group and housed Breton's collection of paintings, objects and non-Western art. A fragment of the wall behind his desk entered the Centre Pompidou in 2003.",
+      "significance": "A laboratory of Surrealist thought whose concern with dream, chance and automatism prefigured later underground experiments such as the cut-up. A conceptual ancestor of the Beats, not a meeting place of the Beat Hotel circle.",
+      "caveats": [],
+      "status": {
+        "category": "private",
+        "summary": "Private residential building; the Comédie de Paris theatre occupies the ground floor. The studio is not open to the public."
+      },
+      "sources": [
+        {
+          "title": "Chez André Breton, at 42 rue Fontaine, Paris",
+          "publisher": "Centre Pompidou",
+          "url": "https://www.centrepompidou.fr/en/pompidou-plus/magazine/article/chez-andre-breton-at-42-rue-fontaine-paris",
+          "kind": "museum"
+        },
+        {
+          "title": "André Breton, 42 rue Fontaine (digital collection)",
+          "publisher": "Association Atelier André Breton",
+          "url": "https://www.andrebreton.fr/",
+          "kind": "archive"
+        }
+      ],
+      "tags": ["Surrealism", "automatism", "dream", "collection", "Mur Breton", "Pigalle", "place Blanche"]
+    },
+    {
+      "id": "bateau",
+      "name": "Le Bateau-Lavoir",
+      "address": {
+        "street": "13 place Émile-Goudeau",
+        "postcode": "75018",
+        "arrondissement": "18e"
+      },
+      "coordinates": {
+        "lat": 48.88611,
+        "lng": 2.3375,
+        "precision": "address",
+        "note": "Prototype coordinate kept; within 20 m of the geocoded street address."
+      },
+      "movements": ["montmartre-boheme", "cubism"],
+      "periods": [
+        {
+          "start": 1904,
+          "end": 1914,
+          "label": "1904–1914",
+          "certainty": "approximate",
+          "note": "Picasso lived and worked here from 1904 to 1909; the building's creative heyday ran to around the First World War."
+        }
+      ],
+      "figures": [
+        { "name": "Pablo Picasso", "role": "Painter" },
+        { "name": "Max Jacob", "role": "Poet" },
+        { "name": "Juan Gris", "role": "Painter" }
+      ],
+      "description": "A ramshackle building of cheap artists' studios on the Butte Montmartre, nicknamed the Bateau-Lavoir (laundry boat), a name usually credited to Max Jacob. Pablo Picasso lived and worked here from 1904 to 1909 and painted Les Demoiselles d'Avignon (1907) in his studio, a key step towards Cubism.",
+      "significance": "Its precarious, communal creativity anticipates the Beat Hotel's social role half a century later: a lineage of cheap shared creative spaces rather than a direct Beat association.",
+      "caveats": [],
+      "status": {
+        "category": "rebuilt",
+        "summary": "Largely destroyed by fire in 1970 and rebuilt in 1978; it still houses artists' studios and is not open to the public."
+      },
+      "sources": [
+        {
+          "title": "Bateau-Lavoir",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bateau-Lavoir",
+          "kind": "encyclopedia"
+        },
+        {
+          "title": "Bateau-Lavoir",
+          "publisher": "Wikipédia (français)",
+          "url": "https://fr.wikipedia.org/wiki/Bateau-Lavoir",
+          "kind": "encyclopedia"
+        }
+      ],
+      "tags": ["Cubism", "Les Demoiselles d'Avignon", "studios", "painting", "Abbesses", "Butte Montmartre"]
+    },
+    {
+      "id": "chat-noir",
+      "name": "Le Chat Noir (historical premises)",
+      "address": {
+        "street": "12 rue Victor-Massé",
+        "postcode": "75009",
+        "arrondissement": "9e",
+        "historical_note": "Formerly 12 rue de Laval."
+      },
+      "coordinates": {
+        "lat": 48.88067,
+        "lng": 2.339257,
+        "precision": "address",
+        "note": "Corrected to the geocoded street number (the prototype pin was 125 m away). Marks the 1885–1897 premises, not the first 1881 address.",
+        "prototype": { "lat": 48.8802, "lng": 2.3377 }
+      },
+      "movements": ["montmartre-boheme"],
+      "periods": [
+        {
+          "start": 1885,
+          "end": 1897,
+          "label": "1885–1897",
+          "certainty": "documented",
+          "note": "At this address from 1885 until the cabaret closed in 1897, the year Rodolphe Salis died."
+        }
+      ],
+      "figures": [
+        { "name": "Rodolphe Salis", "role": "Founder, impresario" },
+        { "name": "Henri Rivière", "role": "Artist, shadow theatre" },
+        { "name": "Erik Satie", "role": "Composer, pianist" },
+        { "name": "Théophile-Alexandre Steinlen", "role": "Illustrator" }
+      ],
+      "description": "Rodolphe Salis opened Le Chat Noir in 1881 at 84 boulevard de Rochechouart and in 1885 moved the cabaret to this larger building at 12 rue de Laval (now rue Victor-Massé). Here it staged Henri Rivière's celebrated shadow theatre, published its own illustrated journal and brought poets, chansonniers, musicians and illustrators together until it closed in 1897, the year of Salis's death.",
+      "significance": "The archetype of the artistic cabaret, and a symbolic ancestor of later underground Paris: irreverent, self-publishing and built around performance.",
+      "caveats": [
+        "This marker shows the 1885–1897 premises, not the first 1881 address at 84 boulevard de Rochechouart.",
+        "The prototype gave 1896 as the end date; the Musée Carnavalet dates the cabaret's closure to 1897."
+      ],
+      "status": {
+        "category": "closed",
+        "summary": "The cabaret no longer exists at this address."
+      },
+      "sources": [
+        {
+          "title": "Le Chat Noir, cabaret sign",
+          "publisher": "Musée Carnavalet – Histoire de Paris",
+          "url": "https://www.carnavalet.paris.fr/en/collections/chat-noirsign-cabaret",
+          "kind": "museum"
+        },
+        {
+          "title": "Le Chat Noir",
+          "publisher": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Le_Chat_Noir",
+          "kind": "encyclopedia"
+        }
+      ],
+      "tags": ["cabaret", "shadow theatre", "théâtre d'ombres", "chanson", "journal", "Pigalle", "Butte Montmartre"]
+    }
+  ]
+}
