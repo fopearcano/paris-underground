@@ -53,7 +53,7 @@ def create_app(settings: Settings | None = None, router: WalkingRouter | None = 
         response = await call_next(request)
         response.headers.setdefault("X-Content-Type-Options", "nosniff")
         # OpenStreetMap's tile policy requires a Referer from web pages; this
-        # policy sends just the origin (http://127.0.0.1:8000/) to tile servers.
+        # policy sends just the origin (http://127.0.0.1:8003/) to tile servers.
         response.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
         return response
 

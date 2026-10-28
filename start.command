@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # One-command launcher for macOS: double-click in Finder, or run ./start.command
 # Creates a local virtual environment on first run, installs dependencies,
-# then serves the atlas at http://127.0.0.1:8000 and opens it in the browser.
+# then serves the atlas at http://127.0.0.1:8003 and opens it in the browser.
 set -euo pipefail
 cd "$(dirname "$0")"
 

@@ -10,7 +10,7 @@ An interactive historical atlas of underground Paris: Montmartre cabarets, Surre
 ./start.command
 ```
 
-You can also double-click `start.command` in Finder. On first run it creates a `.venv`, installs the dependencies and opens **http://127.0.0.1:8000** in your browser. Stop it with `Ctrl+C`.
+You can also double-click `start.command` in Finder. On first run it creates a `.venv`, installs the dependencies and opens **http://127.0.0.1:8003** in your browser. Stop it with `Ctrl+C`.
 
 It needs Python 3.11 or newer. If you don't have it, install it from [python.org](https://www.python.org/downloads/macos/) or with `brew install python@3.12`.
 
@@ -44,7 +44,7 @@ The original HTML file was opened from disk and inspected in a real browser. Thr
 ### How the rebuild fixes it
 
 - **Tiles.** Both styles use the standard OpenStreetMap raster tiles, `https://tile.openstreetmap.org/{z}/{x}/{y}.png`, with the required attribution. NIGHT is the same tiles with a CSS filter applied **only to Leaflet's tile pane**. Markers, tooltips, the route line and the controls are never filtered.
-- **Served over HTTP.** Everything is served from `http://127.0.0.1:8000` with `Referrer-Policy: strict-origin-when-cross-origin`, and Leaflet's `referrerPolicy` option is set too. Tile requests therefore carry the page origin, as OSM requires.
+- **Served over HTTP.** Everything is served from `http://127.0.0.1:8003` with `Referrer-Policy: strict-origin-when-cross-origin`, and Leaflet's `referrerPolicy` option is set too. Tile requests therefore carry the page origin, as OSM requires.
 - **No CDNs.** Leaflet, Leaflet.markercluster and both fonts (Space Grotesk, DM Sans) are vendored locally. The page makes no requests to unpkg or Google Fonts.
 - **Strict Content-Security-Policy.** Images may only come from this server and the configured tile host, so a stray CARTO (or any other keyed) URL would be blocked outright.
 - **Fewer tile requests.** Tiles are requested only where the map comes to rest (`updateWhenZooming: false`, `updateWhenIdle: true`), not for every zoom level a fly-to animation passes through.
@@ -61,7 +61,7 @@ The original HTML file was opened from disk and inspected in a real browser. Thr
 - **Detail panel.** Shows the movement, period, documented history, associated figures, **Today** status (operating, closed, repurposed, rebuilt, private, unverified), the interpretation, evidence notes, location precision and every source. Actions: *View historical source*, *Open in Google Maps*, *Add to walking route*.
 - **Walking itinerary.** The suggested 9-stop Left Bank walk, or a custom one (up to 11 stops; reorder, remove, clear). Real pedestrian routing comes from the key-free FOSSGIS OSRM foot profile: about **2.5 km and 33 min** for the suggested walk, with a distance for each leg. If routing is unavailable, the stops are joined by a dotted line labelled **"Illustrative route — not walking directions"**, and no distance is shown. *Walking directions in Google Maps* opens the same stops in Google Maps.
 - **Responsive.** On desktop the sidebar is docked and collapsible. On tablets it narrows, and on narrow map areas the details open as a bottom sheet. On phones the sidebar becomes a drawer. Keyboard support: Tab to a pin and press Enter, Escape closes, and ARIA tabs, pressed states and live announcements are in place.
-- **Deep links.** `http://127.0.0.1:8000/#place=beat-hotel` opens a place directly.
+- **Deep links.** `http://127.0.0.1:8003/#place=beat-hotel` opens a place directly.
 
 ## Historical data
 
@@ -186,7 +186,7 @@ You can narrow or redirect a run:
 python -m pytest -m "not e2e"                            # data, API and routing only; no browser or network
 python -m pytest -m "not network"                        # everything that works offline
 E2E_BROWSER_CHANNEL=chrome python -m pytest              # use your installed Google Chrome
-E2E_BASE_URL=http://127.0.0.1:8000 python -m pytest      # test an already running server
+E2E_BASE_URL=http://127.0.0.1:8003 python -m pytest      # test an already running server
 ```
 
 | Suite | What it covers |

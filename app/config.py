@@ -50,7 +50,7 @@ def _origin(url_template: str) -> str:
 @dataclass(frozen=True)
 class Settings:
     host: str = "127.0.0.1"
-    port: int = 8000
+    port: int = 8003
     tile_url: str = OSM_TILE_URL
     tile_attribution: str = OSM_ATTRIBUTION
     tile_max_zoom: int = 19

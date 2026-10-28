@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Start the Paris Underground atlas at http://127.0.0.1:8000 and open it in the browser.
+"""Start the Paris Underground atlas at http://127.0.0.1:8003 and open it in the browser.
 
-    python run.py                 # serve on 127.0.0.1:8000 and open the browser
+    python run.py                 # serve on 127.0.0.1:8003 and open the browser
     python run.py --no-browser    # serve only
     python run.py --port 8010     # another port
     python run.py --reload        # auto-reload while editing
@@ -38,7 +38,7 @@ def atlas_already_running(url: str) -> bool:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run the Paris Underground atlas.")
     parser.add_argument("--host", default="127.0.0.1")
-    parser.add_argument("--port", type=int, default=8000)
+    parser.add_argument("--port", type=int, default=8003)
     parser.add_argument("--reload", action="store_true", help="restart on code changes")
     parser.add_argument("--no-browser", action="store_true", help="do not open a browser tab")
     args = parser.parse_args()
